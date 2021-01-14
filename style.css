@@ -1,0 +1,9 @@
+body {
+    background-image: url(html-background.jpg);
+    background-size: auto;
+}
+
+.navbar {
+    background-color: rgb(65, 65, 65);
+    color: blanchedalmond;
+}
