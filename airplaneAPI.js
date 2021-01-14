@@ -3,19 +3,19 @@ $("document").ready(function () {
     getLocal();
 
     // Format for each input:
-        // country = "US"
-        // currency = "USD"
-        // locale = "en-US"
+        var country = "US"
+        var currency = "USD"
+        var locale = "en-US"
         // origin = "LAX-sky"
         // destination = "SFO-sky"
         // outboundDate = "2021-01-15"
         // inboundDate = "2021-01-20"
 
-        var country = $("#country").val();
-        var currency = $("#currency").val();
-        var locale = $("#locale").val();
-        var origin = $("#origin").val();
-        var destination = $("#destination").val();
+       // var country = $("#country").val();
+        //var currency = $("#currency").val();
+        //var locale = $("#locale").val();
+        var origin = $("#origin").val() + "-sky";
+        var destination = $("#destination").val() + "-sky";
         var outboundY = $("#outboundY").val();
         var outboundM = $("#outboundM").val();
         var outboundD = $("#outboundD").val();
@@ -27,7 +27,7 @@ $("document").ready(function () {
         var inboundDate = inboundY + inboundM + inboundD;
         console.log(inboundDate);
 
-        var queryURL = "https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsedates/v1.0/" + country + "/" + currency + "/" + locale + "/" + origin + "/" + destination + "/" + outboundDate + "/" + inboundDate,
+        var queryURL = "https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsedates/v1.0/" + country + "/" + currency + "/" + locale + "/" + origin + "/" + destination + "/" + outboundDate + "/" + inboundDate;
 
     //Using Skyscanner API to get flight information
     const settings = {
