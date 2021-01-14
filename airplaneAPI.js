@@ -20,8 +20,6 @@ $("document").ready(function () {
         "async": true,
         "crossDomain": true,
 
-        "url": "https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsedates/v1.0/US/USD/en-US/LAX-sky/SFO-sky/2021-01-15/2021-01-20",
-
         "url": "https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsedates/v1.0/" + country + "/" + currency + "/" + locale + "/" + origin + "/" + destination + "/" + outboundDate + "/" + inboundDate,
         "method": "GET",
         "headers": {
