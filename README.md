@@ -11,8 +11,8 @@ In-Progress
 Screenshot:
 
 API Reference:
-Airline API - Aviation Stack, found at: 
-https://aviationstack.com/
+Airline API - Skyscanner, found at: 
+https://rapidapi.com/skyscanner/api/skyscanner-flight-search?endpoint=5aa1edd5e4b06ec3937b23f0
 Hotel API -  ,found at:
 
 Credits:
