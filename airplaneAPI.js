@@ -1,4 +1,13 @@
 $("document").ready(function () {
+
+    var country = $("#country").val();
+    var currency = $("#currency").val();
+    var locale = $("#locale").val();
+    var origin = $("#origin").val();
+    var destination = $("#destination").val();
+    var outboundDate = $("#outboundDate").val();
+    var inboundDate = $("#inboundDate").val();
+
     const settings = {
         "async": true,
         "crossDomain": true,
