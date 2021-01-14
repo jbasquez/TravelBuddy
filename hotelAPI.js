@@ -1,5 +1,8 @@
 $("document").ready(function(){
     var city = "miami";
+    var hotelName;
+    var destinationId;
+    var destinationIDs = [];
     var settings = {
         "async": true,
         "crossDomain": true,
@@ -19,32 +22,47 @@ $("document").ready(function(){
 
         for (var i = 0; i < hotels.length; i++) {
             var hotelName = hotels[i].name;
-            console.log(hotelName);
+            var destinationId = hotels[i].destinationId;
+            console.log(hotelName, destinationId);
+            destinationIDs.push(destinationId);
+
         }
+        console.log(destinationIDs);
     }
     
     $.ajax(settings).done(function (response) {
         console.log(response);
     }).then(function(response) {
         updatePage(response)
+        getInfo(response);
     })
     ;
 
-    
-    // const settings = {
-    //     "async": true,
-    //     "crossDomain": true,
-    //     "url": "https://hotels4.p.rapidapi.com/properties/get-hotel-photos?id=1178275040",
-    //     "method": "GET",
-    //     "headers": {
-    //         "x-rapidapi-key": "9f5a975ae6mshbca34daf924fdecp158a23jsn28c8dc4d8933",
-    //         "x-rapidapi-host": "hotels4.p.rapidapi.com"
-    //     }
-    // };
-    
-    // $.ajax(settings).done(function (response) {
-    //     console.log(response);
-    // });
+    function getInfo(response) {
+        var checkIn = "2020-01-08";
+        var checkOut= "2020-01-15";
+
+        for (var i = 0; i < destinationIDs.length; i++) {
+            var destinationNum = destinationIDs[i];
+        
+            var settings = {
+                "async": true,
+                "crossDomain": true,
+                "url": "https://hotels4.p.rapidapi.com/properties/list?destinationId=" + destinationNum + "&pageNumber=1&checkIn=" + checkIn + "&checkOut=" + checkOut + "&pageSize=25&adults1=1&currency=USD&locale=en_US&sortOrder=PRICE",
+                "method": "GET",
+                "headers": {
+                    "x-rapidapi-key": "9f5a975ae6mshbca34daf924fdecp158a23jsn28c8dc4d8933",
+                    "x-rapidapi-host": "hotels4.p.rapidapi.com"
+                }
+            }
+        
+        
+        $.ajax(settings).done(function (response) {
+            console.log(response);
+        });
+
+        };
+    }
 
 
 
