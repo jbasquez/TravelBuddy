@@ -16,8 +16,16 @@ $("document").ready(function () {
         var locale = $("#locale").val();
         var origin = $("#origin").val();
         var destination = $("#destination").val();
-        var outboundDate = $("#outboundDate").val();
-        var inboundDate = $("#inboundDate").val();
+        var outboundY = $("#outboundY").val();
+        var outboundM = $("#outboundM").val();
+        var outboundD = $("#outboundD").val();
+        var outboundDate = outboundY + outboundM + outboundD;
+        console.log(outboundDate)
+        var inboundY = $("#inboundY").val();
+        var inboundM = $("#inboundM").val();
+        var inboundD = $("#inboundD").val();
+        var inboundDate = inboundY + inboundM + inboundD;
+        console.log(inboundDate);
 
         var queryURL = "https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsedates/v1.0/" + country + "/" + currency + "/" + locale + "/" + origin + "/" + destination + "/" + outboundDate + "/" + inboundDate,
 
@@ -35,14 +43,19 @@ $("document").ready(function () {
     
     $.ajax(settings).done(function (response) {
         console.log(response);
+        setLocal(queryURL);
     });
 
-    function setLocal() {
-        
+    function setLocal(thisURL) {
+        var storeThis = thisURL;
+        localStorage.setItem("flight",JSON.stringify(storeThis))
     }
 
-    function getLocal(thisURl) {
-        queryURL = JSON.stringify(localStorage.getItem("flight"));
+    function getLocal() {
+        var thisURL = JSON.parse(localStorage.getItem("flight"));
+        if (thisURL) {
+            queryURL = thisURL;
+        }
     }
 
 });
