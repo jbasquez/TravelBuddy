@@ -1,4 +1,25 @@
-$("document").ready(function(){
-    var apiKey = "8f106f0f680e641fa67d4039cfb8dae1";
-    var url = "https://api.aviationstack.com/v1/";
+$("document").ready(function () {
+
+    var country = $("#country").val();
+    var currency = $("#currency").val();
+    var locale = $("#locale").val();
+    var origin = $("#origin").val();
+    var destination = $("#destination").val();
+    var outboundDate = $("#outboundDate").val();
+    var inboundDate = $("#inboundDate").val();
+
+    const settings = {
+        "async": true,
+        "crossDomain": true,
+        "url": "https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsedates/v1.0/US/USD/en-US/SFO-sky/LAX-sky/2021-01-22?inboundpartialdate=2021-01-22&outboundDate=2021-01-26",
+        "method": "GET",
+        "headers": {
+            "x-rapidapi-key": "h4hwyekXxImshM8IfqJdMeam7njTp1o5CQFjsnqXKP9CEM9iDD",
+            "x-rapidapi-host": "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com"
+        }
+    };
+    $.ajax(settings).done(function (response) {
+        console.log(response);
+    });
+
 });
