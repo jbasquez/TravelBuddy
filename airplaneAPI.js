@@ -58,20 +58,37 @@
             var quotesPrice = response.Quotes[counter].MinPrice;
             var thisCarrierOut = response.Quotes[counter].InboundLeg.CarrierIds[0];
             var thisCarrierIn = response.Quotes[counter].OutboundLeg.CarrierIds[0];
+            //Assigns a name based on carrier code given for flight
+            var carrierNames = response.Carriers.length;
+            for (var i=0; i<carrierNames;i++) {
+                var thisCarrierOutName = response.Carriers[i].CarrierId;
+                var thisCarrierInName = response.Carriers[i].CarrierId;
+    
+                if  (thisCarrierOut === thisCarrierOutName) {
+                thisCarrierOut = response.Carriers[i].Name;
+                }
+
+                if  (thisCarrierIn === thisCarrierInName) {
+                thisCarrierIn = response.Carriers[i].Name;
+                }
+            }
             //String
-            var thisDepartureDate = response.Quotes[counter].InboundLeg.DepartureDate;
+            var thisDepartureDate = response.Quotes[counter].OutboundLeg.DepartureDate;
             var thisDepartureDate = thisDepartureDate.slice(0,10);
             var thisArrivalDate = response.Quotes[counter].InboundLeg.DepartureDate;
             var thisArrivalDate = thisArrivalDate.slice(0,10);
             //Boolean
-            var directFLight = response.Quotes[counter].Direct;
-            
+            var directFlight = response.Quotes[counter].Direct;
+
             console.log(quotesPrice);
             console.log(thisCarrierOut);
             console.log(thisCarrierIn);
             console.log(thisDepartureDate);
             console.log(thisArrivalDate);
-            console.log(directFLight);
+            console.log(directFlight);
+            console.log(" ");
+
+            return [quotesPrice,thisCarrierOut,thisCarrierIn,thisDepartureDate,thisArrivalDate,directFlight];
             }
             setLocal(queryURL);
         });
