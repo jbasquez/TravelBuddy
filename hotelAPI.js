@@ -35,8 +35,7 @@ $("document").ready(function(){
     }).then(function(response) {
         updatePage(response)
         getInfo(response);
-    })
-    ;
+    });
 
     function getInfo(response) {
         var checkIn = "2020-01-08";
