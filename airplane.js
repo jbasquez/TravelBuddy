@@ -1,22 +1,29 @@
 //flightInformation = [quotesPrice,thisCarrierOut,thisCarrierIn,thisDepartureDate,thisArrivalDate,directFlight]
-var flightInformation = getAirlineInfo();
-    
-//$("#button").on("click", getAirlineInfo(); function(event) { 
-//event.preventDefault();
-for (var e=0;e<flightInformation.length;e++) {
-    var info = $("<p>");
-    info.text(flightInformation[e]);
-    info.attr("class","flightInformation");
-    var putHere = $("#PUTHERE");
-    putHere.append(info);
-}
-// });
+var flightInformation = getFlight();
 
-$("#next").on("click", next()); 
+$("#ChooseThis").on("click", function (event) {
+    event.preventDefault();
+    flightInformation = getAirlineInfo();
+    for (var e = 0; e < flightInformation.length; e++) {
+        var info = $("<p>");
+        info.text(flightInformation[e]);
+        info.attr("class", "flightInformation");
+        var putHere = $("#PUTHERE");
+        putHere.append(info);
+    }
+});
 
-$("#previous").on("click", previous()); 
+$("#next").on("click", function () {
+    next();
+    flightInformation = getAirlineInfo();
+});
 
-$("#saveFlight").on("click", function (){
+$("#previous").on("click", function () {
+    previous();
+    flightInformation = getAirlineInfo();
+});
+
+$("#saveFlight").on("click", function () {
     if (flightInformation) {
         storeFlight(flightInformation);
     }

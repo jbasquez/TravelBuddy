@@ -46,7 +46,6 @@
         };
 
         $.ajax(settings).done(function (response) {
-            console.log(response);
             var options = response.Quotes.length;
             for (counter;counter < counter + 5 && counter < options;counter++) {
             //Number
@@ -75,13 +74,15 @@
             //Boolean
             var directFlight = response.Quotes[counter].Direct;
 
-            return [quotesPrice,thisCarrierOut,thisCarrierIn,thisDepartureDate,thisArrivalDate,directFlight];
+            var thisFlight = [quotesPrice,thisCarrierOut,thisCarrierIn,thisDepartureDate,thisArrivalDate,directFlight];
+            console.log(thisFlight);
+            return thisFlight;
             }
-            storeFlight(queryURL);
         });
     }
 
-    
+    flightInformation = getAirlineInfo();
+    console.log(flightInformation);
 
     function getFlight() {
         var storedFlightInfo = JSON.parse(localStorage.getItem("flight"));
@@ -92,10 +93,8 @@
 
     function previous() {
         counter = counter - 5;
-        getAirlineInfo();
     }
 
     function next() {
         counter = counter + 5;
-        getAirlineInfo();
     }
