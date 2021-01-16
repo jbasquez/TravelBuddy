@@ -1,3 +1,2 @@
-$("document").ready(function(){
-
-});
+    //$("#button").on("click", getAirlineInfo()); 
+    getAirlineInfo();
