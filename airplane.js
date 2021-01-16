@@ -1,9 +1,12 @@
 //flightInformation = [quotesPrice,thisCarrierOut,thisCarrierIn,thisDepartureDate,thisArrivalDate,directFlight]
 var flightInformation = getFlight();
 
-$("#ChooseThis").on("click", function (event) {
+
+$("#chooseThis").on("click", function (event) {
     event.preventDefault();
+    console.log("hello");
     flightInformation = getAirlineInfo();
+    console.log(flightInformation);
     for (var e = 0; e < flightInformation.length; e++) {
         var info = $("<p>");
         info.text(flightInformation[e]);

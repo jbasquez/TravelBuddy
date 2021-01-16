@@ -75,18 +75,18 @@
             var directFlight = response.Quotes[counter].Direct;
 
             var thisFlight = [quotesPrice,thisCarrierOut,thisCarrierIn,thisDepartureDate,thisArrivalDate,directFlight];
-            console.log(thisFlight);
+
+            storeFlight(thisFlight);
+   
             return thisFlight;
             }
         });
     }
 
-    flightInformation = getAirlineInfo();
-    console.log(flightInformation);
-
     function getFlight() {
         var storedFlightInfo = JSON.parse(localStorage.getItem("flight"));
         if (storedFlightInfo) {
+            
             return storedFlightInfo;
         }
     }
