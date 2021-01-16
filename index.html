@@ -26,226 +26,198 @@
   <!-- Title bar -->
   <nav class="navbar">
     <div class="container-fluid justify-content-center">
-      <span id="title" class="navbar m-n1 mb-0 h1">Travel Buddy</span>
+      <span id="title" class="m-n1 mb-0 h1">Travel Buddy</span>
     </div>
   </nav>
 
+  <!-- hide this after first search -->
+  <div class="row min-vh-100">
+    <div id="sideBar" class="col-3 ml-2">
+      <!-- search forms -->
 
-  <div class="Media-body border">
-    <div class="container border">
+      <!-- hotel info  -->
+      <!-- city -->
+      <form>
+        <div class="form-group ml-4 mt-2 largeForms">
+          <label for="formGroupExampleInput">City:</label>
+          <input type="text" class="form-control" id="formGroupExampleInput" placeholder="">
+        </div>
+      </form>
+      <!-- Airport info -->
+
+      <form>
+        <div class="form-group ml-4 mt-n2 largeForms">
+          <!-- origin (airport name) -->
+          <label for="formGroupExampleInput">Origin Airport</label>
+          <input type="text" class="form-control" id="origin" placeholder="">
+          <!-- destination (airport name) -->
+          <label class="mt-2" for="formGroupExampleInput">Destination Airport</label>
+          <input type="text" class="form-control" id="destination" placeholder="">
+        </div>
+      </form>
+      <!-- outbound departure date  -->
+      <label class="mt-1 ml-4" for="inputYear">Departure Date:</label>
+      <div class="row justify-content-center">
+          <div class="form-group smallForms mr-2 ml-n4">
+            <select id="outboundY" class="form-control">
+              <option selected>YYYY</option>
+              <option>2021</option>
+              <option>2022</option>
+              <option>2023</option>
+              <option>2024</option>
+              <option>2025</option>
+            </select>
+          </div>
+          <div class="form-group smallerForms mr-2">
+            <select id="outboundD" class="form-control">
+              <option selected>DD</option>
+              <option>01</option>
+              <option>02</option>
+              <option>03</option>
+              <option>04</option>
+              <option>05</option>
+              <option>06</option>
+              <option>07</option>
+              <option>08</option>
+              <option>09</option>
+              <option>10</option>
+              <option>11</option>
+              <option>12</option>
+              <option>13</option>
+              <option>14</option>
+              <option>15</option>
+              <option>16</option>
+              <option>17</option>
+              <option>18</option>
+              <option>19</option>
+              <option>20</option>
+              <option>21</option>
+              <option>22</option>
+              <option>23</option>
+              <option>24</option>
+              <option>25</option>
+              <option>26</option>
+              <option>27</option>
+              <option>28</option>
+              <option>29</option>
+              <option>30</option>
+              <option>31</option>
+            </select>
+          </div>
+          <div class="form-group smallerForms">
+            <select id="outboundM" class="form-control">
+              <option selected>MM</option>
+              <option>01</option>
+              <option>02</option>
+              <option>03</option>
+              <option>04</option>
+              <option>05</option>
+              <option>06</option>
+              <option>07</option>
+              <option>08</option>
+              <option>09</option>
+              <option>10</option>
+              <option>11</option>
+              <option>12</option>
+            </select>
+          </div> 
+      </div>
+
+      <!-- inbound date -->
+      <label class="ml-4" for="inputYear">Return Date:</label>
+      <div class="row justify-content-center">
+          <div class="form-group smallForms mr-2 ml-n4">
+            <select id="inboundY" class="form-control">
+              <option selected>YYYY</option>
+              <option>2021</option>
+              <option>2022</option>
+              <option>2023</option>
+              <option>2024</option>
+              <option>2025</option>
+            </select>
+          </div>
+          <div class="form-group smallerForms mr-2">
+            <select id="inboundD" class="form-control">
+              <option selected>DD</option>
+              <option>01</option>
+              <option>02</option>
+              <option>03</option>
+              <option>04</option>
+              <option>05</option>
+              <option>06</option>
+              <option>07</option>
+              <option>08</option>
+              <option>09</option>
+              <option>10</option>
+              <option>11</option>
+              <option>12</option>
+              <option>13</option>
+              <option>14</option>
+              <option>15</option>
+              <option>16</option>
+              <option>17</option>
+              <option>18</option>
+              <option>19</option>
+              <option>20</option>
+              <option>21</option>
+              <option>22</option>
+              <option>23</option>
+              <option>24</option>
+              <option>25</option>
+              <option>26</option>
+              <option>27</option>
+              <option>28</option>
+              <option>29</option>
+              <option>30</option>
+              <option>31</option>
+            </select>
+          </div>
+          <div class="form-group smallerForms">
+            <select id="inboundM" class="form-control">
+              <option selected>MM</option>
+              <option>01</option>
+              <option>02</option>
+              <option>03</option>
+              <option>04</option>
+              <option>05</option>
+              <option>06</option>
+              <option>07</option>
+              <option>08</option>
+              <option>09</option>
+              <option>10</option>
+              <option>11</option>
+              <option>12</option>
+            </select>
+          </div>
+        </div>
+        <!--Submit button -->
+    </div>
+    <div class="col">
       <!-- hide this after first search -->
       <div class="row justify-content-center">
-        <h2 class="m-5">Travel Buddy helps you find the best prices on flights and hotels!</h1>
+        <h2 class="m-5">Travel Buddy helps you find the best prices on flights and hotels!</h2>
       </div>
-      <!-- hide this after first search -->
-      <div class="row">
-        <div class="col-3">
 
-        </div>
-        <div class="col">
-          <!-- search forms -->
-
-          <!-- hotel info  -->
-          <!-- city -->
-          <form>
-            <div class="form-group">
-              <label for="formGroupExampleInput">City:</label>
-              <input type="text" class="form-control" id="formGroupExampleInput" placeholder="">
-            </div>
-          </form>
-          <!-- Airport info -->
-
-          <form>
-            <!-- destination (airport name) -->
-            <div class="row">
-              <div class="col">
-                <label for="formGroupExampleInput">Destination Airport</label>
-                <input type="text" class="form-control" id="destination" placeholder="">
-              </div>
-              <!-- origin (airport name) -->
-              <div class="col">
-                <label for="formGroupExampleInput">Origin Airport</label>
-                <input type="text" class="form-control" id="origin" placeholder="">
-              </div>
-            </div>
-          </form>
-          <!-- outbound departure date  -->
-          <label class="mt-2" for="inputYear">Departure Date:</label>
-          <div class="row">
-
-            <div class="col">
-              <div class="form-group">
-                <select id="outboundY" class="form-control">
-                  <option selected>Year</option>
-                  <option>2021</option>
-                  <option>2022</option>
-                  <option>2023</option>
-                  <option>2024</option>
-                  <option>2025</option>
-                </select>
-              </div>
-            </div>
-            <div class="col">
-              <div class="form-group">
-                <select id="outboundM" class="form-control">
-                  <option selected>Month</option>
-                  <option>01</option>
-                  <option>02</option>
-                  <option>03</option>
-                  <option>04</option>
-                  <option>05</option>
-                  <option>06</option>
-                  <option>07</option>
-                  <option>08</option>
-                  <option>09</option>
-                  <option>10</option>
-                  <option>11</option>
-                  <option>12</option>
-
-                </select>
-              </div>
-            </div>
-            <div class="col">
-              <div class="form-group">
-                <select id="outboundD" class="form-control">
-                  <option selected>Day (Optional)</option>
-                  <option>01</option>
-                  <option>02</option>
-                  <option>03</option>
-                  <option>04</option>
-                  <option>05</option>
-                  <option>06</option>
-                  <option>07</option>
-                  <option>08</option>
-                  <option>09</option>
-                  <option>10</option>
-                  <option>11</option>
-                  <option>12</option>
-                  <option>13</option>
-                  <option>14</option>
-                  <option>15</option>
-                  <option>16</option>
-                  <option>17</option>
-                  <option>18</option>
-                  <option>19</option>
-                  <option>20</option>
-                  <option>21</option>
-                  <option>22</option>
-                  <option>23</option>
-                  <option>24</option>
-                  <option>25</option>
-                  <option>26</option>
-                  <option>27</option>
-                  <option>28</option>
-                  <option>29</option>
-                  <option>30</option>
-                  <option>31</option>
-                </select>
-              </div>
-            </div>
-          </div>
-
-          <!-- inbound date -->
-          <label class="mt-2" for="inputYear">Return Date:</label>
-          <div class="row">
-            <div class="col">
-              <div class="form-group">
-                <select id="inboundY" class="form-control">
-                  <option selected>Year</option>
-                  <option>2021</option>
-                  <option>2022</option>
-                  <option>2023</option>
-                  <option>2024</option>
-                  <option>2025</option>
-                </select>
-              </div>
-            </div>
-            <div class="col">
-              <div class="form-group">
-                <select id="inboundM" class="form-control">
-                  <option selected>Month</option>
-                  <option>01</option>
-                  <option>02</option>
-                  <option>03</option>
-                  <option>04</option>
-                  <option>05</option>
-                  <option>06</option>
-                  <option>07</option>
-                  <option>08</option>
-                  <option>09</option>
-                  <option>10</option>
-                  <option>11</option>
-                  <option>12</option>
-
-                </select>
-              </div>
-            </div>
-            <div class="col">
-              <div class="form-group">
-                <select id="inboundD" class="form-control">
-                  <option selected>Day (Optional)</option>
-                  <option>01</option>
-                  <option>02</option>
-                  <option>03</option>
-                  <option>04</option>
-                  <option>05</option>
-                  <option>06</option>
-                  <option>07</option>
-                  <option>08</option>
-                  <option>09</option>
-                  <option>10</option>
-                  <option>11</option>
-                  <option>12</option>
-                  <option>13</option>
-                  <option>14</option>
-                  <option>15</option>
-                  <option>16</option>
-                  <option>17</option>
-                  <option>18</option>
-                  <option>19</option>
-                  <option>20</option>
-                  <option>21</option>
-                  <option>22</option>
-                  <option>23</option>
-                  <option>24</option>
-                  <option>25</option>
-                  <option>26</option>
-                  <option>27</option>
-                  <option>28</option>
-                  <option>29</option>
-                  <option>30</option>
-                  <option>31</option>
-                </select>
-              </div>
-            </div>
-
-          </div>
-
-
-
-          <!-- country US -->
-
-          <!-- currency USD-->
-
-          <!-- locale EN/US (country US version of EN)-->
-
-        </div>
-        <div class="col-3">
+      <!-- Show This (Airports) -->
+      <div id="infoRow" class="row m-2 justify-content-center">
+        <h2>Available Flights:</h2>
+        
+        <!-- append flights here -->
+        <div id="availableFlights">
 
         </div>
       </div>
-      <!-- show this -->
-      <aside>
-
-      </aside>
-      <article>
-
-      </article>
-
-
 
     </div>
+
+
   </div>
+
+
+
+
+    
+  
   <!-- Runs the Airplane API -->
   <script src="airplaneAPI.js"></script>
   <!-- Runs the Hotel API -->
