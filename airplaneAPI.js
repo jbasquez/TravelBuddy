@@ -1,5 +1,6 @@
-$("document").ready(function () {
+    //return carriers, quotesPrice, directFlight
 
+    var counter =0;
     getLocal();
 
     // $("#button").on("click", function (event) {
@@ -7,17 +8,17 @@ $("document").ready(function () {
     //     getAirlineInfo();
     // });
 
-    getAirlineInfo();
+    //getAirlineInfo();
 
     function getAirlineInfo() {
         // Format for each input:
-        var country = "US"
-        var currency = "USD"
-        var locale = "en-US"
-        var origin = "LAX-sky"
-        var destination = "SFO-sky"
-        var outboundDate = "2021-01-15"
-        var inboundDate = "2021-01-20"
+        var country = "US";
+        var currency = "USD";
+        var locale = "en-US";
+        var origin = "RDU-sky";
+        var destination = "LAX-sky";
+        var outboundDate = "2021-01";
+        var inboundDate = "2021-01";
 
         // var country = $("#country").val();
         //var currency = $("#currency").val();
@@ -51,6 +52,27 @@ $("document").ready(function () {
 
         $.ajax(settings).done(function (response) {
             console.log(response);
+            var options = response.Quotes.length;
+            for (counter;counter < counter + 5 && counter < options;counter++) {
+            //Number
+            var quotesPrice = response.Quotes[counter].MinPrice;
+            var thisCarrierOut = response.Quotes[counter].InboundLeg.CarrierIds[0];
+            var thisCarrierIn = response.Quotes[counter].OutboundLeg.CarrierIds[0];
+            //String
+            var thisDepartureDate = response.Quotes[counter].InboundLeg.DepartureDate;
+            var thisDepartureDate = thisDepartureDate.slice(0,10);
+            var thisArrivalDate = response.Quotes[counter].InboundLeg.DepartureDate;
+            var thisArrivalDate = thisArrivalDate.slice(0,10);
+            //Boolean
+            var directFLight = response.Quotes[counter].Direct;
+            
+            console.log(quotesPrice);
+            console.log(thisCarrierOut);
+            console.log(thisCarrierIn);
+            console.log(thisDepartureDate);
+            console.log(thisArrivalDate);
+            console.log(directFLight);
+            }
             setLocal(queryURL);
         });
     }
@@ -66,5 +88,3 @@ $("document").ready(function () {
             queryURL = thisURL;
         }
     }
-
-});
