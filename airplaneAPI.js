@@ -1,14 +1,8 @@
-    //return carriers, quotesPrice, directFlight
+    var counter = 0;
 
-    var counter =0;
-    getLocal();
-
-    // $("#button").on("click", function (event) {
-    //     event.preventdefault();
-    //     getAirlineInfo();
-    // });
-
-    //getAirlineInfo();
+    function storeFlight(flightInfo) {
+        localStorage.setItem("flight", JSON.stringify(flightInfo))
+    }
 
     function getAirlineInfo() {
         // Format for each input:
@@ -20,6 +14,7 @@
         var outboundDate = "2021-01";
         var inboundDate = "2021-01";
 
+
         // var country = $("#country").val();
         //var currency = $("#currency").val();
         //var locale = $("#locale").val();
@@ -27,13 +22,13 @@
         // var destination = $("#destination").val() + "-sky";
         // var outboundY = $("#outboundY").val();
         // var outboundM = $("#outboundM").val();
-        // var outboundD = $("#outboundD").val();
-        // var outboundDate = outboundY + outboundM + outboundD;
-        // console.log(outboundDate)
+        //var outboundD = $("#outboundD").val();
+        // var outboundDate = (outboundY + outboundM + outboundD).trim();
+        // console.log(outboundDate);
         // var inboundY = $("#inboundY").val();
         // var inboundM = $("#inboundM").val();
         // var inboundD = $("#inboundD").val();
-        // var inboundDate = inboundY + inboundM + inboundD;
+        // var inboundDate = (inboundY + inboundM + inboundD).trim();
         // console.log(inboundDate);
 
         var queryURL = "https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsedates/v1.0/" + country + "/" + currency + "/" + locale + "/" + origin + "/" + destination + "/" + outboundDate + "/" + inboundDate;
@@ -80,29 +75,27 @@
             //Boolean
             var directFlight = response.Quotes[counter].Direct;
 
-            console.log(quotesPrice);
-            console.log(thisCarrierOut);
-            console.log(thisCarrierIn);
-            console.log(thisDepartureDate);
-            console.log(thisArrivalDate);
-            console.log(directFlight);
-            console.log(" ");
-
             return [quotesPrice,thisCarrierOut,thisCarrierIn,thisDepartureDate,thisArrivalDate,directFlight];
             }
-            setLocal(queryURL);
+            storeFlight(queryURL);
         });
     }
 
-    function setLocal(thisURL) {
-        var storeThis = thisURL;
-        localStorage.setItem("flight", JSON.stringify(storeThis))
-    }
+    
 
-    function getLocal() {
-        var thisURL = JSON.parse(localStorage.getItem("flight"));
-        if (thisURL) {
-            queryURL = thisURL;
+    function getFlight() {
+        var storedFlightInfo = JSON.parse(localStorage.getItem("flight"));
+        if (storedFlightInfo) {
+            return storedFlightInfo;
         }
     }
 
+    function previous() {
+        counter = counter - 5;
+        getAirlineInfo();
+    }
+
+    function next() {
+        counter = counter + 5;
+        getAirlineInfo();
+    }
