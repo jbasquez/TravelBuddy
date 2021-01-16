@@ -1,9 +1,9 @@
 body {
-    background-image: url(html-background.jpg);
+    background-image: url(html-beachbackground.jpg);
     background-size: auto;
 }
 
 .navbar {
-    background-color: rgb(65, 65, 65);
-    color: blanchedalmond;
+    background-color: rgb(169, 169, 180);
+    color: rgb(19, 12, 6);
 }
