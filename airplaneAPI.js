@@ -1,8 +1,10 @@
 var counter = 0;
+var current = counter;
+var allFlights = [];
 
 function getAirlineInfo() {
 
-    var allFlights = [];
+    allFlights = [];
 
     // Format for each input:
     var country = "US";
@@ -45,10 +47,14 @@ function getAirlineInfo() {
 
     $.ajax(settings).done(function (response) {
         
-
         var options = response.Quotes.length;
-        var current = counter;
 
+        console.log(response);
+        console.log(options);
+
+        //5 = 5
+        current = counter;
+            //5 = 5             5 < 5+5                  5<30               5+1
         for (counter = current; current < counter + 5 && current < options; current++) {
             //Number
             var quotesPrice = response.Quotes[current].MinPrice;
@@ -86,6 +92,8 @@ function getAirlineInfo() {
             };
 
             allFlights.push(thisFlight);
+            console.log(current);
+            console.log(counter);
         }
 
     });
