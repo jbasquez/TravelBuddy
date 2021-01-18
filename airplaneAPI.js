@@ -1,18 +1,8 @@
 var counter = 0;
 
-function storeFlight(flightInfo) {
-    localStorage.setItem("flight", JSON.stringify(flightInfo))
-}
-function add() {
-    var a = 0;
-    var b = 1;
-    var c = a + b;
-    return c;
-}
 function getAirlineInfo() {
 
     var allFlights = [];
-    var hello = "hello";
 
     // Format for each input:
     var country = "US";
@@ -104,9 +94,8 @@ function getAirlineInfo() {
 }
 
 function getFlight() {
-    var storedFlightInfo = JSON.parse(localStorage.getItem("flight"));
+    var storedFlightInfo = localStorage.getItem("flight");
     if (storedFlightInfo) {
-
         return storedFlightInfo;
     }
 }
@@ -117,4 +106,8 @@ function previous() {
 
 function next() {
     counter = counter + 5;
+}
+
+function storeFlight(flightInfo) {
+    localStorage.setItem("flight", flightInfo);
 }
