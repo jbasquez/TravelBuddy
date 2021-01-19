@@ -70,7 +70,7 @@ $("#next").on("click", function () {
 });
 
 $("#previous").on("click", function () {
-    if (counter > 5) {
+    if (counter > 4) {
     previous();
     flightInformation = getAirlineInfo();
     displayAirlineInfo(flightInformation);
