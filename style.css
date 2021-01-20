@@ -33,10 +33,13 @@ body {
 
 }
 
-#travelBud {
+
+img { 
     height: 55px;
     width: auto;
     margin-left: 20px;
+    -webkit-filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.596));
+    filter:         drop-shadow(5px 4px 5px rgba(0, 0, 0, 0.596)); 
 }
 
 
@@ -54,6 +57,19 @@ body {
 ::placeholder{
     font-style: italic;
     font-family: Arial, Helvetica, sans-serif;
+}
+
+input:valid {
+    background-color: rgba(0, 0, 0, 0.555);
+    color: whitesmoke;
+    border: rgb(151, 150, 150) solid 1px;
+}
+
+select {
+    background-color: rgba(0, 0, 0, 0.555);
+    color: whitesmoke;
+    border-radius: 5px;
+
 }
 
 #searchBtn {
