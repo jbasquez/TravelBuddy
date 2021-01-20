@@ -1,10 +1,9 @@
 var counter = 0;
 var current = counter;
 var allFlights = [];
+var thisQuery;
 
 function getAirlineInfo() {
-
-    allFlights = [];
 
     // Format for each input:
     var country = "US";
@@ -35,7 +34,7 @@ function getAirlineInfo() {
 
     //Using Skyscanner API to get flight information
     const settings = {
-        "async": false,
+        "async": true,
         "crossDomain": true,
         "url": queryURL,
         "method": "GET",
@@ -46,59 +45,67 @@ function getAirlineInfo() {
     };
 
     $.ajax(settings).done(function (response) {
-        
-        var options = response.Quotes.length;
+  
+    thisQuery = response;
+});
+}
 
-        console.log(response);
-        console.log(options);
+function returnFlight() {
+          
+    allFlights = [];
 
-        //5 = 5
-        current = counter;
-            //5 = 5             5 < 5+5                  5<30               5+1
-        for (counter = current; current < counter + 5 && current < options; current++) {
-            //Number
-            var quotesPrice = response.Quotes[current].MinPrice;
-            var thisCarrierOut = response.Quotes[current].InboundLeg.CarrierIds[0];
-            var thisCarrierIn = response.Quotes[current].OutboundLeg.CarrierIds[0];
-            //Assigns a name based on carrier code given for flight
-            var carrierNames = response.Carriers.length;
-            for (var i = 0; i < carrierNames; i++) {
-                var thisCarrierOutName = response.Carriers[i].CarrierId;
-                var thisCarrierInName = response.Carriers[i].CarrierId;
+    var options = thisQuery.Quotes.length;
 
-                if (thisCarrierOut === thisCarrierOutName) {
-                    thisCarrierOut = response.Carriers[i].Name;
-                }
+    console.log(thisQuery);
+    console.log(options);
 
-                if (thisCarrierIn === thisCarrierInName) {
-                    thisCarrierIn = response.Carriers[i].Name;
-                }
+    //5 = 5
+    current = counter;
+        //5 = 5             5 < 5+5                  5<30               5+1
+    for (counter = current; current < counter + 5 && current < options; current++) {
+        //Number
+        var quotesPrice = thisQuery.Quotes[current].MinPrice;
+        var thisCarrierOut = thisQuery.Quotes[current].InboundLeg.CarrierIds[0];
+        var thisCarrierIn = thisQuery.Quotes[current].OutboundLeg.CarrierIds[0];
+        //Assigns a name based on carrier code given for flight
+        var carrierNames = thisQuery.Carriers.length;
+        for (var i = 0; i < carrierNames; i++) {
+            var thisCarrierOutName = thisQuery.Carriers[i].CarrierId;
+            var thisCarrierInName = thisQuery.Carriers[i].CarrierId;
+
+            if (thisCarrierOut === thisCarrierOutName) {
+                thisCarrierOut = thisQuery.Carriers[i].Name;
             }
-            //String
-            var thisDepartureDate = response.Quotes[current].OutboundLeg.DepartureDate;
-            var thisDepartureDate = thisDepartureDate.slice(0, 10);
-            var thisArrivalDate = response.Quotes[current].InboundLeg.DepartureDate;
-            var thisArrivalDate = thisArrivalDate.slice(0, 10);
-            //Boolean
-            var directFlight = response.Quotes[current].Direct;
 
-            var thisFlight = {
-                thisFlight: quotesPrice,
-                carrierOut: thisCarrierOut,
-                carrierIn: thisCarrierIn,
-                depart: thisDepartureDate,
-                arrive: thisArrivalDate,
-                direct: directFlight
-            };
-
-            allFlights.push(thisFlight);
-            console.log(current);
-            console.log(counter);
+            if (thisCarrierIn === thisCarrierInName) {
+                thisCarrierIn = thisQuery.Carriers[i].Name;
+            }
         }
+        //String
+        var thisDepartureDate = thisQuery.Quotes[current].OutboundLeg.DepartureDate;
+        var thisDepartureDate = thisDepartureDate.slice(0, 10);
+        var thisArrivalDate = thisQuery.Quotes[current].InboundLeg.DepartureDate;
+        var thisArrivalDate = thisArrivalDate.slice(0, 10);
+        //Boolean
+        var directFlight = thisQuery.Quotes[current].Direct;
 
-    });
+        var thisFlight = {
+            thisFlight: quotesPrice,
+            carrierOut: thisCarrierOut,
+            carrierIn: thisCarrierIn,
+            depart: thisDepartureDate,
+            arrive: thisArrivalDate,
+            direct: directFlight
+        };
 
+        allFlights.push(thisFlight);
+
+        console.log(allFlights);
+    }
+
+    console.log(allFlights);
     return allFlights;
+
 }
 
 function getFlight() {

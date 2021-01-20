@@ -4,17 +4,15 @@ console.log(flightInformation);
 
 $("#chooseThis").on("click", function (event) {
     event.preventDefault();
-    flightInformation = getAirlineInfo();
+    getAirlineInfo();
+    flightInformation = returnFlight();
     console.log(flightInformation);
     displayAirlineInfo(flightInformation);
 });
 
-$(".choose").on("click", function(event) {
-    event.preventDefault();
-    storeFlight();
-});
-
 function displayAirlineInfo(flightInformation) {
+
+    console.log(flightInformation);
 
     var flightShow = $("#availableFlights");
 
@@ -63,7 +61,7 @@ function displayAirlineInfo(flightInformation) {
 $("#next").on("click", function () {
     if (allFlights.length > 0) {
     next();
-    flightInformation = getAirlineInfo();
+    flightInformation = returnFlight();
     displayAirlineInfo(flightInformation);
     console.log(allFlights.length);
     }
@@ -72,7 +70,7 @@ $("#next").on("click", function () {
 $("#previous").on("click", function () {
     if (counter > 4) {
     previous();
-    flightInformation = getAirlineInfo();
+    flightInformation = returnFlight();
     displayAirlineInfo(flightInformation);
     console.log(flightInformation);
     }
