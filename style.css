@@ -13,7 +13,7 @@ body {
     background-size: auto;
 }
 
-.navbar {
+.titlebar {
     color: rgb(19, 12, 6);
     background: rgba(139, 99, 181, 0.534);
     background: linear-gradient(90deg, rgba(139, 99, 181, 0.664) 0%, rgba(159, 95, 161, 0.712) 49%, rgba(171, 158, 175, 0.685) 100%);
@@ -27,10 +27,9 @@ body {
 
 }
 
-span {
+#title {
     color: rgb(230, 230, 230);
     font-family: 'Monoton', cursive;
-    font-weight: bolder;
 
 }
 
@@ -78,4 +77,20 @@ span {
     10px 10px 20px rgba(0,0,0,.5),
     20px 40px 40px rgba(0,0,0,.5); 
     
+}
+
+footer {
+    background-color: rgb(65, 64, 64);
+}
+
+span {
+    font-family: 'Days One';
+    color: whitesmoke;
+    font-size: 12px;
+    text-shadow:    
+    -1px -1px 0 rgba(255, 255, 255, 0),
+    1px 1px 0 rgba(0,0,0,.25),
+    3px 3px 3px rgba(0,0,0,.25),
+    10px 10px 20px rgba(0,0,0,.5),
+    20px 40px 40px rgba(0,0,0,.5); ;
 }
