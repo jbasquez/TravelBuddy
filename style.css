@@ -33,6 +33,12 @@ body {
 
 }
 
+#travelBud {
+    height: 55px;
+    width: auto;
+    margin-left: 20px;
+}
+
 
 #sideBar {
     background-color: rgba(0, 0, 0, 0.555);
@@ -81,6 +87,7 @@ body {
 
 footer {
     background-color: rgb(65, 64, 64);
+    border-top: 1px solid rgb(230, 230, 230);
 }
 
 span {
