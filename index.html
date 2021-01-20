@@ -42,7 +42,7 @@
           <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Orlando">
           
           <!-- origin (airport name) -->
-          <label class="mt-2" for="formGroupExampleInput">Origin Airport</label>
+          <label class="mt-2" for="formGroupExampleInput">Origin Airport:</label>
           <input type="text" class="form-control" id="origin" placeholder="Ex. lax">
 
           <!-- destination (airport name) -->
@@ -185,27 +185,19 @@
               </div>
             </div>
         </div>
+        <button id="searchBtn" class="btn btn-primary mr-4" type="submit">Search</button>
       </form>
-
-      <button id="searchBtn" class="btn btn-primary mr-4" type="submit">Search</button>
     </aside>
-    <article class="col">
 
+    <article class="col">
       <!-- hide this after first search -->
       <div class="row justify-content-center">
         <h2 id="startMessage" class="m-1">Travel Buddy helps you find the best prices on flights and hotels!</h2>
       </div>
+      <!-- Append available flights and hotels here -->
+      <div id="flightsAndHotels">
 
-      <!-- Show This (Airports then Hotels) -->
-      <!-- <div id="infoRow" class="row m-2 justify-content-center">
-        <h2>Available Flights:</h2>
-         -->
-        <!-- append flights here -->
-        <div id="availableFlights">
-
-        </div>
       </div>
-
     </article>
   </div>
 
