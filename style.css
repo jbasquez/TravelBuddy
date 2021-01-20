@@ -17,12 +17,7 @@ body {
     
     background-color: rgb(194, 194, 194);
     color: rgb(19, 12, 6);
-    box-shadow:
-    -1px -1px 0 rgba(255, 255, 255, 0),
-    1px 1px 0 rgba(0,0,0,.25),
-    3px 3px 3px rgba(0,0,0,.25),
-    10px 10px 20px rgba(0,0,0,.5),
-    20px 40px 40px rgba(0,0,0,.5); 
+
 }
 
 #sideBar {
@@ -36,17 +31,12 @@ body {
     20px 40px 40px rgba(0,0,0,.5); 
 }
 
-.largeForms {
-    width: 250px;
-
+#searchBtn {
+    float: right;
 }
 
-.smallForms {
-    width: 85px;
-}
-
-.smallerForms {
-    width: 75px;
+#startMessage {
+    padding-top: 225px;
 }
 
 #infoRow {
