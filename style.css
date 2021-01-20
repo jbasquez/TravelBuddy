@@ -14,11 +14,26 @@ body {
 }
 
 .navbar {
-    
-    background-color: rgb(194, 194, 194);
     color: rgb(19, 12, 6);
+    background: rgba(139, 99, 181, 0.534);
+    background: linear-gradient(90deg, rgba(139, 99, 181, 0.664) 0%, rgba(159, 95, 161, 0.712) 49%, rgba(171, 158, 175, 0.685) 100%);
+    border-bottom: 2px solid rgb(230, 230, 230);
+    text-shadow:     
+    -1px -1px 0 rgba(255, 255, 255, 0),
+    1px 1px 0 rgba(0,0,0,.25),
+    3px 3px 3px rgba(0,0,0,.25),
+    10px 10px 20px rgba(0,0,0,.5),
+    20px 40px 40px rgba(0,0,0,.5); ;
 
 }
+
+span {
+    color: rgb(230, 230, 230);
+    font-family: 'Monoton', cursive;
+    font-weight: bolder;
+
+}
+
 
 #sideBar {
     background-color: rgba(0, 0, 0, 0.555);
@@ -31,12 +46,26 @@ body {
     20px 40px 40px rgba(0,0,0,.5); 
 }
 
+::placeholder{
+    font-style: italic;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 #searchBtn {
     float: right;
 }
 
 #startMessage {
-    padding-top: 225px;
+    padding-top: 255px;
+    font-family: 'Days One', sans-serif;
+    font-size: 28px;
+    color: whitesmoke;
+    text-shadow:    
+    -1px -1px 0 rgba(255, 255, 255, 0),
+    1px 1px 0 rgba(0,0,0,.25),
+    3px 3px 3px rgba(0,0,0,.25),
+    10px 10px 20px rgba(0,0,0,.5),
+    20px 40px 40px rgba(0,0,0,.5); ;
 }
 
 #infoRow {
