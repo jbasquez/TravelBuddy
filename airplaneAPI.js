@@ -15,10 +15,16 @@ function getAirlineInfo() {
     var inboundDate = "2021-01";
 
     // var country = $("#country").val();
-    //var currency = $("#currency").val();
-    //var locale = $("#locale").val();
-    // var origin = $("#origin").val() + "-sky";
-    // var destination = $("#destination").val() + "-sky";
+    // country = country.toUpperCase();
+    // var currency = $("#currency").val();
+    // currency = currency.toUpperCase();
+    // var locale = $("#locale").val();
+    // var origin = $("#origin").val();
+    // origin = origin.toUpperCase();
+    // origin = origin + "-sky";
+    // var destination = $("#destination").val();
+    // var destination = destination.toUpperCase();
+    // var destination = destination + "-sky";
     // var outboundY = $("#outboundY").val();
     // var outboundM = $("#outboundM").val();
     //var outboundD = $("#outboundD").val();
@@ -41,12 +47,16 @@ function getAirlineInfo() {
         "headers": {
             "x-rapidapi-key": "45049d9fb6msh17ba1e94f9859eep1817c7jsn5b1c2edaf89d",
             "x-rapidapi-host": "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com"
+        },
+        "success": function (response) {
+            thisQuery = response;
         }
     };
 
     $.ajax(settings).done(function (response) {
-  
+    
     thisQuery = response;
+
 });
 }
 
@@ -55,9 +65,6 @@ function returnFlight() {
     allFlights = [];
 
     var options = thisQuery.Quotes.length;
-
-    console.log(thisQuery);
-    console.log(options);
 
     //5 = 5
     current = counter;
@@ -99,11 +106,8 @@ function returnFlight() {
         };
 
         allFlights.push(thisFlight);
-
-        console.log(allFlights);
     }
 
-    console.log(allFlights);
     return allFlights;
 
 }

@@ -1,13 +1,13 @@
 //flightInformation = [quotesPrice,thisCarrierOut,thisCarrierIn,thisDepartureDate,thisArrivalDate,directFlight]
 var flightInformation = getFlight();
-console.log(flightInformation);
 
 $("#chooseThis").on("click", function (event) {
     event.preventDefault();
     getAirlineInfo();
+    setTimeout(function() {
     flightInformation = returnFlight();
-    console.log(flightInformation);
     displayAirlineInfo(flightInformation);
+    }, 2000);
 });
 
 function displayAirlineInfo(flightInformation) {
@@ -63,7 +63,6 @@ $("#next").on("click", function () {
     next();
     flightInformation = returnFlight();
     displayAirlineInfo(flightInformation);
-    console.log(allFlights.length);
     }
 });
 
@@ -72,7 +71,6 @@ $("#previous").on("click", function () {
     previous();
     flightInformation = returnFlight();
     displayAirlineInfo(flightInformation);
-    console.log(flightInformation);
     }
 });
 
