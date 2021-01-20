@@ -1,3 +1,11 @@
+html,body {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden; 
+}
+
 body {
     background-image: url(body-background.jpg);
     background-position: center;
@@ -5,11 +13,12 @@ body {
     background-size: auto;
 }
 
-.navbar {
-    background-image: url(nav-background.png);
-    background-color: rgb(194, 194, 194);
+.titlebar {
     color: rgb(19, 12, 6);
-    box-shadow:
+    background: rgba(139, 99, 181, 0.534);
+    background: linear-gradient(90deg, rgba(139, 99, 181, 0.664) 0%, rgba(159, 95, 161, 0.712) 49%, rgba(171, 158, 175, 0.685) 100%);
+    border-bottom: 2px solid rgb(230, 230, 230);
+    text-shadow:     
     -1px -1px 0 rgba(255, 255, 255, 0),
     1px 1px 0 rgba(0,0,0,.25),
     3px 3px 3px rgba(0,0,0,.25),
@@ -17,6 +26,7 @@ body {
     20px 40px 40px rgba(0,0,0,.5); 
 	width: 110vw;
 }
+
 
 #sideBar {
     background-color: rgba(0, 0, 0, 0.555);
@@ -29,17 +39,43 @@ body {
     20px 40px 40px rgba(0,0,0,.5); 
 }
 
-.largeForms {
-    width: 250px;
+label {
+    font-weight: bold;
+}
+
+::placeholder{
+    font-style: italic;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+input:valid {
+    background-color: rgba(0, 0, 0, 0.555);
+    color: whitesmoke;
+    border: rgb(151, 150, 150) solid 1px;
+}
+
+select {
+    background-color: rgba(0, 0, 0, 0.555);
+    color: whitesmoke;
+    border-radius: 5px;
 
 }
 
-.smallForms {
-    width: 85px;
+#searchBtn {
+    float: right;
 }
 
-.smallerForms {
-    width: 75px;
+#startMessage {
+    padding-top: 255px;
+    font-family: 'Days One', sans-serif;
+    font-size: 28px;
+    color: whitesmoke;
+    text-shadow:    
+    -1px -1px 0 rgba(255, 255, 255, 0),
+    1px 1px 0 rgba(0,0,0,.25),
+    3px 3px 3px rgba(0,0,0,.25),
+    10px 10px 20px rgba(0,0,0,.5),
+    20px 40px 40px rgba(0,0,0,.5); ;
 }
 
 #infoRow {
@@ -54,3 +90,26 @@ body {
     
 }
 
+
+footer {
+    background-color: rgb(65, 64, 64);
+    border-top: 1px solid rgb(230, 230, 230);
+}
+
+span {
+    font-family: 'Days One';
+    color: whitesmoke;
+    font-size: 12px;
+    text-shadow:    
+    -1px -1px 0 rgba(255, 255, 255, 0),
+    1px 1px 0 rgba(0,0,0,.25),
+    3px 3px 3px rgba(0,0,0,.25),
+    10px 10px 20px rgba(0,0,0,.5),
+    20px 40px 40px rgba(0,0,0,.5);
+}
+.row {
+    font: outline;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: large;
+
+}
