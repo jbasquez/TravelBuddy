@@ -9,10 +9,6 @@ html,body {
     background-size: cover;
 }
 
-body {
-    
-}
-
 .titlebar {
     color: rgb(19, 12, 6);
     background: rgba(139, 99, 181, 0.534);
@@ -89,7 +85,6 @@ select {
     20px 40px 40px rgba(0,0,0,.5); 
     
 }
-
 
 footer {
     background-color: rgb(65, 64, 64);
