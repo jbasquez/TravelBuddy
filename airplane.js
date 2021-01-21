@@ -4,7 +4,7 @@ var flightInformation = getFlight();
 $("#searchBtn").on("click", function (event) {
     event.preventDefault();
     getAirlineInfo();
-    $("#startMessage").empty();
+    $("#startMessage").hide();
 
     setTimeout(function() {
     flightInformation = returnFlight();
