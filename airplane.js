@@ -1,6 +1,15 @@
 //flightInformation = [quotesPrice,thisCarrierOut,thisCarrierIn,thisDepartureDate,thisArrivalDate,directFlight]
 var flightInformation = getFlight();
 
+// create dynamic page buttons
+preBtn = $("<button>");
+preBtn.attr("id", "previous");
+preBtn.text("Previous");
+nxtBtn = $("<button>");
+nxtBtn.attr("id", "next");
+nxtBtn.text("Next");
+
+
 $("#searchBtn").on("click", function (event) {
     event.preventDefault();
     getAirlineInfo();
@@ -12,8 +21,6 @@ $("#searchBtn").on("click", function (event) {
 });
 
 function displayAirlineInfo(flightInformation) {
-
-    $("#pageButtons").show()
 
     var flightShow = $("#flightsAndHotels");
 
@@ -57,27 +64,33 @@ function displayAirlineInfo(flightInformation) {
         var horizontalRule = $("<hr style: color='yellow'>");
         flightShow.append(horizontalRule);
     }
+    // append page buttons
+    $("#pageButtons").append(preBtn);
+    $("#pageButtons").append(nxtBtn);
+    // page button click events
+    $("#next").on("click", function (event) {
+        event.preventDefault();
+        if (allFlights.length > 0) {
+        next();
+        flightInformation = returnFlight();
+        console.log(flightInformation);
+        displayAirlineInfo(flightInformation);
+        }
+    });
+    
+    $("#previous").on("click", function (event) {
+        event.preventDefault();
+        if (counter > 4) {
+        previous();
+        flightInformation = returnFlight();
+        console.log(flightInformation);
+        displayAirlineInfo(flightInformation);
+        }
+    });
 }
 
-$("#next").on("click", function (event) {
-    event.preventDefault();
-    if (allFlights.length > 0) {
-    next();
-    flightInformation = returnFlight();
-    console.log(flightInformation);
-    displayAirlineInfo(flightInformation);
-    }
-});
 
-$("#previous").on("click", function (event) {
-    event.preventDefault();
-    if (counter > 4) {
-    previous();
-    flightInformation = returnFlight();
-    console.log(flightInformation);
-    displayAirlineInfo(flightInformation);
-    }
-});
+
 
 function saveFlight(saveThis) {
     storeFlight(saveThis);
