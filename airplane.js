@@ -4,7 +4,7 @@ var flightInformation = getFlight();
 $("#searchBtn").on("click", function (event) {
     event.preventDefault();
     getAirlineInfo();
-    $("#startMessage").empty();
+    $("#startMessage").hide();
 
     setTimeout(function() {
     flightInformation = returnFlight();
@@ -24,6 +24,7 @@ $("#searchBtn").on("click", function (event) {
     
         $("#next").on("click", function (event) {
             event.preventDefault();
+            $("html, body").animate({ scrollTop: 0 }, "slow");
             if (allFlights.length > 0) {
             next();
             flightInformation = returnFlight();
@@ -34,6 +35,7 @@ $("#searchBtn").on("click", function (event) {
     
         $("#previous").on("click", function (event) {
             event.preventDefault();
+            $("html, body").animate({ scrollTop: 0 }, "slow");
             if (counter > 4) {
             previous();
             flightInformation = returnFlight();
@@ -56,7 +58,7 @@ function displayAirlineInfo(flightInformation) {
     for (var a=0; a<flightInformation.length; a++) {
 
         var infoCard = $("<div>");
-        infoCard.attr("class", "card ml-2 mt-4 mr-2 mb-2 p-4");
+        infoCard.attr("class", "card ml-2 mt-4 mr-2 mb-2 p-5");
         flightShow.append(infoCard);
 
         var infoPrice = $("<p class='flightInformation'>");
@@ -74,13 +76,13 @@ function displayAirlineInfo(flightInformation) {
         var outFly = flightInformation[a].carrierOut;
         var depart = flightInformation[a].depart;
       
-        infoCarrierOut.text("Outbound Airline: " + outFly + " Leaving on: " + depart + " ");
+        infoCarrierOut.text("Departure Airline: " + outFly + " Leaving on: " + depart + " ");
         infoCard.append(infoCarrierOut);
         
 
         var inFly = flightInformation[a].carrierIn;
         var arrive = flightInformation[a].arrive;
-        infoCarrierIn.text("Inbound Airline: " + inFly + " Leaving on: " + arrive);
+        infoCarrierIn.text("Return Airline: " + inFly + " Leaving on: " + arrive);
         infoCard.append(infoCarrierIn);
 
         var button = $("<button>");
@@ -108,7 +110,7 @@ function showSaved() {
     var flightArray = storedFlightInfo.split("/")
     console.log(flightArray);
     var saveThisHere = $(".savedFlight");
-    var titleSave = $("<h2>");
+    var titleSave = $("<h3>");
     var thisPrice = $("<p>");
     var carryOut = $("<p>");
     var carryIn = $("<p>");

@@ -1,9 +1,8 @@
-html,body {
+html, body {
     width: 100%;
     height: auto;
     overflow-x: hidden;
-    margin: 0px;
-    padding: 0px;
+    padding-top: 37px;
     background-image: url(body-background.jpg);
     background-repeat: no-repeat;
     background-size: cover;
@@ -12,7 +11,7 @@ html,body {
 .titlebar {
     color: rgb(19, 12, 6);
     background: rgba(139, 99, 181, 0.534);
-    background: linear-gradient(90deg, rgba(139, 99, 181, 0.664) 0%, rgba(159, 95, 161, 0.712) 49%, rgba(171, 158, 175, 0.685) 100%);
+    background: linear-gradient(90deg, rgba(139, 99, 181, 0.897) 0%, rgba(159, 95, 161, 0.897) 49%, rgba(171, 158, 175, 0.897) 100%);
     border-bottom: 2px solid rgb(230, 230, 230);
     text-shadow:     
     -1px -1px 0 rgba(255, 255, 255, 0),
@@ -77,7 +76,8 @@ select {
 }
 
 #startMessage {
-    padding-top: 255px;
+    padding-top: 180px;
+    padding-left: 300px;
     font-family: 'Days One', sans-serif;
     font-size: 28px;
     color: whitesmoke;
@@ -112,7 +112,7 @@ select {
     20px 40px 40px rgba(0,0,0,.5); 
 }
 
-h2 {
+h3 {
     font-family: 'Days One';
     font-size: 20px;
     text-shadow:    
