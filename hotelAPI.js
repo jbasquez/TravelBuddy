@@ -1,3 +1,5 @@
+    var hotelArray = [];
+
     function callHotels() { 
         
     var hotels = $("#flightsAndHotels");
@@ -58,7 +60,14 @@
             var rating = suggestions[i].guestReviews.rating + "/10";
             var hotelPic = suggestions[i].thumbnailUrl;
             console.log(hotelName, hotelPic, rating);
+            var hotelObject = {
+                thisName: hotelName,
+                thisRating: rating,
+                thisUrl: hotelPic
+            };
+            hotelArray.push(hotelObject);
         }
+        console.log(hotelArray);
         // displayResults();
     }
 
