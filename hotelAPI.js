@@ -54,6 +54,7 @@
     function getMoreInfo(response) {
         var results = response;
         var suggestions = results.data.body.searchResults.results;
+        hotelArray = [];
 
         for (var i = 0; i < suggestions.length; i++) {
             var hotelName = suggestions[i].name;
@@ -68,15 +69,21 @@
             hotelArray.push(hotelObject);
         }
         console.log(hotelArray);
-        // displayResults();
+        displayResults();
     }
 
     function displayResults() {
-        $("#").append(hotelName);
-        $("#").append(rating);
-        var image = $("<img>");
-        image.attr("src", hotelPic);
-        $("#").append(image);
+        // $("#").append(hotelName);
+        // $("#").append(rating);
+        // var image = $("<img>");
+        // image.attr("src", hotelPic);
+        // $("#").append(image);
+
+        var image = hotelArray[0].thisUrl;
+        var test = $("<img>");
+        test.attr("src", image);
+        var appendHotel = $("#flightsAndHotels");
+        appendHotel.append(test);
     }
 
 
