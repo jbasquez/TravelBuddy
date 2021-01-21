@@ -59,7 +59,9 @@ $("document").ready(function(){
     }
 
     function displayResults() {
-
+        $("#").append(hotelName);
+        $("#").append(rating);
+        
     }
 });
 
