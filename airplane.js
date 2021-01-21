@@ -24,6 +24,7 @@ $("#searchBtn").on("click", function (event) {
     
         $("#next").on("click", function (event) {
             event.preventDefault();
+            $("html, body").animate({ scrollTop: 0 }, "slow");
             if (allFlights.length > 0) {
             next();
             flightInformation = returnFlight();
@@ -34,6 +35,7 @@ $("#searchBtn").on("click", function (event) {
     
         $("#previous").on("click", function (event) {
             event.preventDefault();
+            $("html, body").animate({ scrollTop: 0 }, "slow");
             if (counter > 4) {
             previous();
             flightInformation = returnFlight();

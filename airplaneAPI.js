@@ -136,3 +136,13 @@ function next() {
 function storeFlight(flightInfo) {
     localStorage.setItem("flight", flightInfo);
 }
+
+// scroll to top fuction for page buttons
+$(window).scroll(function() {
+    var height = $(window).scrollTop();
+    if (height > 100) {
+        $('#back2Top').fadeIn();
+    } else {
+        $('#back2Top').fadeOut();
+    }
+});
