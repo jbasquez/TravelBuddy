@@ -129,6 +129,10 @@ p {
     font-weight: bold;
 }
 
+#pageButtons {
+    padding-left: 280px;
+}
+
 footer {
     background-color: rgb(65, 64, 64);
     border-top: 1px solid rgb(230, 230, 230);
