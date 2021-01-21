@@ -108,7 +108,7 @@ function showSaved() {
     var flightArray = storedFlightInfo.split("/")
     console.log(flightArray);
     var saveThisHere = $(".savedFlight");
-    var titleSave = $("<h2>");
+    var titleSave = $("<h3>");
     var thisPrice = $("<p>");
     var carryOut = $("<p>");
     var carryIn = $("<p>");
