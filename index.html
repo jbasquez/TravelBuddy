@@ -186,6 +186,9 @@
             </div>
         </div>
         <button id="searchBtn" class="btn btn-primary mr-4" type="submit">Search</button>
+        
+      <button id="previous">Previous</button>
+      <button id="next">Next</button> 
       </form>
     </aside>
 
@@ -193,6 +196,10 @@
 
       <!-- hide this after first search -->
       <div class="row justify-content-center">
+
+        <!-- Add Saved Flight Information -->
+        <div class="savedFlight"></div>
+
         <h2 id="startMessage" class="m-1 ml-4 mr-4">Travel Buddy helps you find the best prices on flights and hotels!</h2>
       </div>
       <div id="flightsAndHotels"></div>
@@ -208,9 +215,8 @@
   <!-- Runs the Airplane API -->
   <script src="airplaneAPI.js"></script>
   <!-- Runs the Hotel API -->
-  <script src="hotelAPI.js"></script>
   <script src="airplane.js"></script>
-  <!-- <script src="hotel.js"></script> -->
+  <script src="hotelAPI.js"></script>
 
 </body>
 
