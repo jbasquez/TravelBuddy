@@ -4,6 +4,7 @@ $("document").ready(function(){
     var hotelName;
     var hotelPic;
     var rating;
+    var imgUrl;
     var settings = {
         "async": true,
         "crossDomain": true,
@@ -61,6 +62,7 @@ $("document").ready(function(){
     function displayResults() {
         $("#").append(hotelName);
         $("#").append(rating);
+        var imgUrl =
         
     }
 });
