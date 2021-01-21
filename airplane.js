@@ -47,7 +47,7 @@ function displayAirlineInfo(flightInformation) {
         var button = $("<button>");
         button.attr("class","saveFlight");
         button.attr("value",cost + "/" + direct + "/" + outFly + "/" + depart + "/" + inFly + "/" + arrive);
-        button.attr("onClick","saveFlight($(this).val())");
+        button.attr("onClick","saveFlight($(this).val()), callHotels(), showSaved()");
         button.text("Click to Save");
         flightShow.append(button);
 
@@ -78,4 +78,25 @@ $("#previous").on("click", function (event) {
 
 function saveFlight(saveThis) {
     storeFlight(saveThis);
+}
+
+function showSaved() {
+    var storedFlightInfo = localStorage.getItem("flight");
+    console.log(storedFlightInfo);
+    console.log("Hi");
+    var flightArray = storedFlightInfo.split("/")
+    console.log(flightArray);
+    var saveThisHere = $(".savedFlight");
+    var thisPrice = $("<p>");
+    var carryOut = $("<p>");
+    var carryIn = $("<p>");
+
+    thisPrice.text("Cost: $ " + flightArray[0] + " Direct Flight: " + flightArray[1]);
+    carryOut.text("Outbound Airline: " + flightArray[2] + " Leaving on: " + flightArray[3] + " ");
+    carryIn.text("Inbound Airline: " + flightArray[4] + " Leaving on: " + flightArray[5]);
+
+    saveThisHere.append(thisPrice);
+    saveThisHere.append(carryOut);
+    saveThisHere.append(carryIn);
+    saveThisHere.append("<p>Hello THere</p>")
 }
