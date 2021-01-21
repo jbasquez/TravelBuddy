@@ -1,4 +1,8 @@
-$("document").ready(function(){
+    function callHotels() { 
+        
+    var hotels = $("#flightsAndHotels");
+    hotels.empty();
+
     var city = "miami";
     var location;
     var hotelName;
@@ -18,8 +22,8 @@ $("document").ready(function(){
     $.ajax(settings).done(function (response) {
     }).then(function(response) {
         updatePage(response);
-        getInfo();
     });
+    }
 
     function updatePage(response) {
         var location = response.suggestions[0].entities[0].destinationId;
@@ -36,7 +40,6 @@ $("document").ready(function(){
                 "x-rapidapi-host": "hotels4.p.rapidapi.com"
             }
         }
-    
     
         $.ajax(settings).done(function (response) {
             console.log(response);
@@ -57,7 +60,7 @@ $("document").ready(function(){
             console.log(hotelName, hotelPic, rating);
         }
     }
-});
+
 
 
 
