@@ -57,6 +57,10 @@ $("document").ready(function(){
             console.log(hotelName, hotelPic, rating);
         }
     }
+
+    function displayResults() {
+
+    }
 });
 
 
