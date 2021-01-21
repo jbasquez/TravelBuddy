@@ -4,6 +4,7 @@ html,body {
     overflow-x: hidden;
     margin: 0px;
     padding: 0px;
+    padding-top: 37px;
     background-image: url(body-background.jpg);
     background-repeat: no-repeat;
     background-size: cover;
