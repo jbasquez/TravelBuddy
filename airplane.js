@@ -1,22 +1,47 @@
 //flightInformation = [quotesPrice,thisCarrierOut,thisCarrierIn,thisDepartureDate,thisArrivalDate,directFlight]
 var flightInformation = getFlight();
 
-// create dynamic page buttons
-preBtn = $("<button>");
-preBtn.attr("id", "previous");
-preBtn.text("Previous");
-nxtBtn = $("<button>");
-nxtBtn.attr("id", "next");
-nxtBtn.text("Next");
-
-
 $("#searchBtn").on("click", function (event) {
     event.preventDefault();
     getAirlineInfo();
     $("#startMessage").empty();
+
     setTimeout(function() {
     flightInformation = returnFlight();
     displayAirlineInfo(flightInformation);
+
+        // append page buttons
+        preBtn = $("<button>");
+        preBtn.attr("id", "previous");
+        preBtn.attr("class", "mr-1 btn btn-primary btn-sm");
+        preBtn.text("Previous");
+        nxtBtn = $("<button>");
+        nxtBtn.attr("id", "next");
+        nxtBtn.attr("class", "ml-1 btn btn-primary btn-sm");
+        nxtBtn.text("Next");
+        $("#pageButtons").append(preBtn);
+        $("#pageButtons").append(nxtBtn);
+    
+        $("#next").on("click", function (event) {
+            event.preventDefault();
+            if (allFlights.length > 0) {
+            next();
+            flightInformation = returnFlight();
+            console.log(flightInformation);
+            displayAirlineInfo(flightInformation);
+            }
+        });
+    
+        $("#previous").on("click", function (event) {
+            event.preventDefault();
+            if (counter > 4) {
+            previous();
+            flightInformation = returnFlight();
+            console.log(flightInformation);
+            displayAirlineInfo(flightInformation);
+            }
+        });
+
     }, 2000);
 });
 
@@ -57,39 +82,15 @@ function displayAirlineInfo(flightInformation) {
         var button = $("<button>");
         button.attr("class","saveFlight");
         button.attr("value",cost + "/" + direct + "/" + outFly + "/" + depart + "/" + inFly + "/" + arrive);
-        button.attr("onClick","saveFlight($(this).val()), callHotels(), showSaved()");
+        button.attr("onClick","saveFlight($(this).val()), callHotels(), showSaved()"); //Need to hide "page buttons" (preBtn, nxtBtn)
         button.text("Click to Save");
         flightShow.append(button);
 
         var horizontalRule = $("<hr style: color='yellow'>");
         flightShow.append(horizontalRule);
     }
-    // append page buttons
-    $("#pageButtons").append(preBtn);
-    $("#pageButtons").append(nxtBtn);
-    // page button click events
-    $("#next").on("click", function (event) {
-        event.preventDefault();
-        if (allFlights.length > 0) {
-        next();
-        flightInformation = returnFlight();
-        console.log(flightInformation);
-        displayAirlineInfo(flightInformation);
-        }
-    });
-    
-    $("#previous").on("click", function (event) {
-        event.preventDefault();
-        if (counter > 4) {
-        previous();
-        flightInformation = returnFlight();
-        console.log(flightInformation);
-        displayAirlineInfo(flightInformation);
-        }
-    });
+
 }
-
-
 
 
 function saveFlight(saveThis) {
