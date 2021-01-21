@@ -6,7 +6,7 @@ html,body {
     padding: 0px;
     background-image: url(body-background.jpg);
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
 }
 
 body {
