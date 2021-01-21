@@ -80,8 +80,8 @@ function displayAirlineInfo(flightInformation) {
 
         var inFly = flightInformation[a].carrierIn;
         var arrive = flightInformation[a].arrive;
-        infoCarrierIn.text(inFly);
-        infoCard.append("Inbound Airline: " + inFly + " Leaving on: " + arrive + "<br />");
+        infoCarrierIn.text("Inbound Airline: " + inFly + " Leaving on: " + arrive);
+        infoCard.append(infoCarrierIn);
 
         var button = $("<button>");
         button.attr("class","saveFlight mt-2 btn btn-primary btn-sm btn-success");
