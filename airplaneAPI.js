@@ -3,6 +3,8 @@ var current = counter;
 var allFlights = [];
 var thisQuery;
 
+// hide page buttons
+$("#pageButtons").hide()
 // show starting message
 message = $("<h2>");
 message.attr("class", "m-1 ml-4 mr-4");

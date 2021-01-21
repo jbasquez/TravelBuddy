@@ -13,6 +13,8 @@ $("#searchBtn").on("click", function (event) {
 
 function displayAirlineInfo(flightInformation) {
 
+    $("#pageButtons").show()
+
     var flightShow = $("#flightsAndHotels");
 
     if (flightInformation.length > 0) {
