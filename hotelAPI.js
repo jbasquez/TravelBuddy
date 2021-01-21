@@ -1,6 +1,5 @@
 $("document").ready(function(){
     var city = "miami";
-    var location;
     var hotelName;
     var hotelPic;
     var rating;
@@ -19,7 +18,6 @@ $("document").ready(function(){
     $.ajax(settings).done(function (response) {
     }).then(function(response) {
         updatePage(response);
-        // getInfo();
     });
 
     function updatePage(response) {
