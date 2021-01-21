@@ -9,9 +9,6 @@ html,body {
     background-size: cover;
 }
 
-body {
-    
-}
 
 .titlebar {
     color: rgb(19, 12, 6);
@@ -23,8 +20,23 @@ body {
     1px 1px 0 rgba(0,0,0,.25),
     3px 3px 3px rgba(0,0,0,.25),
     10px 10px 20px rgba(0,0,0,.5),
-    20px 40px 40px rgba(0,0,0,.5); 
-	width: 110vw;
+    20px 40px 40px rgba(0,0,0,.5); ;
+
+}
+
+#title {
+    color: rgb(230, 230, 230);
+    font-family: 'Monoton', cursive;
+
+}
+
+
+img { 
+    height: 55px;
+    width: auto;
+    margin-left: 20px;
+    -webkit-filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.596));
+    filter:         drop-shadow(5px 4px 5px rgba(0, 0, 0, 0.596)); 
 }
 
 
