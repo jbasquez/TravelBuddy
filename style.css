@@ -75,9 +75,12 @@ select {
     float: right;
 }
 
+#contentRow {
+    margin-left: 280px;
+}
+
 #startMessage {
     padding-top: 180px;
-    padding-left: 300px;
     font-family: 'Days One', sans-serif;
     font-size: 28px;
     color: whitesmoke;
@@ -99,6 +102,10 @@ select {
     10px 10px 20px rgba(0,0,0,.5),
     20px 40px 40px rgba(0,0,0,.5); 
     
+}
+
+#pageButtons {
+    margin-left: 280px;
 }
 
 .card {
