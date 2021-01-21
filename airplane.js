@@ -13,11 +13,11 @@ $("#searchBtn").on("click", function (event) {
         // append page buttons
         preBtn = $("<button>");
         preBtn.attr("id", "previous");
-        preBtn.attr("class", "mr-1 btn btn-primary btn-sm");
+        preBtn.attr("class", "mr-1 mt-5 btn btn-primary btn-sm");
         preBtn.text("Previous");
         nxtBtn = $("<button>");
         nxtBtn.attr("id", "next");
-        nxtBtn.attr("class", "ml-1 btn btn-primary btn-sm");
+        nxtBtn.attr("class", "ml-1 mt-5 btn btn-primary btn-sm");
         nxtBtn.text("Next");
         $("#pageButtons").append(preBtn);
         $("#pageButtons").append(nxtBtn);
@@ -55,6 +55,10 @@ function displayAirlineInfo(flightInformation) {
 
     for (var a=0; a<flightInformation.length; a++) {
 
+        var infoCard = $("<div>");
+        infoCard.attr("class", "card ml-2 mt-4 mr-2 mb-2 p-4");
+        flightShow.append(infoCard);
+
         var infoPrice = $("<p class='flightInformation'>");
         var infoCarrierOut = $("<p class='flightInformation'>");
         var infoCarrierIn = $("<p class='flightInformation'>");
@@ -65,29 +69,29 @@ function displayAirlineInfo(flightInformation) {
         var direct = flightInformation[a].direct;
         infoPrice.text("Cost: $ " + cost + " Direct Flight: " + direct);
         infoPrice.attr("value",cost+" "+direct);
-        flightShow.append(infoPrice);
+        infoCard.append(infoPrice);
 
         var outFly = flightInformation[a].carrierOut;
         var depart = flightInformation[a].depart;
       
         infoCarrierOut.text("Outbound Airline: " + outFly + " Leaving on: " + depart + " ");
-        flightShow.append(infoCarrierOut);
+        infoCard.append(infoCarrierOut);
         
 
         var inFly = flightInformation[a].carrierIn;
         var arrive = flightInformation[a].arrive;
         infoCarrierIn.text(inFly);
-        flightShow.append("Inbound Airline: " + inFly + " Leaving on: " + arrive + "<br />");
+        infoCard.append("Inbound Airline: " + inFly + " Leaving on: " + arrive + "<br />");
 
         var button = $("<button>");
-        button.attr("class","saveFlight");
+        button.attr("class","saveFlight mt-2 btn btn-primary btn-sm btn-success");
         button.attr("value",cost + "/" + direct + "/" + outFly + "/" + depart + "/" + inFly + "/" + arrive);
         button.attr("onClick","saveFlight($(this).val()), callHotels(), showSaved()"); //Need to hide "page buttons" (preBtn, nxtBtn)
         button.text("Click to Save");
-        flightShow.append(button);
+        infoCard.append(button);
 
-        var horizontalRule = $("<hr style: color='yellow'>");
-        flightShow.append(horizontalRule);
+        // var horizontalRule = $("<hr style: color='yellow'>");
+        // infoCard.append(horizontalRule);
     }
 
 }
@@ -104,15 +108,22 @@ function showSaved() {
     var flightArray = storedFlightInfo.split("/")
     console.log(flightArray);
     var saveThisHere = $(".savedFlight");
+    var titleSave = $("<h2>");
     var thisPrice = $("<p>");
     var carryOut = $("<p>");
     var carryIn = $("<p>");
 
+    titleSave.text("Current Flight:")
     thisPrice.text("Cost: $ " + flightArray[0] + " Direct Flight: " + flightArray[1]);
     carryOut.text("Outbound Airline: " + flightArray[2] + " Leaving on: " + flightArray[3] + " ");
     carryIn.text("Inbound Airline: " + flightArray[4] + " Leaving on: " + flightArray[5]);
 
-    saveThisHere.append(thisPrice);
-    saveThisHere.append(carryOut);
-    saveThisHere.append(carryIn);
+    var infoCard1 = $("<div>");
+    infoCard1.attr("class", "card ml-2 mt-4 mr-2 mb-2 p-4");
+    saveThisHere.append(infoCard1);
+
+    infoCard1.append(titleSave);
+    infoCard1.append(thisPrice);
+    infoCard1.append(carryOut);
+    infoCard1.append(carryIn);
 }
