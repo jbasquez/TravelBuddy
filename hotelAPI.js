@@ -4,7 +4,7 @@ $("document").ready(function(){
     var hotelName;
     var hotelPic;
     var rating;
-    var imgUrl;
+    var image;
     var settings = {
         "async": true,
         "crossDomain": true,
@@ -19,7 +19,7 @@ $("document").ready(function(){
     $.ajax(settings).done(function (response) {
     }).then(function(response) {
         updatePage(response);
-        getInfo();
+        // getInfo();
     });
 
     function updatePage(response) {
@@ -30,7 +30,7 @@ $("document").ready(function(){
         var settings = {
             "async": true,
             "crossDomain": true,
-            "url": "https://hotels4.p.rapidapi.com/properties/list?destinationId=" + location + "&pageNumber=1&checkIn=" + checkIn + "&checkOut=" + checkOut + "&pageSize=10&adults1=1&currency=USD&starRatings=4&locale=en_US&sortOrder=PRICE&guestRatingMin=6",
+            "url": "https://hotels4.p.rapidapi.com/properties/list?destinationId=" + location + "&pageNumber=1&checkIn=" + checkIn + "&checkOut=" + checkOut + "&pageSize=5&adults1=1&currency=USD&starRatings=4&locale=en_US&sortOrder=PRICE&guestRatingMin=6",
             "method": "GET",
             "headers": {
                 "x-rapidapi-key": "0cded407b3mshf97093a75a9b392p13a5a5jsn15012c150eb9",
@@ -57,13 +57,15 @@ $("document").ready(function(){
             var hotelPic = suggestions[i].thumbnailUrl;
             console.log(hotelName, hotelPic, rating);
         }
+        // displayResults();
     }
 
     function displayResults() {
         $("#").append(hotelName);
         $("#").append(rating);
-        var imgUrl =
-        
+        var image = $("<img>");
+        image.attr("src", hotelPic);
+        $("#").append(image);
     }
 });
 
