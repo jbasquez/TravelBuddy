@@ -98,5 +98,4 @@ function showSaved() {
     saveThisHere.append(thisPrice);
     saveThisHere.append(carryOut);
     saveThisHere.append(carryIn);
-    saveThisHere.append("<p>Hello THere</p>")
 }
