@@ -10,7 +10,7 @@ $("document").ready(function(){
         "url": "https://hotels4.p.rapidapi.com/locations/search?query="+ city + "&locale=en_US",
         "method": "GET",
         "headers": {
-            "x-rapidapi-key": "9f5a975ae6mshbca34daf924fdecp158a23jsn28c8dc4d8933",
+            "x-rapidapi-key": "0cded407b3mshf97093a75a9b392p13a5a5jsn15012c150eb9",
             "x-rapidapi-host": "hotels4.p.rapidapi.com"
         }
     };
@@ -23,8 +23,8 @@ $("document").ready(function(){
 
     function updatePage(response) {
         var location = response.suggestions[0].entities[0].destinationId;
-        var checkIn = "2020-01-08";
-        var checkOut= "2020-01-15";
+        var checkIn = "2020-01-20";
+        var checkOut= "2020-01-25";
 
         var settings = {
             "async": true,
@@ -32,7 +32,7 @@ $("document").ready(function(){
             "url": "https://hotels4.p.rapidapi.com/properties/list?destinationId=" + location + "&pageNumber=1&checkIn=" + checkIn + "&checkOut=" + checkOut + "&pageSize=10&adults1=1&currency=USD&starRatings=4&locale=en_US&sortOrder=PRICE&guestRatingMin=6",
             "method": "GET",
             "headers": {
-                "x-rapidapi-key": "9f5a975ae6mshbca34daf924fdecp158a23jsn28c8dc4d8933",
+                "x-rapidapi-key": "0cded407b3mshf97093a75a9b392p13a5a5jsn15012c150eb9",
                 "x-rapidapi-host": "hotels4.p.rapidapi.com"
             }
         }
