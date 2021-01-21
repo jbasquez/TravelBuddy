@@ -1,7 +1,7 @@
 //flightInformation = [quotesPrice,thisCarrierOut,thisCarrierIn,thisDepartureDate,thisArrivalDate,directFlight]
 var flightInformation = getFlight();
 
-$("#chooseThis").on("click", function (event) {
+$("#searchBtn").on("click", function (event) {
     event.preventDefault();
     getAirlineInfo();
     setTimeout(function() {
@@ -12,9 +12,7 @@ $("#chooseThis").on("click", function (event) {
 
 function displayAirlineInfo(flightInformation) {
 
-    console.log(flightInformation);
-
-    var flightShow = $("#availableFlights");
+    var flightShow = $("#flightsAndHotels");
 
     if (flightInformation.length > 0) {
         flightShow.empty();
@@ -58,18 +56,22 @@ function displayAirlineInfo(flightInformation) {
     }
 }
 
-$("#next").on("click", function () {
+$("#next").on("click", function (event) {
+    event.preventDefault();
     if (allFlights.length > 0) {
     next();
     flightInformation = returnFlight();
+    console.log(flightInformation);
     displayAirlineInfo(flightInformation);
     }
 });
 
-$("#previous").on("click", function () {
+$("#previous").on("click", function (event) {
+    event.preventDefault();
     if (counter > 4) {
     previous();
     flightInformation = returnFlight();
+    console.log(flightInformation);
     displayAirlineInfo(flightInformation);
     }
 });
