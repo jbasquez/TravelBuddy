@@ -79,11 +79,22 @@
         // image.attr("src", hotelPic);
         // $("#").append(image);
 
-        var image = hotelArray[0].thisUrl;
-        var test = $("<img>");
-        test.attr("src", image);
-        var appendHotel = $("#flightsAndHotels");
-        appendHotel.append(test);
+        for (var z=0; z < hotelArray.length; z++) {
+
+            var image = hotelArray[z].thisUrl;
+            var name = hotelArray[z].thisName;
+            var newRating = hotelArray[z].thisRating;
+            var test = $("<img>");
+            test.attr("src", image);
+            var nameP = $("<p>");
+            var ratingP = $("<p>");
+            nameP.text(name);
+            ratingP.text(newRating);
+            var appendHotel = $("#flightsAndHotels");
+            appendHotel.append(test);
+            appendHotel.append(nameP);
+            appendHotel.append(ratingP);
+        }    
     }
 
 
