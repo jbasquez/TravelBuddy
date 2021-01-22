@@ -1,12 +1,6 @@
 var hotelArray = [];
 var hotelQuery;
 var suggestions;
-var outDay;
-var inDay;
-var outboundY;
-var outboundM;
-var inboundM;
-var inboundY;
 
 
 function showSavedHotel() {
