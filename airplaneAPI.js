@@ -2,6 +2,10 @@ var counter = 0;
 var current = counter;
 var allFlights = [];
 var thisQuery;
+var outboundY;
+var outboundM;
+var inboundY;
+var inboundM;
 
 // show starting message
 message = $("<h2>");
@@ -27,19 +31,16 @@ function getAirlineInfo() {
     var destination = $("#destination").val();
     var destination = destination.toUpperCase();
     var destination = destination + "-sky";
-    var outboundY = $("#outboundY").val();
-    var outboundM = $("#outboundM").val();
+    outboundY = $("#outboundY").val();
+    outboundM = $("#outboundM").val();
     // var outboundD = $("#outboundD").val();
     var outboundDate = (outboundY + "-" + outboundM).trim();
-    console.log(outboundDate);
-    var inboundY = $("#inboundY").val();
-    var inboundM = $("#inboundM").val();
+    inboundY = $("#inboundY").val();
+    inboundM = $("#inboundM").val();
     // var inboundD = $("#inboundD").val();
     var inboundDate = (inboundY + "-" + inboundM).trim();
-    console.log(inboundDate);
 
     var queryURL = "https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsedates/v1.0/" + country + "/" + currency + "/" + locale + "/" + origin + "/" + destination + "/" + outboundDate + "/" + inboundDate;
-    console.log(queryURL);
 
     //Using Skyscanner API to get flight information
     const settings = {
@@ -53,9 +54,7 @@ function getAirlineInfo() {
             "x-rapidapi-host": "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com"
         },
         "success": function (response) {
-            console.log("hello");
             thisQuery = response;
-            console.log(thisQuery);
         },
         "fail": function () {
             alert("Error Getting Airline Information");
@@ -63,10 +62,7 @@ function getAirlineInfo() {
     };
 
     $.ajax(settings).done(function (response) {
-    console.log("Hello");
     thisQuery = response;
-    console.log(thisQuery);
-
 });
 }
 

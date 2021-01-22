@@ -68,12 +68,10 @@ function noFlights() {
 
 function nextButton() {
     if (goHotel === false) {
-        console.log(allFlights.length);
         // $("html, body").animate({ scrollTop: 0 }, "slow");
         if (allFlights.length > 0) {
         next();
         flightInformation = returnFlight();
-        console.log(flightInformation);
         displayAirlineInfo(flightInformation);
         }
     }
@@ -91,7 +89,6 @@ function previousButton() {
         if (counter > 4) {
         previous();
         flightInformation = returnFlight();
-        console.log(flightInformation);
         displayAirlineInfo(flightInformation);
         }
     }
@@ -144,7 +141,7 @@ function displayAirlineInfo(flightInformation) {
 
         var button = $("<button>");
         button.attr("class","saveFlight mt-2 btn btn-primary btn-sm btn-success");
-        button.attr("value",cost + "/" + direct + "/" + outFly + "/" + depart + "/" + inFly + "/" + arrive);
+        button.attr("value",cost + "~" + direct + "~" + outFly + "~" + depart + "~" + inFly + "~" + arrive);
         button.attr("onClick","saveFlight($(this).val()), callHotels(), showSavedFlight(), moveOn()");
         button.text("Click to Save");
         infoCard.append(button);
@@ -153,13 +150,13 @@ function displayAirlineInfo(flightInformation) {
 
 function saveFlight(saveThis) {
     storeFlight(saveThis);
-    console.log(saveThis);
-
     var getTheDay = saveThis.split("~");
 
     var leaveDay = getTheDay[3];
     inDay = leaveDay.slice(-2);
+    
     console.log("INDAY IS " + inDay);
+
     var returnDay = getTheDay[5];
     outDay = returnDay.slice(-2);
     console.log(outDay);

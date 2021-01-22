@@ -71,7 +71,6 @@ function updatePage(response) {
     }).then(function(response) {
         hotelQuery = response;
         var check = hotelQuery.data.body.searchResults.results;
-        console.log(hotelQuery);
         if (check.length > 0) {
             getMoreInfo();
         } else {
@@ -85,11 +84,8 @@ function getMoreInfo() {
     var suggestions = hotelQuery.data.body.searchResults.results;
     hotelArray = [];
     current = counter;
-    console.log(suggestions.length);
 
     for (counter = current; current < counter + 5 && current < suggestions.length; current++) {
-        console.log(current);
-        console.log(counter);
         var hotelName = suggestions[current].name;
         var rating = suggestions[current].guestReviews.rating + "/10";
         var hotelPic = suggestions[current].thumbnailUrl;
@@ -97,12 +93,14 @@ function getMoreInfo() {
         var hotelObject = {
             thisName: hotelName,
             thisRating: rating,
-            thisURL: hotelPic
+            thisUrl: hotelPic
         };
-
+        
         hotelArray.push(hotelObject);
 
     }
+
+    console.log(hotelArray);
     displayResults();
 }
 
@@ -118,28 +116,33 @@ function displayResults() {
     if (hotelArray.length > 0) {
         appendHotel.empty();
     }
+    for (var z=0; z < hotelArray.length; z++) {
+        var image = hotelArray[z].thisUrl;
+        console.log(image);
+        var name = hotelArray[z].thisName;
+        var newRating = hotelArray[z].thisRating;
 
-    var hotelShow = $("#flightsAndHotels");
-    hotelShow.empty();
+        var test = $("<img>");
+        test.attr("src", image);
 
-    for (var e = 0; e < hotelArray.length; e++) {
         var nameP = $("<p>");
-        var newName = hotelArray[e].thisName;
-        nameP.text(newName);
+        nameP.text(name);
 
         var ratingP = $("<p>");
-        var newRating = hotelArray[e].thisRating;
         ratingP.text(newRating);
+
         appendHotel.append(test);
         appendHotel.append(nameP);
         appendHotel.append(ratingP);
+
         var button = $("<button>");
         button.attr("class","saveHotel");
         button.attr("value", name + "~" + newRating + "~" + image);
         button.attr("onClick", "saveHotel($(this).val()), showSavedHotel()");
         button.text("Click to Save");
+
         appendHotel.append(button);
-    }    
+    }
 }
 
 function saveHotel(hotelInfo) {
