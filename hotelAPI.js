@@ -2,6 +2,7 @@ var hotelArray = [];
 var hotelQuery;
 var suggestions;
 
+
 function showSavedHotel() {
     var showHotels = $(".savedHotel");
     var hideHotels = $("#flightsAndHotels");
@@ -27,13 +28,8 @@ function callHotels() {
     var hotels = $("#flightsAndHotels");
     hotels.empty();
 
-    var city = "miami";
-
-    var location;
-    var hotelName;
-    var hotelPic;
-    var rating;
-    var image;
+    var city = $("#city").val();
+    
     var settings = {
         "async": true,
         "crossDomain": true,
@@ -53,9 +49,8 @@ function callHotels() {
 
 function updatePage(response) {
     var location = response.suggestions[0].entities[0].destinationId;
-    var checkIn = "2021-02-20";
-    var checkOut= "2021-02-25";
-
+    var checkIn = inboundY + "-" + inboundM + "-" + inDay;
+    var checkOut = outboundY + "-" + outboundM + "-" + outDay;
     var settings = {
         "async": true,
         "crossDomain": true,
