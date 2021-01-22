@@ -74,7 +74,19 @@ function getMoreInfo() {
         hotelArray.push(hotelObject);
     }
     console.log(hotelArray);
-    displayResults();
+    if (hotelArray.length > 0) {
+        displayResults();
+    } else {
+        displayEmpty();
+    }
+
+}
+
+function displayEmpty() {
+    var noHotels = $("#flightsAndHotels");
+    var hotelsP = $("<p>");
+    hotelsP.text("No hotels available at this time!");
+    noHotels.append(hotelsP);
 }
 
 function displayResults() {
