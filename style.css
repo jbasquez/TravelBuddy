@@ -82,8 +82,13 @@ select {
 }
 
 #startMessage {
+<<<<<<< HEAD
     /* padding-top: 180px; */
     align-items: center;
+=======
+    padding-left: 17%;
+    padding-top: 13%;
+>>>>>>> dc5743ba4c1ecfe88595a6027f5500e1d606ef30
     font-family: 'Days One', sans-serif;
     font-size: 28px;
     color: whitesmoke;
