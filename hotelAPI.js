@@ -23,6 +23,8 @@ function showSavedHotel() {
     showHotels.append(imageTag);
 }
 
+showSavedHotel();
+
 function callHotels() { 
     counter = 0;
     var hotels = $("#flightsAndHotels");
