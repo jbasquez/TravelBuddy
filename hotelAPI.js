@@ -1,6 +1,37 @@
 var hotelArray = [];
 var hotelQuery;
 
+function showSavedHotel() {
+
+    var hideInfo = $("#flightsAndHotels");
+    hideInfo.empty();
+
+    var storedHotelInfo = localStorage.getItem("hotel");
+    var storedHotelArray = storedHotelInfo.split("~");
+
+    var appendHotel = $(".savedFlight");
+
+    var thisHotelName = $("<p>");
+    var thisHotelRating = $("<p>");
+    var thisHotelUrl = $("<img>");
+    var thisHeading = $("<h2>");
+    thisHeading.attr("class","hotelHeader");
+
+    thisHeading.text("Your Hotel Information")
+    thisHotelName.text("Name: " + storedHotelArray[0]);
+    thisHotelRating.text("User Rating: " + storedHotelArray[1]);
+    thisHotelUrl.attr("src",storedHotelArray[2]);
+
+    appendHotel.append(thisHeading);
+    appendHotel.append(thisHotelName);
+    appendHotel.append(thisHotelRating);
+    appendHotel.append(thisHotelUrl);
+
+
+}
+
+showSavedHotel();
+
 function callHotels() {
     counter = 0;
 
@@ -32,8 +63,10 @@ function callHotels() {
 
 function updatePage(response) {
     var location = response.suggestions[0].entities[0].destinationId;
-    var checkIn = "2020-01-20";
-    var checkOut = "2020-01-25";
+    var checkIn = "2020-02-10";
+    //var checkIn = outDay;
+    var checkOut = "2020-02-15";
+    //var checkOut = inDay;
 
     var settings = {
         "async": true,
@@ -63,8 +96,6 @@ function getMoreInfo() {
 
     //5 = 5             5 < 5+5                  5<30               5+1
     for (counter = current; current < counter + 5 && current < suggestions.length; current++) {
-        console.log("counter = " + counter);
-        console.log("current = " + current);
         var hotelName = suggestions[current].name;
         var rating = suggestions[current].guestReviews.rating + "/10";
         var hotelPic = suggestions[current].thumbnailUrl;
@@ -77,7 +108,6 @@ function getMoreInfo() {
 
         hotelArray.push(hotelObject);
     }
-    console.log(hotelArray);
     if (hotelArray.length > 0) {
     appendHotel();
     }
@@ -85,8 +115,8 @@ function getMoreInfo() {
 
 function appendHotel() {
 
-    var appendHotel = $("#flightsAndHotels");
-    appendHotel.empty();
+    var hotelShow = $("#flightsAndHotels");
+    hotelShow.empty();
 
     for (var e = 0; e < hotelArray.length; e++) {
         var nameP = $("<p>");
@@ -101,13 +131,19 @@ function appendHotel() {
         var image = hotelArray[e].thisURL;
         newImage.attr("src", image);
 
-        appendHotel.append(nameP);
-        appendHotel.append(ratingP);
-        appendHotel.append(newImage);
+        var button = $("<button>");
+        button.attr("class", "saveFlight");
+        button.attr("value", newName + "~" + newRating + "~" + image);
+        button.attr("onClick", "saveHotel($(this).val()), showSavedHotel()");
+        button.text("Click to Save");
+        
+        hotelShow.append(nameP);
+        hotelShow.append(ratingP);
+        hotelShow.append(newImage);
+        hotelShow.append(button);
     }
 }
 
-function storeHotel(hotelInfo) {
-    localStorage.setItem("flight", flightInfo);
+function saveHotel(hotelInfo) {
+    localStorage.setItem("hotel", hotelInfo);
 }
-
