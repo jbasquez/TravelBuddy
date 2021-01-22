@@ -117,6 +117,10 @@ function displayResults() {
     }    
 }
 
+function saveHotel(hotelInfo) {
+    localStorage.setItem("hotel", hotelInfo);
+}
+
 
 
 
