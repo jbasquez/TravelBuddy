@@ -4,6 +4,7 @@ html, body {
     overflow-x: hidden;
     padding-top: 37px;
     background-image: url(body-background.jpg);
+    background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -78,9 +79,12 @@ select {
 
 #contentRow {
     margin-left: 280px;
+
 }
 
 #startMessage {
+    /* padding-top: 180px; */
+    align-items: center;
     padding-left: 17%;
     padding-top: 13%;
     font-family: 'Days One', sans-serif;
