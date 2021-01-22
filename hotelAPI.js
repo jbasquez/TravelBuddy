@@ -61,7 +61,7 @@ function callHotels() {
 function updatePage(response) {
     var location = response.suggestions[0].entities[0].destinationId;
     var checkIn = inboundY + "-" + inboundM + "-" + inDay;
-    var checkOut = outboundY + "-" outboundM + "-" + outDay;
+    var checkOut = outboundY + "-" + outboundM + "-" + outDay;
     var settings = {
         "async": true,
         "crossDomain": true,
