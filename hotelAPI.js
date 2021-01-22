@@ -1,42 +1,31 @@
 var hotelArray = [];
 var hotelQuery;
+var suggestions;
 
 function showSavedHotel() {
-
-    var hideInfo = $("#flightsAndHotels");
-    hideInfo.empty();
-
-    var storedHotelInfo = localStorage.getItem("hotel");
-    var storedHotelArray = storedHotelInfo.split("~");
-
-    var appendHotel = $(".savedFlight");
-
-    var thisHotelName = $("<p>");
-    var thisHotelRating = $("<p>");
-    var thisHotelUrl = $("<img>");
-    var thisHeading = $("<h2>");
-    thisHeading.attr("class","hotelHeader");
-
-    thisHeading.text("Your Hotel Information")
-    thisHotelName.text("Name: " + storedHotelArray[0]);
-    thisHotelRating.text("User Rating: " + storedHotelArray[1]);
-    thisHotelUrl.attr("src",storedHotelArray[2]);
-
-    appendHotel.append(thisHeading);
-    appendHotel.append(thisHotelName);
-    appendHotel.append(thisHotelRating);
-    appendHotel.append(thisHotelUrl);
-
-
+    var showHotels = $(".savedHotel");
+    var hideHotels = $("#flightsAndHotels");
+    hideHotels.empty();
+    var getHotelInfo = localStorage.getItem("hotel");
+    var getHotelArray = getHotelInfo.split("~");
+    var hotelNameP = $("<p>");
+    var ratingPTag = $("<p>");
+    var imageTag = $("<img>");
+    var hotelHeading = $("<h2>");
+    hotelNameP.text("Name: " + getHotelArray[0]);
+    ratingPTag.text("Guest Rating: " + getHotelArray[1]);
+    imageTag.attr("src", getHotelArray[2]);
+    hotelHeading.text("Your Hotel Information: ");
+    showHotels.append(hotelHeading);
+    showHotels.append(hotelNameP);
+    showHotels.append(ratingPTag);
+    showHotels.append(imageTag);
 }
 
-showSavedHotel();
-
-function callHotels() {
+function callHotels() { 
     counter = 0;
-
-    var hotelPlace = $("#flightsAndHotels");
-    hotelPlace.empty();
+    var hotels = $("#flightsAndHotels");
+    hotels.empty();
 
     var city = "miami";
 
@@ -64,10 +53,8 @@ function callHotels() {
 
 function updatePage(response) {
     var location = response.suggestions[0].entities[0].destinationId;
-    var checkIn = "2020-02-10";
-    //var checkIn = outDay;
-    var checkOut = "2020-02-15";
-    //var checkOut = inDay;
+    var checkIn = "2021-02-20";
+    var checkOut= "2021-02-25";
 
     var settings = {
         "async": true,
@@ -81,22 +68,28 @@ function updatePage(response) {
     }
 
     $.ajax(settings).done(function (response) {
-    }).then(function (response) {
+    }).then(function(response) {
         hotelQuery = response;
-        getMoreInfo();
+        var check = hotelQuery.data.body.searchResults.results;
+        console.log(hotelQuery);
+        if (check.length > 0) {
+            getMoreInfo();
+        } else {
+            displayEmpty();
+        }
     });
 
 }
 
 function getMoreInfo() {
-    hotelArray = [];
-
     var suggestions = hotelQuery.data.body.searchResults.results;
-
+    hotelArray = [];
     current = counter;
+    console.log(suggestions.length);
 
-    //5 = 5             5 < 5+5                  5<30               5+1
     for (counter = current; current < counter + 5 && current < suggestions.length; current++) {
+        console.log(current);
+        console.log(counter);
         var hotelName = suggestions[current].name;
         var rating = suggestions[current].guestReviews.rating + "/10";
         var hotelPic = suggestions[current].thumbnailUrl;
@@ -108,14 +101,23 @@ function getMoreInfo() {
         };
 
         hotelArray.push(hotelObject);
+
     }
-    
-    if (hotelArray.length > 0) {
-    appendHotel();
-    }
+    displayResults();
 }
 
-function appendHotel() {
+function displayEmpty() {
+    var noHotels = $("#flightsAndHotels");
+    var hotelsP = $("<h2>");
+    hotelsP.text("No hotels available at this time!");
+    noHotels.append(hotelsP);
+}
+
+function displayResults() {
+    var appendHotel = $("#flightsAndHotels");
+    if (hotelArray.length > 0) {
+        appendHotel.empty();
+    }
 
     var hotelShow = $("#flightsAndHotels");
     hotelShow.empty();
@@ -128,22 +130,16 @@ function appendHotel() {
         var ratingP = $("<p>");
         var newRating = hotelArray[e].thisRating;
         ratingP.text(newRating);
-
-        var newImage = $("<img>");
-        var image = hotelArray[e].thisURL;
-        newImage.attr("src", image);
-
+        appendHotel.append(test);
+        appendHotel.append(nameP);
+        appendHotel.append(ratingP);
         var button = $("<button>");
-        button.attr("class", "saveFlight");
-        button.attr("value", newName + "~" + newRating + "~" + image);
+        button.attr("class","saveHotel");
+        button.attr("value", name + "~" + newRating + "~" + image);
         button.attr("onClick", "saveHotel($(this).val()), showSavedHotel()");
         button.text("Click to Save");
-        
-        hotelShow.append(nameP);
-        hotelShow.append(ratingP);
-        hotelShow.append(newImage);
-        hotelShow.append(button);
-    }
+        appendHotel.append(button);
+    }    
 }
 
 function saveHotel(hotelInfo) {

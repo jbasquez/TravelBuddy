@@ -31,19 +31,30 @@ function showSavedFlight() {
 showSavedFlight();
 
 $("#searchBtn").on("click", function (event) {
-    var clearHere = $(".savedFlight");
-    clearHere.empty();
-
+    $("#pageButtons").empty();
     event.preventDefault();
     getAirlineInfo();
-    setTimeout(function () {
-        flightInformation = returnFlight();
-        if (flightInformation.length > 1) {
-            displayAirlineInfo(flightInformation);
-        }
-        else {
-            noFlights();
-        }
+    $("#startMessage").hide();
+
+    setTimeout(function() {
+    flightInformation = returnFlight();
+    displayAirlineInfo(flightInformation);
+
+        // append page buttons
+        preBtn = $("<button>");
+        preBtn.attr("id", "previous");
+        preBtn.attr("class", "mr-1 mt-5 btn btn-primary btn-sm");
+        preBtn.text("Previous");
+        preBtn.attr("onClick", "previousButton()");
+        nxtBtn = $("<button>");
+        nxtBtn.attr("id", "next");
+        nxtBtn.attr("class", "ml-1 mt-5 btn btn-primary btn-sm");
+        nxtBtn.attr("onClick", "nextButton()");
+        nxtBtn.text("Next");
+        $("#pageButtons").append(preBtn);
+        $("#pageButtons").append(nxtBtn);
+    
+
     }, 2000);
     goHotel = false;
 });
@@ -53,6 +64,44 @@ function noFlights() {
     var noFly = $("<p>");
     noFly.text("I am sorry, there don't appear to be any flights at the requested Time");
     flightArea.append(noFly);
+}
+
+function nextButton() {
+    if (goHotel === false) {
+        console.log(allFlights.length);
+        // $("html, body").animate({ scrollTop: 0 }, "slow");
+        if (allFlights.length > 0) {
+        next();
+        flightInformation = returnFlight();
+        console.log(flightInformation);
+        displayAirlineInfo(flightInformation);
+        }
+    }
+    if (goHotel === true) {
+        if (hotelArray.length > 0) {
+            next();
+            getMoreInfo();
+        }
+    }
+}
+
+function previousButton() {
+    if (goHotel === false) {
+        // $("html, body").animate({ scrollTop: 0 }, "slow");
+        if (counter > 4) {
+        previous();
+        flightInformation = returnFlight();
+        console.log(flightInformation);
+        displayAirlineInfo(flightInformation);
+        }
+    }
+    if (goHotel === true) {
+        if (counter > 4) {
+            previous();
+            getMoreInfo();
+
+        }
+    }
 }
 
 function displayAirlineInfo(flightInformation) {
@@ -94,52 +143,13 @@ function displayAirlineInfo(flightInformation) {
         infoCard.append(infoCarrierIn);
 
         var button = $("<button>");
-        button.attr("class", "saveFlight");
-        button.attr("value", cost + "~" + direct + "~" + outFly + "~" + depart + "~" + inFly + "~" + arrive);
-        button.attr("onClick", "saveFlight($(this).val()), callHotels(), showSavedFlight(), moveOn()");
+        button.attr("class","saveFlight mt-2 btn btn-primary btn-sm btn-success");
+        button.attr("value",cost + "/" + direct + "/" + outFly + "/" + depart + "/" + inFly + "/" + arrive);
+        button.attr("onClick","saveFlight($(this).val()), callHotels(), showSavedFlight(), moveOn()");
         button.text("Click to Save");
         infoCard.append(button);
-
-        // var horizontalRule = $("<hr style: color='yellow'>");
-        // infoCard.append(horizontalRule);
     }
 }
-
-$("#next").on("click", function (event) {
-    event.preventDefault();
-    if (goHotel === false) {
-        if (allFlights.length > 0) {
-            next();
-            flightInformation = returnFlight();
-            displayAirlineInfo(flightInformation);
-        }
-    }
-
-    if (goHotel === true) {
-        if (hotelArray.length > 0) {
-            getMoreInfo();
-            next();
-        }
-    }
-});
-
-$("#previous").on("click", function (event) {
-    event.preventDefault();
-    if (goHotel === false) {
-        if (counter > 4) {
-            previous();
-            flightInformation = returnFlight();
-            displayAirlineInfo(flightInformation);
-        }
-    }
-
-    if (goHotel === true) {
-        if (counter > 4) {
-            previous();
-            getMoreInfo();
-        }
-    }
-});
 
 function saveFlight(saveThis) {
     storeFlight(saveThis);
@@ -156,5 +166,5 @@ function saveFlight(saveThis) {
 }
 
 function moveOn() {
-    goHotel = true;
+    goHotel =  true;
 }
