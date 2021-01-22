@@ -42,18 +42,28 @@ $("#next").on("click", function (event) {
     if (goHotel === true) {
         if (hotelArray.length > 0) {
             next();
+            getMoreInfo();
         }
     }
 });
 
 $("#previous").on("click", function (event) {
     event.preventDefault();
-    $("html, body").animate({ scrollTop: 0 }, "slow");
-    if (counter > 4) {
-    previous();
-    flightInformation = returnFlight();
-    console.log(flightInformation);
-    displayAirlineInfo(flightInformation);
+    if (gotHotel === false) {
+        $("html, body").animate({ scrollTop: 0 }, "slow");
+        if (counter > 4) {
+        previous();
+        flightInformation = returnFlight();
+        console.log(flightInformation);
+        displayAirlineInfo(flightInformation);
+        }
+    }
+    if (goHotel === true) {
+        if (counter > 4) {
+            previous();
+            getMoreInfo();
+
+        }
     }
 });
 
