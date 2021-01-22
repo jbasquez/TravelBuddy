@@ -109,6 +109,7 @@ function getMoreInfo() {
 
         hotelArray.push(hotelObject);
     }
+    
     if (hotelArray.length > 0) {
     appendHotel();
     }

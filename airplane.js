@@ -117,6 +117,7 @@ $("#next").on("click", function (event) {
 
     if (goHotel === true) {
         if (hotelArray.length > 0) {
+            getMoreInfo();
             next();
         }
     }
