@@ -1,5 +1,27 @@
 var hotelArray = [];
 var hotelQuery;
+var suggestions;
+
+function showSavedHotel() {
+    var showHotels = $(".savedHotel");
+    var hideHotels = $("#flightsAndHotels");
+    hideHotels.empty();
+    var getHotelInfo = localStorage.getItem("hotel");
+    var getHotelArray = getHotelInfo.split("~");
+    var hotelNameP = $("<p>");
+    var ratingPTag = $("<p>");
+    var imageTag = $("<img>");
+    var hotelHeading = $("<h2>");
+    hotelNameP.text("Name: " + getHotelArray[0]);
+    ratingPTag.text("Guest Rating: " + getHotelArray[1]);
+    imageTag.attr("src", getHotelArray[2]);
+    hotelHeading.text("Your Hotel Information: ");
+    showHotels.append(hotelHeading);
+    showHotels.append(hotelNameP);
+    showHotels.append(ratingPTag);
+    showHotels.append(imageTag);
+}
+
 
 function callHotels() { 
     counter = 0;
@@ -47,7 +69,13 @@ function updatePage(response) {
     $.ajax(settings).done(function (response) {
     }).then(function(response) {
         hotelQuery = response;
-        getMoreInfo();
+        var check = hotelQuery.data.body.searchResults.results;
+        console.log(hotelQuery);
+        if (check.length > 0) {
+            getMoreInfo();
+        } else {
+            displayEmpty();
+        }
     });
 
 }
@@ -56,9 +84,11 @@ function getMoreInfo() {
     var suggestions = hotelQuery.data.body.searchResults.results;
     hotelArray = [];
     current = counter;
+    console.log(suggestions.length);
 
     for (counter = current; current < counter + 5 && current < suggestions.length; current++) {
-
+        console.log(current);
+        console.log(counter);
         var hotelName = suggestions[current].name;
         var rating = suggestions[current].guestReviews.rating + "/10";
         var hotelPic = suggestions[current].thumbnailUrl;
@@ -71,27 +101,21 @@ function getMoreInfo() {
         hotelArray.push(hotelObject);
 
     }
-    if (hotelArray.length > 0) {
-        displayResults();
-    } else {
-        displayEmpty();
-    }
-
+    displayResults();
 }
 
 function displayEmpty() {
     var noHotels = $("#flightsAndHotels");
-    var hotelsP = $("<p>");
+    var hotelsP = $("<h2>");
     hotelsP.text("No hotels available at this time!");
     noHotels.append(hotelsP);
 }
 
 function displayResults() {
-    // $("#").append(hotelName);
-    // $("#").append(rating);
-    // var image = $("<img>");
-    // image.attr("src", hotelPic);
-    // $("#").append(image);
+    var appendHotel = $("#flightsAndHotels");
+    if (hotelArray.length > 0) {
+        appendHotel.empty();
+    }
 
     for (var z=0; z < hotelArray.length; z++) {
 
@@ -104,7 +128,6 @@ function displayResults() {
         var ratingP = $("<p>");
         nameP.text(name);
         ratingP.text(newRating);
-        var appendHotel = $("#flightsAndHotels");
         appendHotel.append(test);
         appendHotel.append(nameP);
         appendHotel.append(ratingP);

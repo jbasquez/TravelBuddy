@@ -3,6 +3,7 @@ var flightInformation = getFlight();
 var goHotel = false;
 
 $("#searchBtn").on("click", function (event) {
+    $("#pageButtons").empty();
     event.preventDefault();
     getAirlineInfo();
     $("#startMessage").hide();
@@ -16,9 +17,11 @@ $("#searchBtn").on("click", function (event) {
         preBtn.attr("id", "previous");
         preBtn.attr("class", "mr-1 mt-5 btn btn-primary btn-sm");
         preBtn.text("Previous");
+        preBtn.attr("onClick", "previousButton()");
         nxtBtn = $("<button>");
         nxtBtn.attr("id", "next");
         nxtBtn.attr("class", "ml-1 mt-5 btn btn-primary btn-sm");
+        nxtBtn.attr("onClick", "nextButton()");
         nxtBtn.text("Next");
         $("#pageButtons").append(preBtn);
         $("#pageButtons").append(nxtBtn);
@@ -28,10 +31,10 @@ $("#searchBtn").on("click", function (event) {
     goHotel = false;
 });
 
-$("#next").on("click", function (event) {
-    event.preventDefault();
+function nextButton() {
     if (goHotel === false) {
-        $("html, body").animate({ scrollTop: 0 }, "slow");
+        console.log(allFlights.length);
+        // $("html, body").animate({ scrollTop: 0 }, "slow");
         if (allFlights.length > 0) {
         next();
         flightInformation = returnFlight();
@@ -45,12 +48,11 @@ $("#next").on("click", function (event) {
             getMoreInfo();
         }
     }
-});
+}
 
-$("#previous").on("click", function (event) {
-    event.preventDefault();
-    if (gotHotel === false) {
-        $("html, body").animate({ scrollTop: 0 }, "slow");
+function previousButton() {
+    if (goHotel === false) {
+        // $("html, body").animate({ scrollTop: 0 }, "slow");
         if (counter > 4) {
         previous();
         flightInformation = returnFlight();
@@ -65,7 +67,7 @@ $("#previous").on("click", function (event) {
 
         }
     }
-});
+}
 
 function displayAirlineInfo(flightInformation) {
 
