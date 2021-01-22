@@ -3,6 +3,7 @@ var hotelQuery;
 
 function callHotels() { 
     
+    counter = 0;
     var hotels = $("#flightsAndHotels");
     hotels.empty();
 
@@ -49,20 +50,21 @@ function updatePage(response) {
     }).then(function(response) {
         hotelQuery = response;
         console.log(hotelQuery);
-        // getMoreInfo(response);
+        getMoreInfo();
     });
 
 }
 
-function getMoreInfo(response) {
+function getMoreInfo() {
     var suggestions = hotelQuery.data.body.searchResults.results;
     hotelArray = [];
     console.log(suggestions);
+    current = counter;
 
-    for (var i = 0; i < suggestions.length; i++) {
-        var hotelName = suggestions[i].name;
-        var rating = suggestions[i].guestReviews.rating + "/10";
-        var hotelPic = suggestions[i].thumbnailUrl;
+    for (counter = current; current < counter + 5 && current < suggestions; current++) {
+        var hotelName = suggestions[current].name;
+        var rating = suggestions[current].guestReviews.rating + "/10";
+        var hotelPic = suggestions[current].thumbnailUrl;
         console.log(hotelName, hotelPic, rating);
         var hotelObject = {
             thisName: hotelName,
