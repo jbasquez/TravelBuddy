@@ -44,6 +44,7 @@ function callHotels() {
     var hotelName;
     var hotelPic;
     var rating;
+    var image;
     var settings = {
         "async": true,
         "crossDomain": true,

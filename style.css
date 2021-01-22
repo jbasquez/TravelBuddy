@@ -1,9 +1,8 @@
-html,body {
+html, body {
     width: 100%;
     height: auto;
     overflow-x: hidden;
-    margin: 0px;
-    padding: 0px;
+    padding-top: 37px;
     background-image: url(body-background.jpg);
     background-repeat: no-repeat;
     background-size: cover;
@@ -12,7 +11,7 @@ html,body {
 .titlebar {
     color: rgb(19, 12, 6);
     background: rgba(139, 99, 181, 0.534);
-    background: linear-gradient(90deg, rgba(139, 99, 181, 0.664) 0%, rgba(159, 95, 161, 0.712) 49%, rgba(171, 158, 175, 0.685) 100%);
+    background: linear-gradient(90deg, rgba(139, 99, 181, 0.897) 0%, rgba(159, 95, 161, 0.897) 49%, rgba(171, 158, 175, 0.897) 100%);
     border-bottom: 2px solid rgb(230, 230, 230);
     text-shadow:     
     -1px -1px 0 rgba(255, 255, 255, 0),
@@ -48,6 +47,7 @@ img {
     3px 3px 3px rgba(0,0,0,.25),
     10px 10px 20px rgba(0,0,0,.5),
     20px 40px 40px rgba(0,0,0,.5); 
+    z-index: +1;
 }
 
 label {
@@ -76,8 +76,13 @@ select {
     float: right;
 }
 
+#contentRow {
+    margin-left: 280px;
+}
+
 #startMessage {
-    padding-top: 255px;
+    padding-left: 17%;
+    padding-top: 13%;
     font-family: 'Days One', sans-serif;
     font-size: 28px;
     color: whitesmoke;
@@ -86,7 +91,7 @@ select {
     1px 1px 0 rgba(0,0,0,.25),
     3px 3px 3px rgba(0,0,0,.25),
     10px 10px 20px rgba(0,0,0,.5),
-    20px 40px 40px rgba(0,0,0,.5); ;
+    20px 40px 40px rgba(0,0,0,.5);
 }
 
 #infoRow {
@@ -99,6 +104,36 @@ select {
     10px 10px 20px rgba(0,0,0,.5),
     20px 40px 40px rgba(0,0,0,.5); 
     
+}
+
+#pageButtons {
+    margin-left: 280px;
+}
+
+.card {
+    background-color: rgba(0, 0, 0, 0.555);
+    color: whitesmoke;
+    box-shadow:
+    -1px -1px 0 rgba(255, 255, 255, 0),
+    1px 1px 0 rgba(0,0,0,.25),
+    3px 3px 3px rgba(0,0,0,.25),
+    10px 10px 20px rgba(0,0,0,.5),
+    20px 40px 40px rgba(0,0,0,.5); 
+}
+
+h3 {
+    font-family: 'Days One';
+    font-size: 20px;
+    text-shadow:    
+    -1px -1px 0 rgba(255, 255, 255, 0),
+    1px 1px 0 rgba(0,0,0,.25),
+    3px 3px 3px rgba(0,0,0,.25),
+    10px 10px 20px rgba(0,0,0,.5),
+    20px 40px 40px rgba(0,0,0,.5);
+}
+
+p {
+    font-weight: bold;
 }
 
 footer {

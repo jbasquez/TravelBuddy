@@ -26,21 +26,21 @@
 
 <body>
   <!-- Title bar -->
-  <nav class="navbar titlebar">
+  <nav class="navbar titlebar fixed-top">
     <div class="container-fluid justify-content-center">
       <span id="title" class="m-1 h1">Travel Buddy</span><img id="travelBud" src="./TravelBud.png">
     </div>
   </nav>
 
 
-  <div class="row min-vh-100">
-    <aside id="sideBar" class="col-3-auto p-4">
+  <div class="row">
+    <aside id="sideBar" class="col-3-auto p-4 vh-100 position-fixed">
       <!-- search forms -->
       <form>
         <div class="form-group col-auto largeForms">
           <label for="formGroupExampleInput">City:</label>
           <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Orlando">
-          
+
           <!-- origin (airport name) -->
           <label class="mt-2" for="formGroupExampleInput">Origin Airport:</label>
           <input type="text" class="form-control" id="origin" placeholder="Ex. lax">
@@ -52,94 +52,94 @@
           <!-- outbound date -->
           <label class="mt-2" for="inputYear">Departure Date:</label>
           <div class="row mb-n2 justify-content-center">
-              <div class="form-group">
-                <select id="outboundM" class="form-control-md p-1 pl-3">
-                  <option selected>MM</option>
-                  <option>01</option>
-                  <option>02</option>
-                  <option>03</option>
-                  <option>04</option>
-                  <option>05</option>
-                  <option>06</option>
-                  <option>07</option>
-                  <option>08</option>
-                  <option>09</option>
-                  <option>10</option>
-                  <option>11</option>
-                  <option>12</option>
-                </select>
-              </div> 
-              <div class="form-group smallForms">
-                <select id="outboundY" class="form-control-md p-1 pl-2">
-                  <option selected>YYYY</option>
-                  <option>2021</option>
-                  <option>2022</option>
-                  <option>2023</option>
-                  <option>2024</option>
-                  <option>2025</option>
-                </select>
-              </div>
+            <div class="form-group">
+              <select id="outboundM" class="form-control-md p-1 pl-3">
+                <option selected>MM</option>
+                <option>01</option>
+                <option>02</option>
+                <option>03</option>
+                <option>04</option>
+                <option>05</option>
+                <option>06</option>
+                <option>07</option>
+                <option>08</option>
+                <option>09</option>
+                <option>10</option>
+                <option>11</option>
+                <option>12</option>
+              </select>
+            </div>
+
+            <div class="form-group smallForms">
+              <select id="outboundY" class="form-control-md p-1 pl-2">
+                <option selected>YYYY</option>
+                <option>2021</option>
+                <option>2022</option>
+                <option>2023</option>
+                <option>2024</option>
+                <option>2025</option>
+              </select>
+            </div>
           </div>
 
           <!-- inbound date -->
           <label class="" for="inputYear">Return Date:</label>
           <div class="row justify-content-center">
-              <div class="form-group smallerForms">
-                <select id="inboundM" class="form-control-md p-1 pl-3">
-                  <option selected>MM</option>
-                  <option>01</option>
-                  <option>02</option>
-                  <option>03</option>
-                  <option>04</option>
-                  <option>05</option>
-                  <option>06</option>
-                  <option>07</option>
-                  <option>08</option>
-                  <option>09</option>
-                  <option>10</option>
-                  <option>11</option>
-                  <option>12</option>
-                </select>
-              </div>
-              <div class="form-group smallForms">
-                <select id="inboundY" class="form-control-md p-1 pl-2">
-                  <option selected>YYYY</option>
-                  <option>2021</option>
-                  <option>2022</option>
-                  <option>2023</option>
-                  <option>2024</option>
-                  <option>2025</option>
-                </select>
-              </div>
+            <div class="form-group smallerForms">
+              <select id="inboundM" class="form-control-md p-1 pl-3">
+                <option selected>MM</option>
+                <option>01</option>
+                <option>02</option>
+                <option>03</option>
+                <option>04</option>
+                <option>05</option>
+                <option>06</option>
+                <option>07</option>
+                <option>08</option>
+                <option>09</option>
+                <option>10</option>
+                <option>11</option>
+                <option>12</option>
+              </select>
             </div>
+            <div class="form-group smallForms">
+              <select id="inboundY" class="form-control-md p-1 pl-2">
+                <option selected>YYYY</option>
+                <option>2021</option>
+                <option>2022</option>
+                <option>2023</option>
+                <option>2024</option>
+                <option>2025</option>
+              </select>
+            </div>
+          </div>
         </div>
         <button id="searchBtn" class="btn btn-primary mr-4" type="submit">Search</button>
-        
-      <button id="previous">Previous</button>
-      <button id="next">Next</button> 
+
+
       </form>
     </aside>
 
     <article class="col">
-
-      <!-- hide this after first search -->
       <div class="row justify-content-center">
 
-        <!-- Add Saved Flight Information -->
         <div class="savedFlight"></div>
-
-        <h2 id="startMessage" class="m-1 ml-4 mr-4">Travel Buddy helps you find the best prices on flights and hotels!</h2>
+        <div id="startMessage"></div>
+        <div id="flightsAndHotels"></div>
       </div>
-      <div id="flightsAndHotels"></div>
+      <div id="pageButtons" class="row mb-5 justify-content-center">
+
+      </div>
+
 
     </article>
   </div>
 
   <footer class="navbar bg-dark fixed-bottom">
     <div class="container d-flex justify-content-center">
-        <span> &#169; Made By Team 2</span>
-      </div>
-</footer>
+      <span> &#169; Made By Team 2</span>
+    </div>
+  </footer>
   <!-- Runs the Airplane API -->
   <script src="airplaneAPI.js"></script>
   <!-- Runs the Hotel API -->

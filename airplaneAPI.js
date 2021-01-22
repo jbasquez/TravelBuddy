@@ -3,6 +3,12 @@ var current = counter;
 var allFlights = [];
 var thisQuery;
 
+// show starting message
+message = $("<h2>");
+message.attr("class", "m-1 ml-4 mr-4 p-5");
+message.text("Travel Buddy helps you find the best prices on flights and hotels!");
+$("#startMessage").append(message);
+
 function getAirlineInfo() {
 
     // Format for each input:

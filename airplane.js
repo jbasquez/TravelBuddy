@@ -15,7 +15,7 @@ function showSavedFlight() {
     var carryOut = $("<p>");
     var carryIn = $("<p>");
     var thisHeader = $("<h2>");
-    thisHeader.attr("class","flightHeader");
+    thisHeader.attr("class", "flightHeader");
 
     thisHeader.text("Your Flight Information");
     thisPrice.text("Cost: $ " + flightArray[0] + " Direct Flight: " + flightArray[1]);
@@ -33,13 +33,13 @@ showSavedFlight();
 $("#searchBtn").on("click", function (event) {
     var clearHere = $(".savedFlight");
     clearHere.empty();
-    
+
     event.preventDefault();
     getAirlineInfo();
     setTimeout(function () {
         flightInformation = returnFlight();
         if (flightInformation.length > 1) {
-        displayAirlineInfo(flightInformation);
+            displayAirlineInfo(flightInformation);
         }
         else {
             noFlights();
@@ -65,6 +65,10 @@ function displayAirlineInfo(flightInformation) {
 
     for (var a = 0; a < flightInformation.length; a++) {
 
+        var infoCard = $("<div>");
+        infoCard.attr("class", "card ml-2 mt-4 mr-2 mb-2 p-5");
+        flightShow.append(infoCard);
+
         var infoPrice = $("<p class='flightInformation'>");
         var infoCarrierOut = $("<p class='flightInformation'>");
         var infoCarrierIn = $("<p class='flightInformation'>");
@@ -86,18 +90,18 @@ function displayAirlineInfo(flightInformation) {
 
         var inFly = flightInformation[a].carrierIn;
         var arrive = flightInformation[a].arrive;
-        infoCarrierIn.text(inFly);
-        flightShow.append("Inbound Airline: " + inFly + " Leaving on: " + arrive + "<br />");
+        infoCarrierIn.text("Return Airline: " + inFly + " Leaving on: " + arrive);
+        infoCard.append(infoCarrierIn);
 
         var button = $("<button>");
         button.attr("class", "saveFlight");
         button.attr("value", cost + "~" + direct + "~" + outFly + "~" + depart + "~" + inFly + "~" + arrive);
         button.attr("onClick", "saveFlight($(this).val()), callHotels(), showSavedFlight(), moveOn()");
         button.text("Click to Save");
-        flightShow.append(button);
+        infoCard.append(button);
 
-        var horizontalRule = $("<hr style: color='yellow'>");
-        flightShow.append(horizontalRule);
+        // var horizontalRule = $("<hr style: color='yellow'>");
+        // infoCard.append(horizontalRule);
     }
 }
 
