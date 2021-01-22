@@ -2,7 +2,6 @@ var hotelArray = [];
 var hotelQuery;
 
 function callHotels() { 
-    
     counter = 0;
     var hotels = $("#flightsAndHotels");
     hotels.empty();
@@ -31,8 +30,8 @@ function callHotels() {
 
 function updatePage(response) {
     var location = response.suggestions[0].entities[0].destinationId;
-    var checkIn = "2020-02-20";
-    var checkOut= "2020-02-25";
+    var checkIn = "2021-02-20";
+    var checkOut= "2021-02-25";
 
     var settings = {
         "async": true,
@@ -46,10 +45,8 @@ function updatePage(response) {
     }
 
     $.ajax(settings).done(function (response) {
-        console.log(response);
     }).then(function(response) {
         hotelQuery = response;
-        console.log(hotelQuery);
         getMoreInfo();
     });
 
@@ -58,22 +55,22 @@ function updatePage(response) {
 function getMoreInfo() {
     var suggestions = hotelQuery.data.body.searchResults.results;
     hotelArray = [];
-    console.log(suggestions);
     current = counter;
 
-    for (counter = current; current < counter + 5 && current < suggestions; current++) {
+    for (counter = current; current < counter + 5 && current < suggestions.length; current++) {
+
         var hotelName = suggestions[current].name;
         var rating = suggestions[current].guestReviews.rating + "/10";
         var hotelPic = suggestions[current].thumbnailUrl;
-        console.log(hotelName, hotelPic, rating);
+
         var hotelObject = {
             thisName: hotelName,
             thisRating: rating,
             thisUrl: hotelPic
         };
         hotelArray.push(hotelObject);
+
     }
-    console.log(hotelArray);
     if (hotelArray.length > 0) {
         displayResults();
     } else {
@@ -111,6 +108,12 @@ function displayResults() {
         appendHotel.append(test);
         appendHotel.append(nameP);
         appendHotel.append(ratingP);
+        var button = $("<button>");
+        button.attr("class","saveHotel");
+        button.attr("value", name + "~" + newRating + "~" + image);
+        button.attr("onClick", "saveHotel($(this).val()), showSavedHotel()");
+        button.text("Click to Save");
+        appendHotel.append(button);
     }    
 }
 
