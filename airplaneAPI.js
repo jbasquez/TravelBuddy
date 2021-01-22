@@ -2,6 +2,10 @@ var counter = 0;
 var current = counter;
 var allFlights = [];
 var thisQuery;
+var outboundY;
+var outboundM;
+var inboundY;
+var inboundM;
 
 // show starting message
 message = $("<h2>");
@@ -15,32 +19,26 @@ function getAirlineInfo() {
     var country = "US";
     var currency = "USD";
     var locale = "en-US";
-    var origin = "RDU-sky";
-    var destination = "LAX-sky";
-    var outboundDate = "2021-01";
-    var inboundDate = "2021-01";
+    // var origin = "RDU-sky";
+    // var destination = "LAX-sky";
+    // var outboundDate = "2021-12-30";
+    // var inboundDate = "2021-12-30";
 
-    // var country = $("#country").val();
-    // country = country.toUpperCase();
-    // var currency = $("#currency").val();
-    // currency = currency.toUpperCase();
-    // var locale = $("#locale").val();
-    // var origin = $("#origin").val();
-    // origin = origin.toUpperCase();
-    // origin = origin + "-sky";
-    // var destination = $("#destination").val();
-    // var destination = destination.toUpperCase();
-    // var destination = destination + "-sky";
-    // var outboundY = $("#outboundY").val();
-    // var outboundM = $("#outboundM").val();
-    //var outboundD = $("#outboundD").val();
-    // var outboundDate = (outboundY + outboundM + outboundD).trim();
-    // console.log(outboundDate);
-    // var inboundY = $("#inboundY").val();
-    // var inboundM = $("#inboundM").val();
+
+    var origin = $("#origin").val();
+    origin = origin.toUpperCase();
+    origin = origin + "-sky";
+    var destination = $("#destination").val();
+    var destination = destination.toUpperCase();
+    var destination = destination + "-sky";
+    outboundY = $("#outboundY").val();
+    outboundM = $("#outboundM").val();
+    // var outboundD = $("#outboundD").val();
+    var outboundDate = (outboundY + "-" + outboundM).trim();
+    inboundY = $("#inboundY").val();
+    inboundM = $("#inboundM").val();
     // var inboundD = $("#inboundD").val();
-    // var inboundDate = (inboundY + inboundM + inboundD).trim();
-    // console.log(inboundDate);
+    var inboundDate = (inboundY + "-" + inboundM).trim();
 
     var queryURL = "https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsedates/v1.0/" + country + "/" + currency + "/" + locale + "/" + origin + "/" + destination + "/" + outboundDate + "/" + inboundDate;
 
@@ -50,19 +48,21 @@ function getAirlineInfo() {
         "crossDomain": true,
         "url": queryURL,
         "method": "GET",
+        "timeout": 2000,
         "headers": {
             "x-rapidapi-key": "45049d9fb6msh17ba1e94f9859eep1817c7jsn5b1c2edaf89d",
             "x-rapidapi-host": "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com"
         },
         "success": function (response) {
             thisQuery = response;
+        },
+        "fail": function () {
+            alert("Error Getting Airline Information");
         }
     };
 
     $.ajax(settings).done(function (response) {
-    
     thisQuery = response;
-
 });
 }
 
