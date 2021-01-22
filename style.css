@@ -78,11 +78,12 @@ select {
 
 #contentRow {
     margin-left: 280px;
-    
+
 }
 
 #startMessage {
-    padding-top: 180px;
+    /* padding-top: 180px; */
+    align-items: center;
     font-family: 'Days One', sans-serif;
     font-size: 28px;
     color: whitesmoke;
