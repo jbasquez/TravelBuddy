@@ -1,5 +1,6 @@
 //flightInformation = [quotesPrice,thisCarrierOut,thisCarrierIn,thisDepartureDate,thisArrivalDate,directFlight]
 var flightInformation = getFlight();
+var goHotel = false;
 
 $("#searchBtn").on("click", function (event) {
     event.preventDefault();
@@ -22,29 +23,38 @@ $("#searchBtn").on("click", function (event) {
         $("#pageButtons").append(preBtn);
         $("#pageButtons").append(nxtBtn);
     
-        $("#next").on("click", function (event) {
-            event.preventDefault();
-            $("html, body").animate({ scrollTop: 0 }, "slow");
-            if (allFlights.length > 0) {
-            next();
-            flightInformation = returnFlight();
-            console.log(flightInformation);
-            displayAirlineInfo(flightInformation);
-            }
-        });
-    
-        $("#previous").on("click", function (event) {
-            event.preventDefault();
-            $("html, body").animate({ scrollTop: 0 }, "slow");
-            if (counter > 4) {
-            previous();
-            flightInformation = returnFlight();
-            console.log(flightInformation);
-            displayAirlineInfo(flightInformation);
-            }
-        });
 
     }, 2000);
+    goHotel = false;
+});
+
+$("#next").on("click", function (event) {
+    event.preventDefault();
+    if (goHotel === false) {
+        $("html, body").animate({ scrollTop: 0 }, "slow");
+        if (allFlights.length > 0) {
+        next();
+        flightInformation = returnFlight();
+        console.log(flightInformation);
+        displayAirlineInfo(flightInformation);
+        }
+    }
+    if (goHotel === true) {
+        if (hotelArray.length > 0) {
+            next();
+        }
+    }
+});
+
+$("#previous").on("click", function (event) {
+    event.preventDefault();
+    $("html, body").animate({ scrollTop: 0 }, "slow");
+    if (counter > 4) {
+    previous();
+    flightInformation = returnFlight();
+    console.log(flightInformation);
+    displayAirlineInfo(flightInformation);
+    }
 });
 
 function displayAirlineInfo(flightInformation) {
@@ -88,7 +98,7 @@ function displayAirlineInfo(flightInformation) {
         var button = $("<button>");
         button.attr("class","saveFlight mt-2 btn btn-primary btn-sm btn-success");
         button.attr("value",cost + "/" + direct + "/" + outFly + "/" + depart + "/" + inFly + "/" + arrive);
-        button.attr("onClick","saveFlight($(this).val()), callHotels(), showSaved()"); //Need to hide "page buttons" (preBtn, nxtBtn)
+        button.attr("onClick","saveFlight($(this).val()), callHotels(), showSaved(), moveOn()"); //Need to hide "page buttons" (preBtn, nxtBtn)
         button.text("Click to Save");
         infoCard.append(button);
 
@@ -128,4 +138,8 @@ function showSaved() {
     infoCard1.append(thisPrice);
     infoCard1.append(carryOut);
     infoCard1.append(carryIn);
+}
+
+function moveOn() {
+    goHotel =  true;
 }
