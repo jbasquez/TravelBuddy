@@ -156,6 +156,7 @@ function saveHotel(hotelInfo) {
 
 $("#showBtn").on("click", function(event) {
     event.preventDefault();
+    $("#startMessage").empty();
     showSavedHotel();
     showSavedFlight();
 });
