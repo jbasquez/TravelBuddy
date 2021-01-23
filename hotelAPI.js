@@ -66,7 +66,7 @@ function updatePage(response) {
         }
     }
 
-    $.ajax(settings).done(function (response) {
+    $.ajax(settings).done(function () {
     }).then(function (response) {
         hotelQuery = response;
         var check = hotelQuery.data.body.searchResults.results;
@@ -144,7 +144,7 @@ function displayResults() {
         button.attr("onClick", "saveHotel($(this).val()), showSavedHotel()");
         button.text("Click to Save");
 
-        appendHotel.append(button);
+        infoCard.append(button);
     }
 
     appendButtons();
