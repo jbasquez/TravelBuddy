@@ -54,7 +54,7 @@ function getAirlineInfo() {
                 errorPlace.append(errorMessage);
             },
             400: function() {
-                errorMessage.text("Bad Request, The information was not formatted properly for the request, please try again and watch for Typos!");
+                errorMessage.text("Bad Request, Please Check Your Spelling and Try Again");
                 errorPlace.append(errorMessage);
             }
         }

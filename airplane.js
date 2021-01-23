@@ -156,7 +156,7 @@ function displayAirlineInfo(flightInformation) {
         infoCard.append(infoCarrierIn);
 
         var button = $("<button>");
-        button.attr("class", "saveFlight mt-2 btn btn-primary btn-sm btn-success");
+        button.attr("class", "mt-2 btn btn-primary btn-sm btn-success");
         button.attr("value", cost + "~" + direct + "~" + outFly + "~" + depart + "~" + inFly + "~" + arrive);
         button.attr("onClick", "saveFlight($(this).val()), callHotels(), showSavedFlight(), moveOn()");
         button.text("Click to Save");
