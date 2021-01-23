@@ -1,13 +1,20 @@
 var counter = 0;
 var current = counter;
+
 var allFlights = [];
 var thisQuery;
+
 var outboundY;
 var outboundM;
 var inboundY;
 var inboundM;
+
 var errorPlace  = $("#errorPlace");
 var errorMessage = $("<p>");
+
+var goHotel = false;
+var outDay;
+var inDay;
 
 function getAirlineInfo() {
 
@@ -115,13 +122,6 @@ function returnFlight() {
 
     return allFlights;
 
-}
-
-function getFlight() {
-    var storedFlightInfo = localStorage.getItem("flight");
-    if (storedFlightInfo) {
-        return storedFlightInfo;
-    }
 }
 
 function previous() {
