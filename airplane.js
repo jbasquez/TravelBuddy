@@ -7,25 +7,27 @@ var inDay;
 function showSavedFlight() {
     var storedFlightInfo = localStorage.getItem("flight");
 
-    var flightArray = storedFlightInfo.split("~");
-    var appendFlight = $(".savedFlight");
-    appendFlight.empty();
+    if (storedFlightInfo) {
+        var flightArray = storedFlightInfo.split("~");
+        var appendFlight = $(".savedFlight");
+        appendFlight.empty();
 
-    var thisPrice = $("<p>");
-    var carryOut = $("<p>");
-    var carryIn = $("<p>");
-    var thisHeader = $("<h2>");
-    thisHeader.attr("class", "flightHeader");
+        var thisPrice = $("<p>");
+        var carryOut = $("<p>");
+        var carryIn = $("<p>");
+        var thisHeader = $("<h2>");
+        thisHeader.attr("class", "flightHeader");
 
-    thisHeader.text("Your Flight Information");
-    thisPrice.text("Cost: $ " + flightArray[0] + " Direct Flight: " + flightArray[1]);
-    carryOut.text("Outbound Airline: " + flightArray[2] + " Leaving on: " + flightArray[3] + " ");
-    carryIn.text("Inbound Airline: " + flightArray[4] + " Leaving on: " + flightArray[5]);
+        thisHeader.text("Your Flight Information");
+        thisPrice.text("Cost: $ " + flightArray[0] + " Direct Flight: " + flightArray[1]);
+        carryOut.text("Outbound Airline: " + flightArray[2] + " Leaving on: " + flightArray[3] + " ");
+        carryIn.text("Inbound Airline: " + flightArray[4] + " Leaving on: " + flightArray[5]);
 
-    appendFlight.append(thisHeader);
-    appendFlight.append(thisPrice);
-    appendFlight.append(carryOut);
-    appendFlight.append(carryIn);
+        appendFlight.append(thisHeader);
+        appendFlight.append(thisPrice);
+        appendFlight.append(carryOut);
+        appendFlight.append(carryIn);
+    }
 }
 
 showSavedFlight();
@@ -54,10 +56,10 @@ $("#searchBtn").on("click", function (event) {
     event.preventDefault();
     getAirlineInfo();
     $("#startMessage").hide();
-    setTimeout(function() {
-    flightInformation = returnFlight();
-    displayAirlineInfo(flightInformation);
-    appendButtons();
+    setTimeout(function () {
+        flightInformation = returnFlight();
+        displayAirlineInfo(flightInformation);
+        appendButtons();
     }, 2000);
     goHotel = false;
 });
@@ -74,9 +76,9 @@ function nextButton() {
     if (goHotel === false) {
         $("html, body").animate({ scrollTop: 0 }, "slow");
         if (allFlights.length > 0) {
-        next();
-        flightInformation = returnFlight();
-        displayAirlineInfo(flightInformation);
+            next();
+            flightInformation = returnFlight();
+            displayAirlineInfo(flightInformation);
         }
     }
     if (goHotel === true) {
@@ -91,9 +93,9 @@ function previousButton() {
     if (goHotel === false) {
         $("html, body").animate({ scrollTop: 0 }, "slow");
         if (counter > 4) {
-        previous();
-        flightInformation = returnFlight();
-        displayAirlineInfo(flightInformation);
+            previous();
+            flightInformation = returnFlight();
+            displayAirlineInfo(flightInformation);
         }
     }
     if (goHotel === true) {
@@ -144,9 +146,9 @@ function displayAirlineInfo(flightInformation) {
         infoCard.append(infoCarrierIn);
 
         var button = $("<button>");
-        button.attr("class","saveFlight mt-2 btn btn-primary btn-sm btn-success");
-        button.attr("value",cost + "~" + direct + "~" + outFly + "~" + depart + "~" + inFly + "~" + arrive);
-        button.attr("onClick","saveFlight($(this).val()), callHotels(), showSavedFlight(), moveOn()");
+        button.attr("class", "saveFlight mt-2 btn btn-primary btn-sm btn-success");
+        button.attr("value", cost + "~" + direct + "~" + outFly + "~" + depart + "~" + inFly + "~" + arrive);
+        button.attr("onClick", "saveFlight($(this).val()), callHotels(), showSavedFlight(), moveOn()");
         button.text("Click to Save");
         infoCard.append(button);
     }
@@ -158,7 +160,7 @@ function saveFlight(saveThis) {
 
     var leaveDay = getTheDay[3];
     inDay = leaveDay.slice(-2);
-    
+
     console.log("INDAY IS " + inDay);
 
     var returnDay = getTheDay[5];
@@ -167,5 +169,5 @@ function saveFlight(saveThis) {
 }
 
 function moveOn() {
-    goHotel =  true;
+    goHotel = true;
 }
