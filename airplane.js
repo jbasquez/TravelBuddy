@@ -1,14 +1,10 @@
 //flightInformation = [quotesPrice,thisCarrierOut,thisCarrierIn,thisDepartureDate,thisArrivalDate,directFlight]
-var flightInformation = getFlight();
-var goHotel = false;
-var outDay;
-var inDay;
 
-    // show starting message
-    message = $("<h2>");
-    message.attr("class", "m-1 ml-4 mr-4 p-5");
-    message.text("Travel Buddy helps you find the best prices on flights and hotels!");
-    $("#startMessage").append(message);
+// show starting message
+message = $("<h2>");
+message.attr("class", "m-1 ml-4 mr-4 p-5");
+message.text("Travel Buddy helps you find the best prices on flights and hotels!");
+$("#startMessage").append(message);
 
 function showSavedFlight() {
 
@@ -37,8 +33,6 @@ function showSavedFlight() {
     }
 }
 
-showSavedFlight();
-
 function appendButtons() {
     // append page buttons
     preBtn = $("<button>");
@@ -66,8 +60,12 @@ $("#searchBtn").on("click", function (event) {
     $("#startMessage").hide();
     setTimeout(function () {
         flightInformation = returnFlight();
+        if (flightInformation.length > 0) {
         displayAirlineInfo(flightInformation);
         appendButtons();
+        } else {
+            noFlights();
+        }
     }, 2000);
     goHotel = false;
 });
@@ -171,11 +169,8 @@ function saveFlight(saveThis) {
     var leaveDay = getTheDay[3];
     inDay = leaveDay.slice(-2);
 
-    console.log("INDAY IS " + inDay);
-
     var returnDay = getTheDay[5];
     outDay = returnDay.slice(-2);
-    console.log(outDay);
 }
 
 function moveOn() {

@@ -157,3 +157,9 @@ span {
     height: auto;
     width: 60%;
 }
+#previous{
+    justify-content: center;
+}
+#next{
+    justify-content: center;
+}
