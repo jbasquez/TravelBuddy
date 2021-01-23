@@ -8,30 +8,32 @@ function showSavedHotel() {
     var hideHotels = $("#flightsAndHotels");
     hideHotels.empty();
     var getHotelInfo = localStorage.getItem("hotel");
-    var getHotelArray = getHotelInfo.split("~");
-    var hotelNameP = $("<p>");
-    var ratingPTag = $("<p>");
-    var imageTag = $("<img>");
-    var hotelHeading = $("<h2>");
-    hotelNameP.text("Name: " + getHotelArray[0]);
-    ratingPTag.text("Guest Rating: " + getHotelArray[1]);
-    imageTag.attr("src", getHotelArray[2]);
-    hotelHeading.text("Your Hotel Information: ");
-    showHotels.append(hotelHeading);
-    showHotels.append(hotelNameP);
-    showHotels.append(ratingPTag);
-    showHotels.append(imageTag);
+    if (getHotelInfo) {
+        var getHotelArray = getHotelInfo.split("~");
+        var hotelNameP = $("<p>");
+        var ratingPTag = $("<p>");
+        var imageTag = $("<img>");
+        var hotelHeading = $("<h2>");
+        hotelNameP.text("Name: " + getHotelArray[0]);
+        ratingPTag.text("Guest Rating: " + getHotelArray[1]);
+        imageTag.attr("src", getHotelArray[2]);
+        hotelHeading.text("Your Hotel Information: ");
+        showHotels.append(hotelHeading);
+        showHotels.append(hotelNameP);
+        showHotels.append(ratingPTag);
+        showHotels.append(imageTag);
+    }
 }
 
 showSavedHotel();
 
-function callHotels() { 
+function callHotels() {
     counter = 0;
     var hotels = $("#flightsAndHotels");
     hotels.empty();
 
     var city = $("#city").val();
-    
+
     var settings = {
         "async": true,
         "crossDomain": true,
@@ -65,7 +67,7 @@ function updatePage(response) {
     }
 
     $.ajax(settings).done(function (response) {
-    }).then(function(response) {
+    }).then(function (response) {
         hotelQuery = response;
         var check = hotelQuery.data.body.searchResults.results;
         if (check.length > 0) {
@@ -92,7 +94,7 @@ function getMoreInfo() {
             thisRating: rating,
             thisUrl: hotelPic
         };
-        
+
         hotelArray.push(hotelObject);
 
     }
@@ -114,7 +116,7 @@ function displayResults() {
     if (hotelArray.length > 0) {
         appendHotel.empty();
     }
-    for (var z=0; z < hotelArray.length; z++) {
+    for (var z = 0; z < hotelArray.length; z++) {
         var image = hotelArray[z].thisUrl;
         console.log(image);
         var name = hotelArray[z].thisName;
@@ -134,7 +136,7 @@ function displayResults() {
         appendHotel.append(ratingP);
 
         var button = $("<button>");
-        button.attr("class","saveHotel");
+        button.attr("class", "saveHotel");
         button.attr("value", name + "~" + newRating + "~" + image);
         button.attr("onClick", "saveHotel($(this).val()), showSavedHotel()");
         button.text("Click to Save");

@@ -33,7 +33,7 @@ function getAirlineInfo() {
     var destination = destination + "-sky";
     outboundY = $("#outboundY").val();
     outboundM = $("#outboundM").val();
-  
+
     var outboundDate = (outboundY + "-" + outboundM).trim();
     inboundY = $("#inboundY").val();
     inboundM = $("#inboundM").val();
@@ -61,19 +61,19 @@ function getAirlineInfo() {
     };
 
     $.ajax(settings).done(function (response) {
-    thisQuery = response;
-});
+        thisQuery = response;
+    });
 }
 
 function returnFlight() {
-          
+
     allFlights = [];
 
     var options = thisQuery.Quotes.length;
 
     //5 = 5
     current = counter;
-        //5 = 5             5 < 5+5                  5<30               5+1
+    //5 = 5             5 < 5+5                  5<30               5+1
     for (counter = current; current < counter + 5 && current < options; current++) {
         //Number
         var quotesPrice = thisQuery.Quotes[current].MinPrice;
