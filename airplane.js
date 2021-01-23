@@ -90,6 +90,7 @@ function nextButton() {
         }
     }
     if (goHotel === true) {
+        $("html, body").animate({ scrollTop: 0 }, "slow");
         if (hotelArray.length > 0) {
             next();
             getMoreInfo();
@@ -107,6 +108,7 @@ function previousButton() {
         }
     }
     if (goHotel === true) {
+        $("html, body").animate({ scrollTop: 0 }, "slow");
         if (counter > 4) {
             previous();
             getMoreInfo();
