@@ -40,7 +40,7 @@ function callHotels() {
         "url": "https://hotels4.p.rapidapi.com/locations/search?query=" + city + "&locale=en_US",
         "method": "GET",
         "headers": {
-            "x-rapidapi-key": "0cded407b3mshf97093a75a9b392p13a5a5jsn15012c150eb9",
+            "x-rapidapi-key": "45049d9fb6msh17ba1e94f9859eep1817c7jsn5b1c2edaf89d",
             "x-rapidapi-host": "hotels4.p.rapidapi.com"
         }
     };
@@ -61,7 +61,7 @@ function updatePage(response) {
         "url": "https://hotels4.p.rapidapi.com/properties/list?destinationId=" + location + "&pageNumber=1&checkIn=" + checkIn + "&checkOut=" + checkOut + "&pageSize=10&adults1=1&currency=USD&starRatings=4&locale=en_US&sortOrder=PRICE&guestRatingMin=6",
         "method": "GET",
         "headers": {
-            "x-rapidapi-key": "0cded407b3mshf97093a75a9b392p13a5a5jsn15012c150eb9",
+            "x-rapidapi-key": "45049d9fb6msh17ba1e94f9859eep1817c7jsn5b1c2edaf89d",
             "x-rapidapi-host": "hotels4.p.rapidapi.com"
         }
     }
@@ -121,8 +121,11 @@ function displayResults() {
         console.log(image);
         var name = hotelArray[z].thisName;
         var newRating = hotelArray[z].thisRating;
-
+        var infoCard = $("<div>");
+        infoCard.attr("class", "card ml-2 mt-4 mr-2 mb-2 p-5");
+        appendHotel.append(infoCard);
         var test = $("<img>");
+        test.attr("id", "hotelPic")
         test.attr("src", image);
 
         var nameP = $("<p>");
@@ -131,12 +134,12 @@ function displayResults() {
         var ratingP = $("<p>");
         ratingP.text(newRating);
 
-        appendHotel.append(test);
-        appendHotel.append(nameP);
-        appendHotel.append(ratingP);
+        infoCard.append(test);
+        infoCard.append(nameP);
+        infoCard.append(ratingP);
 
         var button = $("<button>");
-        button.attr("class", "saveHotel");
+        button.attr("class", "mt-2 btn btn-primary btn-sm btn-success");
         button.attr("value", name + "~" + newRating + "~" + image);
         button.attr("onClick", "saveHotel($(this).val()), showSavedHotel()");
         button.text("Click to Save");
