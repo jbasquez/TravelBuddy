@@ -61,7 +61,7 @@ $("#searchBtn").on("click", function (event) {
     $("#startMessage").hide();
     setTimeout(function () {
         flightInformation = returnFlight();
-        if (flightInformation.length > 0) {
+        if (flightInformation.length > 1) {
         displayAirlineInfo(flightInformation);
         appendButtons();
         } else {
@@ -119,13 +119,12 @@ function previousButton() {
 function displayAirlineInfo(flightInformation) {
 
     var flightShow = $("#flightsAndHotels");
-
-    if (flightInformation.length > 0) {
+    
+    if (flightInformation.length < 1) {
         flightShow.empty();
     }
 
     for (var a = 0; a < flightInformation.length; a++) {
-
         var infoCard = $("<div>");
         infoCard.attr("class", "card ml-2 mt-4 mr-2 mb-2 p-5");
         flightShow.append(infoCard);
