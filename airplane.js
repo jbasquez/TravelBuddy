@@ -30,34 +30,38 @@ function showSavedFlight() {
 
 showSavedFlight();
 
+function appendButtons() {
+    // append page buttons
+    preBtn = $("<button>");
+    preBtn.attr("id", "previous");
+    preBtn.attr("class", "mr-1 mt-5 btn btn-primary btn-sm");
+    preBtn.text("Previous");
+    preBtn.attr("onClick", "previousButton()");
+    nxtBtn = $("<button>");
+    nxtBtn.attr("id", "next");
+    nxtBtn.attr("class", "ml-1 mt-5 btn btn-primary btn-sm");
+    nxtBtn.attr("onClick", "nextButton()");
+    nxtBtn.text("Next");
+    $("#pageButtons").append(preBtn);
+    $("#pageButtons").append(nxtBtn);
+}
+
+
 $("#searchBtn").on("click", function (event) {
     $("#pageButtons").empty();
+    $(".savedFlight").empty();
+    $(".savedHotel").empty();
     event.preventDefault();
     getAirlineInfo();
     $("#startMessage").hide();
-
     setTimeout(function() {
     flightInformation = returnFlight();
     displayAirlineInfo(flightInformation);
-
-        // append page buttons
-        preBtn = $("<button>");
-        preBtn.attr("id", "previous");
-        preBtn.attr("class", "mr-1 mt-5 btn btn-primary btn-sm");
-        preBtn.text("Previous");
-        preBtn.attr("onClick", "previousButton()");
-        nxtBtn = $("<button>");
-        nxtBtn.attr("id", "next");
-        nxtBtn.attr("class", "ml-1 mt-5 btn btn-primary btn-sm");
-        nxtBtn.attr("onClick", "nextButton()");
-        nxtBtn.text("Next");
-        $("#pageButtons").append(preBtn);
-        $("#pageButtons").append(nxtBtn);
-    
-
+    appendButtons();
     }, 2000);
     goHotel = false;
 });
+
 
 function noFlights() {
     var flightArea = $("#flightsAndHotels");

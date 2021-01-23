@@ -109,6 +109,7 @@ function displayEmpty() {
 }
 
 function displayResults() {
+    $("#pageButtons").empty();
     var appendHotel = $("#flightsAndHotels");
     if (hotelArray.length > 0) {
         appendHotel.empty();
@@ -140,8 +141,11 @@ function displayResults() {
 
         appendHotel.append(button);
     }
+
+    appendButtons();
 }
 
 function saveHotel(hotelInfo) {
+    $("#pageButtons").empty();
     localStorage.setItem("hotel", hotelInfo);
 }

@@ -133,5 +133,6 @@ function next() {
 }
 
 function storeFlight(flightInfo) {
+    $("#pageButtons").empty();
     localStorage.setItem("flight", flightInfo);
 }
