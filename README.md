@@ -2,6 +2,8 @@
 Title: 
 Travel Buddy
 
+Link: http://kmh8827.github.io/project1-team2
+
 Motivation:
 This was created as part of the BootCampSpot coding bootcamp at UNC Chapel Hill
 
