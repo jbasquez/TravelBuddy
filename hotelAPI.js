@@ -5,8 +5,8 @@ var suggestions;
 
 function showSavedHotel() {
     var showHotels = $(".savedHotel");
-    var hideHotels = $("#flightsAndHotels");
-    hideHotels.empty();
+    $("#hotels").empty();
+    showHotels.empty();
     var getHotelInfo = localStorage.getItem("hotel");
     if (getHotelInfo) {
         var getHotelArray = getHotelInfo.split("~");
@@ -24,8 +24,6 @@ function showSavedHotel() {
         showHotels.append(imageTag);
     }
 }
-
-showSavedHotel();
 
 function callHotels() {
     counter = 0;
@@ -112,13 +110,14 @@ function displayEmpty() {
 
 function displayResults() {
     $("#pageButtons").empty();
-    var appendHotel = $("#flightsAndHotels");
+    $("#hotels").empty();
+    var appendHotel = $("#hotels");
     if (hotelArray.length > 0) {
         appendHotel.empty();
+        console.log("hello");
     }
     for (var z = 0; z < hotelArray.length; z++) {
         var image = hotelArray[z].thisUrl;
-        console.log(image);
         var name = hotelArray[z].thisName;
         var newRating = hotelArray[z].thisRating;
         var infoCard = $("<div>");
@@ -154,3 +153,9 @@ function saveHotel(hotelInfo) {
     $("#pageButtons").empty();
     localStorage.setItem("hotel", hotelInfo);
 }
+
+$("#showBtn").on("click", function(event) {
+    event.preventDefault();
+    showSavedHotel();
+    showSavedFlight();
+});

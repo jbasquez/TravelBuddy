@@ -33,8 +33,6 @@ function showSavedFlight() {
     }
 }
 
-showSavedFlight();
-
 function appendButtons() {
     // append page buttons
     preBtn = $("<button>");
@@ -62,8 +60,12 @@ $("#searchBtn").on("click", function (event) {
     $("#startMessage").hide();
     setTimeout(function () {
         flightInformation = returnFlight();
+        if (flightInformation.length > 0) {
         displayAirlineInfo(flightInformation);
         appendButtons();
+        } else {
+            noFlights();
+        }
     }, 2000);
     goHotel = false;
 });
@@ -167,11 +169,8 @@ function saveFlight(saveThis) {
     var leaveDay = getTheDay[3];
     inDay = leaveDay.slice(-2);
 
-    console.log("INDAY IS " + inDay);
-
     var returnDay = getTheDay[5];
     outDay = returnDay.slice(-2);
-    console.log(outDay);
 }
 
 function moveOn() {
