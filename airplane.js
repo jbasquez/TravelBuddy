@@ -51,6 +51,7 @@ function appendButtons() {
 
 
 $("#searchBtn").on("click", function (event) {
+    $("#errorPlace").empty();
     $("#pageButtons").empty();
     $("#startMessage").empty();
     $(".savedFlight").empty();
