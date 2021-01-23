@@ -112,7 +112,7 @@ function displayEmpty() {
 
 function displayResults() {
     $("#pageButtons").empty();
-    var appendHotel = $("#flightsAndHotels");
+    var appendHotel = $("#hotels");
     if (hotelArray.length > 0) {
         appendHotel.empty();
     }
