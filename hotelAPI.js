@@ -10,18 +10,24 @@ function showSavedHotel() {
     var getHotelInfo = localStorage.getItem("hotel");
     if (getHotelInfo) {
         var getHotelArray = getHotelInfo.split("~");
+
+        var infoCard = $("<div>");
+        infoCard.attr("class", "card ml-2 mt-4 mr-2 mb-2 p-5");
+        showHotels.append(infoCard);
+
         var hotelNameP = $("<p>");
         var ratingPTag = $("<p>");
         var imageTag = $("<img>");
+        imageTag.attr("id", "hotelPic");
         var hotelHeading = $("<h2>");
         hotelNameP.text("Name: " + getHotelArray[0]);
         ratingPTag.text("Guest Rating: " + getHotelArray[1]);
         imageTag.attr("src", getHotelArray[2]);
         hotelHeading.text("Your Hotel Information: ");
-        showHotels.append(hotelHeading);
-        showHotels.append(hotelNameP);
-        showHotels.append(ratingPTag);
-        showHotels.append(imageTag);
+        infoCard.append(hotelHeading);
+        infoCard.append(hotelNameP);
+        infoCard.append(ratingPTag);
+        infoCard.append(imageTag);
     }
 }
 
@@ -124,7 +130,7 @@ function displayResults() {
         infoCard.attr("class", "card ml-2 mt-4 mr-2 mb-2 p-5");
         appendHotel.append(infoCard);
         var test = $("<img>");
-        test.attr("id", "hotelPic")
+        test.attr("id", "hotelPic");
         test.attr("src", image);
 
         var nameP = $("<p>");

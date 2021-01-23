@@ -15,6 +15,10 @@ function showSavedFlight() {
         var appendFlight = $(".savedFlight");
         appendFlight.empty();
 
+        var infoCard = $("<div>");
+        infoCard.attr("class", "card ml-2 mt-4 mr-2 mb-2 p-5");
+        appendFlight.append(infoCard);
+
         var thisPrice = $("<p>");
         var carryOut = $("<p>");
         var carryIn = $("<p>");
@@ -26,10 +30,10 @@ function showSavedFlight() {
         carryOut.text("Outbound Airline: " + flightArray[2] + " Leaving on: " + flightArray[3] + " ");
         carryIn.text("Inbound Airline: " + flightArray[4] + " Leaving on: " + flightArray[5]);
 
-        appendFlight.append(thisHeader);
-        appendFlight.append(thisPrice);
-        appendFlight.append(carryOut);
-        appendFlight.append(carryIn);
+        infoCard.append(thisHeader);
+        infoCard.append(thisPrice);
+        infoCard.append(carryOut);
+        infoCard.append(carryIn);
     }
 }
 
