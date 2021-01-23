@@ -121,8 +121,11 @@ function displayResults() {
         console.log(image);
         var name = hotelArray[z].thisName;
         var newRating = hotelArray[z].thisRating;
-
+        var infoCard = $("<div>");
+        infoCard.attr("class", "card ml-2 mt-4 mr-2 mb-2 p-5");
+        appendHotel.append(infoCard);
         var test = $("<img>");
+        test.attr("id", "hotelPic")
         test.attr("src", image);
 
         var nameP = $("<p>");
@@ -131,12 +134,12 @@ function displayResults() {
         var ratingP = $("<p>");
         ratingP.text(newRating);
 
-        appendHotel.append(test);
-        appendHotel.append(nameP);
-        appendHotel.append(ratingP);
+        infoCard.append(test);
+        infoCard.append(nameP);
+        infoCard.append(ratingP);
 
         var button = $("<button>");
-        button.attr("class", "saveHotel");
+        button.attr("class", "mt-2 btn btn-primary btn-sm btn-success");
         button.attr("value", name + "~" + newRating + "~" + image);
         button.attr("onClick", "saveHotel($(this).val()), showSavedHotel()");
         button.text("Click to Save");

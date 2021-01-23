@@ -157,3 +157,7 @@ span {
     10px 10px 20px rgba(0,0,0,.5),
     20px 40px 40px rgba(0,0,0,.5);
 }
+#hotelPic{
+    height: auto;
+    width: 60%;
+}
