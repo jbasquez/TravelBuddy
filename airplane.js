@@ -4,7 +4,14 @@ var goHotel = false;
 var outDay;
 var inDay;
 
+    // show starting message
+    message = $("<h2>");
+    message.attr("class", "m-1 ml-4 mr-4 p-5");
+    message.text("Travel Buddy helps you find the best prices on flights and hotels!");
+    $("#startMessage").append(message);
+
 function showSavedFlight() {
+
     var storedFlightInfo = localStorage.getItem("flight");
 
     if (storedFlightInfo) {
@@ -51,6 +58,7 @@ function appendButtons() {
 
 $("#searchBtn").on("click", function (event) {
     $("#pageButtons").empty();
+    $("#startMessage").empty();
     $(".savedFlight").empty();
     $(".savedHotel").empty();
     event.preventDefault();
@@ -82,6 +90,7 @@ function nextButton() {
         }
     }
     if (goHotel === true) {
+        $("html, body").animate({ scrollTop: 0 }, "slow");
         if (hotelArray.length > 0) {
             next();
             getMoreInfo();
@@ -99,6 +108,7 @@ function previousButton() {
         }
     }
     if (goHotel === true) {
+        $("html, body").animate({ scrollTop: 0 }, "slow");
         if (counter > 4) {
             previous();
             getMoreInfo();
@@ -146,7 +156,7 @@ function displayAirlineInfo(flightInformation) {
         infoCard.append(infoCarrierIn);
 
         var button = $("<button>");
-        button.attr("class", "saveFlight mt-2 btn btn-primary btn-sm btn-success");
+        button.attr("class", "mt-2 btn btn-primary btn-sm btn-success");
         button.attr("value", cost + "~" + direct + "~" + outFly + "~" + depart + "~" + inFly + "~" + arrive);
         button.attr("onClick", "saveFlight($(this).val()), callHotels(), showSavedFlight(), moveOn()");
         button.text("Click to Save");
