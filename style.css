@@ -110,10 +110,6 @@ select {
     
 }
 
-#pageButtons {
-    margin-left: 280px;
-}
-
 .card {
     background-color: rgba(0, 0, 0, 0.555);
     color: whitesmoke;
