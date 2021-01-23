@@ -21,8 +21,8 @@ function getAirlineInfo() {
     var locale = "en-US";
     // var origin = "RDU-sky";
     // var destination = "LAX-sky";
-    // var outboundDate = "2021-12-30";
-    // var inboundDate = "2021-12-30";
+    // var outboundDate = "2021-12 or 2021-12-31 or anytime";
+    // var inboundDate = "2021-12-30 or 2021-12-31 or anytime";
 
 
     var origin = $("#origin").val();
@@ -33,11 +33,10 @@ function getAirlineInfo() {
     var destination = destination + "-sky";
     outboundY = $("#outboundY").val();
     outboundM = $("#outboundM").val();
-    // var outboundD = $("#outboundD").val();
+  
     var outboundDate = (outboundY + "-" + outboundM).trim();
     inboundY = $("#inboundY").val();
     inboundM = $("#inboundM").val();
-    // var inboundD = $("#inboundD").val();
     var inboundDate = (inboundY + "-" + inboundM).trim();
 
     var queryURL = "https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsedates/v1.0/" + country + "/" + currency + "/" + locale + "/" + origin + "/" + destination + "/" + outboundDate + "/" + inboundDate;

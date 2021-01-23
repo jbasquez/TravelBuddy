@@ -68,7 +68,7 @@ function noFlights() {
 
 function nextButton() {
     if (goHotel === false) {
-        // $("html, body").animate({ scrollTop: 0 }, "slow");
+        $("html, body").animate({ scrollTop: 0 }, "slow");
         if (allFlights.length > 0) {
         next();
         flightInformation = returnFlight();
@@ -85,7 +85,7 @@ function nextButton() {
 
 function previousButton() {
     if (goHotel === false) {
-        // $("html, body").animate({ scrollTop: 0 }, "slow");
+        $("html, body").animate({ scrollTop: 0 }, "slow");
         if (counter > 4) {
         previous();
         flightInformation = returnFlight();
@@ -125,13 +125,13 @@ function displayAirlineInfo(flightInformation) {
         var direct = flightInformation[a].direct;
         infoPrice.text("Cost: $ " + cost + " Direct Flight: " + direct);
         infoPrice.attr("value", cost + " " + direct);
-        flightShow.append(infoPrice);
+        infoCard.append(infoPrice);
 
         var outFly = flightInformation[a].carrierOut;
         var depart = flightInformation[a].depart;
 
         infoCarrierOut.text("Outbound Airline: " + outFly + " Leaving on: " + depart + " ");
-        flightShow.append(infoCarrierOut);
+        infoCard.append(infoCarrierOut);
 
 
         var inFly = flightInformation[a].carrierIn;
