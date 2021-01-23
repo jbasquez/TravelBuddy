@@ -4,7 +4,14 @@ var goHotel = false;
 var outDay;
 var inDay;
 
+    // show starting message
+    message = $("<h2>");
+    message.attr("class", "m-1 ml-4 mr-4 p-5");
+    message.text("Travel Buddy helps you find the best prices on flights and hotels!");
+    $("#startMessage").append(message);
+
 function showSavedFlight() {
+
     var storedFlightInfo = localStorage.getItem("flight");
 
     if (storedFlightInfo) {
@@ -51,6 +58,7 @@ function appendButtons() {
 
 $("#searchBtn").on("click", function (event) {
     $("#pageButtons").empty();
+    $("#startMessage").empty();
     $(".savedFlight").empty();
     $(".savedHotel").empty();
     event.preventDefault();

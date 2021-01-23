@@ -6,12 +6,8 @@ var outboundY;
 var outboundM;
 var inboundY;
 var inboundM;
-
-// show starting message
-message = $("<h2>");
-message.attr("class", "m-1 ml-4 mr-4 p-5");
-message.text("Travel Buddy helps you find the best prices on flights and hotels!");
-$("#startMessage").append(message);
+var errorPlace  = $("#errorPlace");
+var errorMessage = $("<p>");
 
 function getAirlineInfo() {
 
@@ -52,11 +48,15 @@ function getAirlineInfo() {
             "x-rapidapi-key": "45049d9fb6msh17ba1e94f9859eep1817c7jsn5b1c2edaf89d",
             "x-rapidapi-host": "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com"
         },
-        "success": function (response) {
-            thisQuery = response;
-        },
-        "fail": function () {
-            alert("Error Getting Airline Information");
+        statusCode: {
+            404: function() {
+                errorMessage.text("Server Not Found");
+                errorPlace.append(errorMessage);
+            },
+            400: function() {
+                errorMessage.text("Bad Request, The information was not formatted properly for the request, please try again and watch for Typos!");
+                errorPlace.append(errorMessage);
+            }
         }
     };
 
