@@ -144,7 +144,7 @@ function displayResults() {
         button.attr("onClick", "saveHotel($(this).val()), showSavedHotel()");
         button.text("Click to Save");
 
-        appendHotel.append(button);
+        infoCard.append(button);
     }
 
     appendButtons();
