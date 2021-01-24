@@ -20,20 +20,29 @@ function showSavedFlight() {
         appendFlight.append(infoCard);
 
         var thisPrice = $("<p>");
+        var thisPrice2 = $("<p>");
         var carryOut = $("<p>");
+        var carryOut2 = $("<p>");
         var carryIn = $("<p>");
+        var carryIn2 = $("<p>");
         var thisHeader = $("<h2>");
         thisHeader.attr("class", "flightHeader");
 
         thisHeader.text("Your Flight Information:");
-        thisPrice.text("Cost: $ " + flightArray[0] + " Direct Flight: " + flightArray[1]);
-        carryOut.text("Outbound Airline: " + flightArray[2] + " Leaving on: " + flightArray[3] + " ");
-        carryIn.text("Inbound Airline: " + flightArray[4] + " Leaving on: " + flightArray[5]);
+        thisPrice.text("Cost: $ " + flightArray[0]);
+        thisPrice2.text("Direct Flight: " + flightArray[1]);
+        carryOut.text("Outbound Airline: " + flightArray[2]);
+        carryOut2.text("Leaving on: " + flightArray[3]);
+        carryIn.text("Inbound Airline: " + flightArray[4]);
+        carryIn2.text("Leaving on: " + flightArray[5]);
 
         infoCard.append(thisHeader);
         infoCard.append(thisPrice);
+        infoCard.append(thisPrice2);
         infoCard.append(carryOut);
+        infoCard.append(carryOut2);
         infoCard.append(carryIn);
+        infoCard.append(carryIn2);
     }
 }
 
