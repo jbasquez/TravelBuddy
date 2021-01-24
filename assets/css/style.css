@@ -3,7 +3,7 @@ html, body {
     height: auto;
     overflow-x: hidden;
     padding-top: 37px;
-    background-image: url(body-background.jpg);
+    background-image: url(../images/body-background.jpg);
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
@@ -46,7 +46,7 @@ img {
     -1px -1px 0 rgba(255, 255, 255, 0),
     1px 1px 0 rgba(0,0,0,.25),
     3px 3px 3px rgba(0,0,0,.25),
-    10px 10px 20px rgba(0,0,0,.5),
+    5px 5px 10px rgba(0,0,0,.5),
     20px 40px 40px rgba(0,0,0,.5); 
     z-index: +1;
 }
@@ -113,12 +113,27 @@ select {
 .card {
     background-color: rgba(0, 0, 0, 0.555);
     color: whitesmoke;
-    /* box-shadow:
+    width: 800px;
+    box-shadow:
     -1px -1px 0 rgba(255, 255, 255, 0),
     1px 1px 0 rgba(0,0,0,.25),
     3px 3px 3px rgba(0,0,0,.25),
-    10px 10px 20px rgba(0,0,0,.5),
-    20px 40px 40px rgba(0,0,0,.5);  */
+    5px 5px 10px rgba(0,0,0,.5),
+    20px 40px 40px rgba(0,0,0,.5);
+}
+
+.saveCard {
+    background-color: rgba(0, 0, 0, 0.555);
+    color: whitesmoke;
+    border-radius: 10px;
+    width: 500px;
+    height: 300px;
+    box-shadow:
+    -1px -1px 0 rgba(255, 255, 255, 0),
+    1px 1px 0 rgba(0,0,0,.25),
+    3px 3px 3px rgba(0,0,0,.25),
+    2px 2px 5px rgba(0,0,0,.5),
+    5px 10px 10px rgba(0,0,0,.5);
 }
 
 h3 {
@@ -154,8 +169,8 @@ span {
     20px 40px 40px rgba(0,0,0,.5);
 }
 #hotelPic{
-    height: 1%;
-    width: auto;
+    height: auto;
+    width: 190px;
 }
 #previous{
     justify-content: center;
