@@ -12,7 +12,7 @@ function showSavedHotel() {
         var getHotelArray = getHotelInfo.split("~");
 
         var infoCard = $("<div>");
-        var columns = $("<table><row class='info'><col id='25'><col id='26'>");
+        // var columns = $("<table><row class='info'><col id='25'><col id='26'>");
         infoCard.attr("class", "card ml-2 mt-4 mr-2 mb-2 p-5");
         showHotels.append(infoCard);
 
@@ -25,14 +25,14 @@ function showSavedHotel() {
         ratingPTag.text("Guest Rating: " + getHotelArray[1]);
         imageTag.attr("src", getHotelArray[2]);
         hotelHeading.text("Your Hotel Information: ");
-        infoCard.append(columns);
+        // infoCard.append(columns);
 
-        var infoCol = $("#25");
-        var picCol = $("#26");
-        infoCol.append(hotelHeading);
-        infoCol.append(hotelNameP);
-        infoCol.append(ratingPTag);
-        picCol.append(imageTag);
+        // var infoCol = $("#25");
+        // var picCol = $("#26");
+        infoCard.append(hotelHeading);
+        infoCard.append(hotelNameP);
+        infoCard.append(ratingPTag);
+        infoCard.append(imageTag);
     }
 }
 
