@@ -94,6 +94,7 @@ function nextButton() {
     }
     if (goHotel === true) {
         $("html, body").animate({ scrollTop: 0 }, "slow");
+        
         if (hotelArray.length > 0) {
             next();
             getMoreInfo();
@@ -113,6 +114,7 @@ function previousButton() {
     if (goHotel === true) {
         $("html, body").animate({ scrollTop: 0 }, "slow");
         if (counter > 4) {
+            console.log(counter + " > 4");
             previous();
             getMoreInfo();
 
@@ -124,7 +126,7 @@ function displayAirlineInfo(flightInformation) {
 
     var flightShow = $("#flightsAndHotels");
     
-    if (flightInformation.length < 1) {
+    if (flightInformation.length > 1) {
         flightShow.empty();
     }
 
