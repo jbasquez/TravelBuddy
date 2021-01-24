@@ -3,7 +3,7 @@
 
 Link: http://kmh8827.github.io/project1-team2
 
-Travel Buddy finds the best prices on flights and hotels. So you can still travel on a budget!
+### Travel Buddy finds the best prices on flights and hotels. So you can still travel on a budget!
 
 
 Build Status:
