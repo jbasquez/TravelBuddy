@@ -16,16 +16,6 @@ Hotel API:
 https://rapidapi.com/apidojo/api/hotels4
 
 #### Credits: 
-##### Front End:
-<ul>
-  <a href="https://github.com/jbasquez">Joe Basquez</a>
+##### Front End:  <a href="https://github.com/jbasquez">Joe Basquez</a>,   <a href="https://github.com/mdu830">Mitchell Duncan</a> 
 
-  <a href="https://github.com/mdu830">Mitchell Duncan</a> 
-</ul>
-
-##### Back End:
-<ul>
-  <a href="https://github.com/alexhstrickland">Alex Strickland</a>
-  
-  <a href="https://github.com/kmh8827">Kevin Hellman</a>
-</ul>
+##### Back End:   <a href="https://github.com/alexhstrickland">Alex Strickland</a>,   <a href="https://github.com/kmh8827">Kevin Hellman</a>
