@@ -13,7 +13,7 @@ function showSavedHotel() {
 
         var infoCard = $("<div>");
         // var columns = $("<table><row class='info'><col id='25'><col id='26'>");
-        infoCard.attr("class", "card saveCard ml-4 mt-2 mr-n4 mb-2 pl-5 pt-3 pr-5 pb-5");
+        infoCard.attr("class", "card saveCard ml-5 mt-2 mr-n2 mb-2 pl-5 pt-3 pr-5 pb-5");
         showHotels.append(infoCard);
 
         var hotelNameP = $("<p>");
