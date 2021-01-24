@@ -113,12 +113,12 @@ select {
 .card {
     background-color: rgba(0, 0, 0, 0.555);
     color: whitesmoke;
-    box-shadow:
+    /* box-shadow:
     -1px -1px 0 rgba(255, 255, 255, 0),
     1px 1px 0 rgba(0,0,0,.25),
     3px 3px 3px rgba(0,0,0,.25),
     10px 10px 20px rgba(0,0,0,.5),
-    20px 40px 40px rgba(0,0,0,.5); 
+    20px 40px 40px rgba(0,0,0,.5);  */
 }
 
 h3 {
@@ -154,8 +154,8 @@ span {
     20px 40px 40px rgba(0,0,0,.5);
 }
 #hotelPic{
-    height: auto;
-    width: 60%;
+    height: 1%;
+    width: auto;
 }
 #previous{
     justify-content: center;
