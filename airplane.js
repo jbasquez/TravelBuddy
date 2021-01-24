@@ -25,7 +25,7 @@ function showSavedFlight() {
         var thisHeader = $("<h2>");
         thisHeader.attr("class", "flightHeader");
 
-        thisHeader.text("Your Flight Information");
+        thisHeader.text("Your Flight Information:");
         thisPrice.text("Cost: $ " + flightArray[0] + " Direct Flight: " + flightArray[1]);
         carryOut.text("Outbound Airline: " + flightArray[2] + " Leaving on: " + flightArray[3] + " ");
         carryIn.text("Inbound Airline: " + flightArray[4] + " Leaving on: " + flightArray[5]);
