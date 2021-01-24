@@ -18,6 +18,9 @@ In-Progress
 </ul>
 
 #### Credits: 
-##### Front End:  <a href="https://github.com/jbasquez">Joe Basquez</a>,   <a href="https://github.com/mdu830">Mitchell Duncan</a> 
-
-##### Back End:   <a href="https://github.com/alexhstrickland">Alex Strickland</a>,   <a href="https://github.com/kmh8827">Kevin Hellman</a>
+<ul>
+ Front End:  <a href="https://github.com/jbasquez">Joe Basquez</a>,   <a href="https://github.com/mdu830">Mitchell Duncan</a> 
+</ul>
+<ul>
+ Back End:   <a href="https://github.com/alexhstrickland">Alex Strickland</a>,   <a href="https://github.com/kmh8827">Kevin Hellman</a>
+</ul>
