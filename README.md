@@ -3,22 +3,19 @@
 
 Link: http://kmh8827.github.io/project1-team2
 
-## Travel Buddy finds the best prices on flights and hotels. So you can still travel on a budget!
+Travel Buddy finds the best prices on flights and hotels. So you can still travel on a budget!
 
 
 Build Status:
 In-Progress
 
-### APIs used:
-
+#### APIs used:
 Airline API: 
 https://rapidapi.com/skyscanner/api/skyscanner-flight-search
-
 Hotel API:
 https://rapidapi.com/apidojo/api/hotels4
 
 ### Credits: 
-
 ##### Front End:
 <ul>
   <a href="https://github.com/jbasquez">Joe Basquez</a>
