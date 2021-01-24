@@ -12,6 +12,7 @@ function showSavedHotel() {
         var getHotelArray = getHotelInfo.split("~");
 
         var infoCard = $("<div>");
+        var columns = $("<table><row class='info'><col id='25'><col id='26'>");
         infoCard.attr("class", "card ml-2 mt-4 mr-2 mb-2 p-5");
         showHotels.append(infoCard);
 
@@ -24,10 +25,14 @@ function showSavedHotel() {
         ratingPTag.text("Guest Rating: " + getHotelArray[1]);
         imageTag.attr("src", getHotelArray[2]);
         hotelHeading.text("Your Hotel Information: ");
-        infoCard.append(hotelHeading);
-        infoCard.append(hotelNameP);
-        infoCard.append(ratingPTag);
-        infoCard.append(imageTag);
+        infoCard.append(columns);
+
+        var infoCol = $("#25");
+        var picCol = $("#26");
+        infoCol.append(hotelHeading);
+        infoCol.append(hotelNameP);
+        infoCol.append(ratingPTag);
+        picCol.append(imageTag);
     }
 }
 
@@ -62,7 +67,7 @@ function updatePage(response) {
     var settings = {
         "async": true,
         "crossDomain": true,
-        "url": "https://hotels4.p.rapidapi.com/properties/list?destinationId=" + location + "&pageNumber=1&checkIn=" + checkIn + "&checkOut=" + checkOut + "&pageSize=10&adults1=1&currency=USD&starRatings=4&locale=en_US&sortOrder=PRICE&guestRatingMin=6",
+        "url": "https://hotels4.p.rapidapi.com/properties/list?destinationId=" + location + "&pageNumber=1&checkIn=" + checkIn + "&checkOut=" + checkOut + "&pageSize=25&adults1=1&currency=USD&starRatings=4&locale=en_US&sortOrder=PRICE&guestRatingMin=6",
         "method": "GET",
         "headers": {
             "x-rapidapi-key": "45049d9fb6msh17ba1e94f9859eep1817c7jsn5b1c2edaf89d",
@@ -74,6 +79,7 @@ function updatePage(response) {
     }).then(function (response) {
         hotelQuery = response;
         var check = hotelQuery.data.body.searchResults.results;
+        console.log(check);
         if (check.length > 0) {
             getMoreInfo();
         } else {
@@ -85,6 +91,7 @@ function updatePage(response) {
 
 function getMoreInfo() {
     var suggestions = hotelQuery.data.body.searchResults.results;
+    console.log(current + " < " + suggestions.length);
     hotelArray = [];
     current = counter;
 
@@ -102,9 +109,10 @@ function getMoreInfo() {
         hotelArray.push(hotelObject);
 
     }
-
-    console.log(hotelArray);
+    console.log(counter);
+    if (hotelArray.length > 1) {
     displayResults();
+    }
 }
 
 function displayEmpty() {
@@ -117,11 +125,9 @@ function displayEmpty() {
 function displayResults() {
     $("#pageButtons").empty();
     $("#hotels").empty();
+
     var appendHotel = $("#hotels");
-    if (hotelArray.length > 0) {
-        appendHotel.empty();
-        console.log("hello");
-    }
+
     for (var z = 0; z < hotelArray.length; z++) {
         var image = hotelArray[z].thisUrl;
         var name = hotelArray[z].thisName;
