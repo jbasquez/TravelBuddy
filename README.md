@@ -10,10 +10,12 @@ Build Status:
 In-Progress
 
 #### APIs used:
-Airline API: 
-https://rapidapi.com/skyscanner/api/skyscanner-flight-search
-Hotel API:
-https://rapidapi.com/apidojo/api/hotels4
+<ul>
+ Airline API: https://rapidapi.com/skyscanner/api/skyscanner-flight-search
+</ul>
+<ul>
+ Hotel API: https://rapidapi.com/apidojo/api/hotels4
+</ul>
 
 #### Credits: 
 ##### Front End:  <a href="https://github.com/jbasquez">Joe Basquez</a>,   <a href="https://github.com/mdu830">Mitchell Duncan</a> 
