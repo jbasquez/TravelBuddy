@@ -1,21 +1,30 @@
-# Project1-Team2
-Title: 
-Travel Buddy
+![screenshot](/assets/images/Screenshot.png)
+# Travel Buddy
 
-Link: http://kmh8827.github.io/project1-team2
+### Travel Buddy finds the best prices on flights and hotels, so anyone can still travel on a budget!
 
-Motivation:
-This was created as part of the BootCampSpot coding bootcamp at UNC Chapel Hill
+#### Website: 
+<ul>
+ Build Status: In-Progress
+</ul>
+<ul>
+ http://kmh8827.github.io/project1-team2
+</ul>
 
-Build Status:
-In-Progress
 
-Screenshot:
 
-API Reference:
-Airline API - Skyscanner, found at: 
-https://rapidapi.com/skyscanner/api/skyscanner-flight-search?endpoint=5aa1edd5e4b06ec3937b23f0
-Hotel API -  ,found at:
+#### APIs used:
+<ul>
+ Airline API: https://rapidapi.com/skyscanner/api/skyscanner-flight-search
+</ul>
+<ul>
+ Hotel API: https://rapidapi.com/apidojo/api/hotels4
+</ul>
 
-Credits:
-Bootcampspot for giving the assignment and Alex Strickland, Joe Basquez, Kevin Hellman, and Mitchell Duncan
+#### Credits: 
+<ul>
+ Front End:  <a href="https://github.com/jbasquez">Joe Basquez</a>,   <a href="https://github.com/mdu830">Mitchell Duncan</a> 
+</ul>
+<ul>
+ Back End:   <a href="https://github.com/alexhstrickland">Alex Strickland</a>,   <a href="https://github.com/kmh8827">Kevin Hellman</a>
+</ul>
