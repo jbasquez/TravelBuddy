@@ -150,7 +150,7 @@ function displayResults() {
         infoCard.append(ratingP);
 
         var button = $("<button>");
-        button.attr("class", "mt-2 btn btn-primary btn-sm btn-success");
+        button.attr("class", "mt-2 btn btn-light btn-sm clickToSave");
         button.attr("value", name + "~" + newRating + "~" + image);
         button.attr("onClick", "saveHotel($(this).val()), showSavedHotel()");
         button.text("Click to Save");
