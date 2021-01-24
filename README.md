@@ -15,19 +15,17 @@ https://rapidapi.com/skyscanner/api/skyscanner-flight-search
 Hotel API:
 https://rapidapi.com/apidojo/api/hotels4
 
-### Credits: 
+#### Credits: 
 ##### Front End:
 <ul>
   <a href="https://github.com/jbasquez">Joe Basquez</a>
-</ul>
-<ul>
+
   <a href="https://github.com/mdu830">Mitchell Duncan</a> 
 </ul>
 
 ##### Back End:
 <ul>
   <a href="https://github.com/alexhstrickland">Alex Strickland</a>
-</ul>
-<ul>
+  
   <a href="https://github.com/kmh8827">Kevin Hellman</a>
 </ul>
