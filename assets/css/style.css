@@ -30,7 +30,7 @@ html, body {
 }
 
 
-img { 
+#travelBud { 
     height: 55px;
     width: auto;
     margin-left: 20px;
@@ -107,6 +107,12 @@ select {
     20px 40px 40px rgba(0,0,0,.5);
 }
 
+#loadingGif {
+    margin-top: 50px;
+    width: 100px;
+    height: auto;
+}
+
 #infoRow {
     background-color: rgba(0, 0, 0, 0.555);
     color: whitesmoke;
@@ -122,6 +128,7 @@ select {
 .card {
     background-color: rgba(0, 0, 0, 0.555);
     color: whitesmoke;
+    border-radius: 10px;
     width: 800px;
     box-shadow:
     -1px -1px 0 rgba(255, 255, 255, 0),

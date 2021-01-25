@@ -48,11 +48,18 @@ function callHotels() {
         "async": true,
         "crossDomain": true,
         "url": "https://hotels4.p.rapidapi.com/locations/search?query=" + city + "&locale=en_US",
+        "beforeSend": function () {
+            $("#loadingGif").show();
+        },
         "method": "GET",
         "headers": {
             "x-rapidapi-key": "45049d9fb6msh17ba1e94f9859eep1817c7jsn5b1c2edaf89d",
             "x-rapidapi-host": "hotels4.p.rapidapi.com"
-        }
+        },
+        // "success": function () {
+        //     $("#loadingGif").hide();
+
+        // },
     };
 
     $.ajax(settings).done(function () {
@@ -78,6 +85,7 @@ function updatePage(response) {
 
     $.ajax(settings).done(function () {
     }).then(function (response) {
+        $("#loadingGif").hide();
         hotelQuery = response;
         var check = hotelQuery.data.body.searchResults.results;
         console.log(check);
