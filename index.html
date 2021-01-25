@@ -118,20 +118,24 @@
         <button id="showBtn" class="btn btn-outline-light ml-3 mr-3" type="submit">Show Last Vacation</button>
       </form>
     </aside>
-
+    <!-- Area to append thigns to -->
     <div class="col-auto mr-5"></div>
     <article class="col justify-content-center ml-5">
       <div class="row ml-5 justify-content-center">
+        <!-- Appends error messages -->
         <div id="errorPlace"></div>
         <div class="row ml-5">
           <!-- <div class="col-2 ml-5 mr-5"></div> -->
           <div class="col-auto mr-n5">
+            <!-- Append Flights -->
             <div class="savedFlight"></div>
           </div>
           <div class="col">
+            <!-- Append Hotels -->
             <div class="savedHotel"></div>
           </div>
         </div>
+        <!-- Append starting message -->
         <div id="startMessage" class="ml-5"></div>
       </div>
       <div class="row justify-content-center ml-5 mb-n3"> 
@@ -139,6 +143,7 @@
         <div id="hotels"></div>
         <img id="loadingGif" src="./assets/images/loading.gif">
       </div>
+      <!-- Appending page buttons -->
       <div id="pageButtons" class="row ml-5 mb-5 justify-content-center"></div>
   </div>
   </article>
@@ -151,8 +156,9 @@
   </footer>
   <!-- Runs the Airplane API -->
   <script src="./assets/js/airplaneAPI.js"></script>
-  <!-- Runs the Hotel API -->
+  <!-- Has functions for both Airplane and Flights -->
   <script src="./assets/js/airplane.js"></script>
+  <!-- Runs the Hotel API -->
   <script src="./assets/js/hotelAPI.js"></script>
 
 </body>
