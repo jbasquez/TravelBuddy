@@ -14,9 +14,11 @@ function showSavedHotel() {
         var infoCard = $("<div>");
         // var columns = $("<table><row class='info'><col id='25'><col id='26'>");
         infoCard.attr("class", "card saveCard ml-5 mt-2 mr-n2 mb-2 pl-5 pt-3 pr-5 pb-5");
-        // $("#flightsCard").animate({left: "200px"});
+        infoCard.attr("id", "hotelsCard");
         infoCard.hide().fadeIn(700);
         showHotels.append(infoCard);
+        $("#hotelsCard").hide();
+        $("#hotelsCard").show(700);
         var hotelNameP = $("<p>");
         var ratingPTag = $("<p>");
         var imageTag = $("<img>");
@@ -56,10 +58,6 @@ function callHotels() {
             "x-rapidapi-key": "172a12658dmsh8efc0e1a3ac3685p1055f7jsn29d703b0b8d7",
             "x-rapidapi-host": "hotels4.p.rapidapi.com"
         },
-        // "success": function () {
-        //     $("#loadingGif").hide();
-
-        // },
     };
 
     $.ajax(settings).done(function () {

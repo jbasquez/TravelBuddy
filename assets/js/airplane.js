@@ -17,6 +17,7 @@ function showSavedFlight() {
 
         var infoCard = $("<div>");
         infoCard.attr("class", "card saveCard ml-5 mt-2 mb-2 pl-5 pt-3 pr-5 pb-5");
+        infoCard.attr("id", "flightsCard");
         infoCard.hide().fadeIn(700);
         appendFlight.append(infoCard);
 
