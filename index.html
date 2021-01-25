@@ -21,14 +21,14 @@
   <!-- Day.js -->
   <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
   <!-- CSS -->
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 
 <body>
   <!-- Title bar -->
   <nav class="navbar titlebar fixed-top">
     <div class="container-fluid justify-content-center">
-      <span id="title" class="m-1 h1">Travel Buddy</span><img id="travelBud" src="./TravelBud.png">
+      <span id="title" class="m-1 h1">Travel Buddy</span><img id="travelBud" src="./assets/images/TravelBud.png">
     </div>
   </nav>
 
@@ -38,8 +38,8 @@
       <!-- search forms -->
       <form>
         <div class="form-group col-auto largeForms">
-          <label for="formGroupExampleInput">City:</label>
-          <input type="text" class="form-control" id="city" placeholder="Orlando">
+          <label for="formGroupExampleInput">Destination City:</label>
+          <input type="text" class="form-control" id="city" placeholder="Ex. Orlando">
 
           <!-- origin (airport name) -->
           <label class="mt-2" for="formGroupExampleInput">Origin Airport:</label>
@@ -114,17 +114,18 @@
             </div>
           </div>
         </div>
-        <button id="searchBtn" class="btn btn-primary mr-4" type="submit">Search</button>
-        <button id="showBtn" class="btn btn-primary mr-4" type="submit">Show Last Vacation</button>
+        <button id="searchBtn" class="btn btn-light mr-2" type="submit">Search</button>
+        <button id="showBtn" class="btn btn-outline-light ml-3 mr-3" type="submit">Show Last Vacation</button>
       </form>
     </aside>
 
-    <article class="col">
-      <div class="row justify-content-center">
+    <div class="col-auto mr-5"></div>
+    <article class="col justify-content-center ml-5">
+      <div class="row ml-5 justify-content-center">
         <div id="errorPlace"></div>
-        <div class="row">
-          <div class="col-2 ml-5 mr-5"></div>
-          <div class="col-auto ml-5">
+        <div class="row ml-5">
+          <!-- <div class="col-2 ml-5 mr-5"></div> -->
+          <div class="col-auto mr-n5">
             <div class="savedFlight"></div>
           </div>
           <div class="col">
@@ -132,12 +133,13 @@
           </div>
         </div>
         <div id="startMessage" class="ml-5"></div>
+      </div>
+      <div class="row justify-content-center ml-5 mb-n3"> 
         <div id="flightsAndHotels"></div>
-      </div>
-      <div class="row justify-content-center mb-n3">
         <div id="hotels"></div>
+        <img id="loadingGif" src="./assets/images/loading.gif">
       </div>
-      <div id="pageButtons" class="row mb-5 justify-content-center"></div>
+      <div id="pageButtons" class="row ml-5 mb-5 justify-content-center"></div>
   </div>
   </article>
   </div>
@@ -148,10 +150,10 @@
     </div>
   </footer>
   <!-- Runs the Airplane API -->
-  <script src="airplaneAPI.js"></script>
+  <script src="./assets/js/airplaneAPI.js"></script>
   <!-- Runs the Hotel API -->
-  <script src="airplane.js"></script>
-  <script src="hotelAPI.js"></script>
+  <script src="./assets/js/airplane.js"></script>
+  <script src="./assets/js/hotelAPI.js"></script>
 
 </body>
 

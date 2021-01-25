@@ -2,7 +2,7 @@
 
 // show starting message
 message = $("<h2>");
-message.attr("class", "m-1 ml-4 mr-4 p-5");
+message.attr("class", "p-5");
 message.text("Travel Buddy helps you find the best prices on flights and hotels!");
 $("#startMessage").append(message);
 
@@ -16,24 +16,35 @@ function showSavedFlight() {
         appendFlight.empty();
 
         var infoCard = $("<div>");
-        infoCard.attr("class", "card ml-2 mt-4 mr-2 mb-2 p-5");
+        infoCard.attr("class", "card saveCard ml-5 mt-2 mb-2 pl-5 pt-3 pr-5 pb-5");
+        infoCard.attr("id", "flightsCard");
+        infoCard.hide().fadeIn(700);
         appendFlight.append(infoCard);
 
         var thisPrice = $("<p>");
+        var thisPrice2 = $("<p>");
         var carryOut = $("<p>");
+        var carryOut2 = $("<p>");
         var carryIn = $("<p>");
+        var carryIn2 = $("<p>");
         var thisHeader = $("<h2>");
         thisHeader.attr("class", "flightHeader");
 
-        thisHeader.text("Your Flight Information");
-        thisPrice.text("Cost: $ " + flightArray[0] + " Direct Flight: " + flightArray[1]);
-        carryOut.text("Outbound Airline: " + flightArray[2] + " Leaving on: " + flightArray[3] + " ");
-        carryIn.text("Inbound Airline: " + flightArray[4] + " Leaving on: " + flightArray[5]);
+        thisHeader.text("Your Flight Information:");
+        thisPrice.text("Cost: $ " + flightArray[0]);
+        thisPrice2.text("Direct Flight: " + flightArray[1]);
+        carryOut.text("Outbound Airline: " + flightArray[2]);
+        carryOut2.text("Leaving on: " + flightArray[3]);
+        carryIn.text("Inbound Airline: " + flightArray[4]);
+        carryIn2.text("Leaving on: " + flightArray[5]);
 
         infoCard.append(thisHeader);
         infoCard.append(thisPrice);
+        infoCard.append(thisPrice2);
         infoCard.append(carryOut);
+        infoCard.append(carryOut2);
         infoCard.append(carryIn);
+        infoCard.append(carryIn2);
     }
 }
 
@@ -130,10 +141,18 @@ function displayAirlineInfo(flightInformation) {
         flightShow.empty();
     }
 
+    var titleH2 = $("<h2>");
+    titleH2.text("Flights:");
+    titleH2.hide().fadeIn(700);
+    flightShow.append(titleH2);
+
     for (var a = 0; a < flightInformation.length; a++) {
         var infoCard = $("<div>");
+        $("<div>").fadeIn(700);
         infoCard.attr("class", "card ml-2 mt-4 mr-2 mb-2 p-5");
+        infoCard.hide().fadeIn(700);
         flightShow.append(infoCard);
+
 
         var infoPrice = $("<p class='flightInformation'>");
         var infoCarrierOut = $("<p class='flightInformation'>");
@@ -160,7 +179,7 @@ function displayAirlineInfo(flightInformation) {
         infoCard.append(infoCarrierIn);
 
         var button = $("<button>");
-        button.attr("class", "mt-2 btn btn-primary btn-sm btn-success");
+        button.attr("class", "mt-2 btn btn-light btn-sm clickToSave");
         button.attr("value", cost + "~" + direct + "~" + outFly + "~" + depart + "~" + inFly + "~" + arrive);
         button.attr("onClick", "saveFlight($(this).val()), callHotels(), showSavedFlight(), moveOn()");
         button.text("Click to Save");

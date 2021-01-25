@@ -12,27 +12,32 @@ function showSavedHotel() {
         var getHotelArray = getHotelInfo.split("~");
 
         var infoCard = $("<div>");
-        var columns = $("<table><row class='info'><col id='25'><col id='26'>");
-        infoCard.attr("class", "card ml-2 mt-4 mr-2 mb-2 p-5");
+        infoCard.attr("class", "card saveCard ml-5 mt-2 mr-n2 mb-2 pl-5 pt-3 pr-5 pb-5");
+        infoCard.attr("id", "hotelsCard");
+
+        infoCard.hide().fadeIn(700);
+
         showHotels.append(infoCard);
+
+        $("#hotelsCard").hide();
+        $("#hotelsCard").show(700);
 
         var hotelNameP = $("<p>");
         var ratingPTag = $("<p>");
+
         var imageTag = $("<img>");
         imageTag.attr("id", "hotelPic");
+
         var hotelHeading = $("<h2>");
         hotelNameP.text("Name: " + getHotelArray[0]);
         ratingPTag.text("Guest Rating: " + getHotelArray[1]);
         imageTag.attr("src", getHotelArray[2]);
         hotelHeading.text("Your Hotel Information: ");
-        infoCard.append(columns);
 
-        var infoCol = $("#25");
-        var picCol = $("#26");
-        infoCol.append(hotelHeading);
-        infoCol.append(hotelNameP);
-        infoCol.append(ratingPTag);
-        picCol.append(imageTag);
+        infoCard.append(hotelHeading);
+        infoCard.append(hotelNameP);
+        infoCard.append(ratingPTag);
+        infoCard.append(imageTag);
     }
 }
 
@@ -47,11 +52,14 @@ function callHotels() {
         "async": true,
         "crossDomain": true,
         "url": "https://hotels4.p.rapidapi.com/locations/search?query=" + city + "&locale=en_US",
+        "beforeSend": function () {
+            $("#loadingGif").show();
+        },
         "method": "GET",
         "headers": {
-            "x-rapidapi-key": "45049d9fb6msh17ba1e94f9859eep1817c7jsn5b1c2edaf89d",
+            "x-rapidapi-key": "172a12658dmsh8efc0e1a3ac3685p1055f7jsn29d703b0b8d7",
             "x-rapidapi-host": "hotels4.p.rapidapi.com"
-        }
+        },
     };
 
     $.ajax(settings).done(function () {
@@ -70,13 +78,14 @@ function updatePage(response) {
         "url": "https://hotels4.p.rapidapi.com/properties/list?destinationId=" + location + "&pageNumber=1&checkIn=" + checkIn + "&checkOut=" + checkOut + "&pageSize=25&adults1=1&currency=USD&starRatings=4&locale=en_US&sortOrder=PRICE&guestRatingMin=6",
         "method": "GET",
         "headers": {
-            "x-rapidapi-key": "45049d9fb6msh17ba1e94f9859eep1817c7jsn5b1c2edaf89d",
+            "x-rapidapi-key": "172a12658dmsh8efc0e1a3ac3685p1055f7jsn29d703b0b8d7",
             "x-rapidapi-host": "hotels4.p.rapidapi.com"
         }
     }
 
     $.ajax(settings).done(function () {
     }).then(function (response) {
+        $("#loadingGif").hide();
         hotelQuery = response;
         var check = hotelQuery.data.body.searchResults.results;
         console.log(check);
@@ -128,29 +137,35 @@ function displayResults() {
 
     var appendHotel = $("#hotels");
 
+    var titleH2 = $("<h2>");
+    titleH2.text("Hotels:");
+    titleH2.hide().fadeIn(700);
+    appendHotel.append(titleH2);
+
     for (var z = 0; z < hotelArray.length; z++) {
         var image = hotelArray[z].thisUrl;
         var name = hotelArray[z].thisName;
         var newRating = hotelArray[z].thisRating;
         var infoCard = $("<div>");
         infoCard.attr("class", "card ml-2 mt-4 mr-2 mb-2 p-5");
+        infoCard.hide().fadeIn(700);
         appendHotel.append(infoCard);
-        var test = $("<img>");
-        test.attr("id", "hotelPic");
-        test.attr("src", image);
+        var hotelImg = $("<img>");
+        hotelImg.attr("id", "hotelPic");
+        hotelImg.attr("class", "mb-2");
+        hotelImg.attr("src", image);
 
         var nameP = $("<p>");
         nameP.text(name);
 
         var ratingP = $("<p>");
-        ratingP.text(newRating);
-
-        infoCard.append(test);
+        ratingP.text("Guest Rating: " + newRating);
         infoCard.append(nameP);
         infoCard.append(ratingP);
+        infoCard.append(hotelImg);
 
         var button = $("<button>");
-        button.attr("class", "mt-2 btn btn-primary btn-sm btn-success");
+        button.attr("class", "mt-2 btn btn-light btn-sm clickToSave");
         button.attr("value", name + "~" + newRating + "~" + image);
         button.attr("onClick", "saveHotel($(this).val()), showSavedHotel()");
         button.text("Click to Save");

@@ -16,6 +16,8 @@ var goHotel = false;
 var outDay;
 var inDay;
 
+$("#loadingGif").hide();
+
 function getAirlineInfo() {
 
     // Format for each input:
@@ -49,12 +51,19 @@ function getAirlineInfo() {
         "async": true,
         "crossDomain": true,
         "url": queryURL,
+        "beforeSend": function () {
+            $("#loadingGif").show();
+        },
         "method": "GET",
         "timeout": 2000,
         "headers": {
             "x-rapidapi-key": "45049d9fb6msh17ba1e94f9859eep1817c7jsn5b1c2edaf89d",
             "x-rapidapi-host": "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com"
         },
+        // "success": function () {
+        //     $("#loadingGif").hide();
+
+        // },
         statusCode: {
             404: function() {
                 errorMessage.text("Server Not Found");
@@ -69,6 +78,8 @@ function getAirlineInfo() {
 
     $.ajax(settings).done(function (response) {
         thisQuery = response;
+        $("#loadingGif").hide();
+
     });
 }
 
