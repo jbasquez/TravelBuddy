@@ -140,6 +140,11 @@ function displayAirlineInfo(flightInformation) {
         flightShow.empty();
     }
 
+    var titleH2 = $("<h2>");
+    
+    titleH2.text("Flights:");
+    flightShow.append(titleH2);
+
     for (var a = 0; a < flightInformation.length; a++) {
         var infoCard = $("<div>");
         $("<div>").fadeIn(700);
