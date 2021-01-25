@@ -17,6 +17,7 @@ function showSavedFlight() {
 
         var infoCard = $("<div>");
         infoCard.attr("class", "card saveCard ml-5 mt-2 mb-2 pl-5 pt-3 pr-5 pb-5");
+        infoCard.hide().fadeIn(700);
         appendFlight.append(infoCard);
 
         var thisPrice = $("<p>");
@@ -141,8 +142,11 @@ function displayAirlineInfo(flightInformation) {
 
     for (var a = 0; a < flightInformation.length; a++) {
         var infoCard = $("<div>");
+        $("<div>").fadeIn("slow");
         infoCard.attr("class", "card ml-2 mt-4 mr-2 mb-2 p-5");
+        infoCard.hide().fadeIn(700);
         flightShow.append(infoCard);
+
 
         var infoPrice = $("<p class='flightInformation'>");
         var infoCarrierOut = $("<p class='flightInformation'>");
@@ -169,7 +173,7 @@ function displayAirlineInfo(flightInformation) {
         infoCard.append(infoCarrierIn);
 
         var button = $("<button>");
-        button.attr("class", "mt-2 btn btn-primary btn-sm btn-success");
+        button.attr("class", "mt-2 btn btn-light btn-sm clickToSave");
         button.attr("value", cost + "~" + direct + "~" + outFly + "~" + depart + "~" + inFly + "~" + arrive);
         button.attr("onClick", "saveFlight($(this).val()), callHotels(), showSavedFlight(), moveOn()");
         button.text("Click to Save");

@@ -30,7 +30,7 @@ html, body {
 }
 
 
-img { 
+#travelBud { 
     height: 55px;
     width: auto;
     margin-left: 20px;
@@ -74,7 +74,16 @@ select {
 }
 
 #searchBtn {
+    background-color: rgba(159, 95, 161);
+    border-color: rgba(159, 95, 161);
+    color: whitesmoke;
     float: right;
+}
+
+#searchBtn:hover {
+    background-color: rgba(139, 99, 181);
+    border-color: rgba(139, 99, 181);
+
 }
 
 #contentRow {
@@ -98,6 +107,12 @@ select {
     20px 40px 40px rgba(0,0,0,.5);
 }
 
+#loadingGif {
+    margin-top: 50px;
+    width: 70px;
+    height: auto;
+}
+
 #infoRow {
     background-color: rgba(0, 0, 0, 0.555);
     color: whitesmoke;
@@ -113,6 +128,7 @@ select {
 .card {
     background-color: rgba(0, 0, 0, 0.555);
     color: whitesmoke;
+    border-radius: 10px;
     width: 800px;
     box-shadow:
     -1px -1px 0 rgba(255, 255, 255, 0),
@@ -120,6 +136,12 @@ select {
     3px 3px 3px rgba(0,0,0,.25),
     5px 5px 10px rgba(0,0,0,.5),
     20px 40px 40px rgba(0,0,0,.5);
+}
+
+.clickToSave {
+    background-color: rgba(159, 95, 161);
+    border-color: rgba(159, 95, 161);
+    color: whitesmoke;
 }
 
 .saveCard {
@@ -134,6 +156,17 @@ select {
     3px 3px 3px rgba(0,0,0,.25),
     2px 2px 5px rgba(0,0,0,.5),
     5px 10px 10px rgba(0,0,0,.5);
+}
+
+h2 {
+    font-family: 'Days One';
+    font-size: 30px;
+    text-shadow:    
+    -1px -1px 0 rgba(255, 255, 255, 0),
+    1px 1px 0 rgba(0,0,0,.25),
+    3px 3px 3px rgba(0,0,0,.25),
+    10px 10px 20px rgba(0,0,0,.5),
+    20px 40px 40px rgba(0,0,0,.5);
 }
 
 h3 {
@@ -171,10 +204,18 @@ span {
 #hotelPic{
     height: auto;
     width: 190px;
+    -webkit-filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.596));
+    filter:         drop-shadow(5px 4px 5px rgba(0, 0, 0, 0.596)); 
 }
 #previous{
     justify-content: center;
+    background-color: rgb(113, 42, 116);
+    border-color: rgba(113, 42, 116);
+    color: whitesmoke;
 }
 #next{
     justify-content: center;
+    background-color: rgba(113, 42, 116);
+    border-color: rgba(113, 42, 116);
+    color: whitesmoke;
 }
