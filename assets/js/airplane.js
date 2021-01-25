@@ -142,7 +142,7 @@ function displayAirlineInfo(flightInformation) {
 
     for (var a = 0; a < flightInformation.length; a++) {
         var infoCard = $("<div>");
-        $("<div>").fadeIn("slow");
+        $("<div>").fadeIn(700);
         infoCard.attr("class", "card ml-2 mt-4 mr-2 mb-2 p-5");
         infoCard.hide().fadeIn(700);
         flightShow.append(infoCard);
