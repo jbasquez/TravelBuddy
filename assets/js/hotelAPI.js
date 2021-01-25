@@ -12,24 +12,28 @@ function showSavedHotel() {
         var getHotelArray = getHotelInfo.split("~");
 
         var infoCard = $("<div>");
-        // var columns = $("<table><row class='info'><col id='25'><col id='26'>");
         infoCard.attr("class", "card saveCard ml-5 mt-2 mr-n2 mb-2 pl-5 pt-3 pr-5 pb-5");
+        infoCard.attr("id", "hotelsCard");
+
         infoCard.hide().fadeIn(700);
+
         showHotels.append(infoCard);
+
+        $("#hotelsCard").hide();
+        $("#hotelsCard").show(700);
 
         var hotelNameP = $("<p>");
         var ratingPTag = $("<p>");
+
         var imageTag = $("<img>");
         imageTag.attr("id", "hotelPic");
+
         var hotelHeading = $("<h2>");
         hotelNameP.text("Name: " + getHotelArray[0]);
         ratingPTag.text("Guest Rating: " + getHotelArray[1]);
         imageTag.attr("src", getHotelArray[2]);
         hotelHeading.text("Your Hotel Information: ");
-        // infoCard.append(columns);
 
-        // var infoCol = $("#25");
-        // var picCol = $("#26");
         infoCard.append(hotelHeading);
         infoCard.append(hotelNameP);
         infoCard.append(ratingPTag);
@@ -53,13 +57,9 @@ function callHotels() {
         },
         "method": "GET",
         "headers": {
-            "x-rapidapi-key": "45049d9fb6msh17ba1e94f9859eep1817c7jsn5b1c2edaf89d",
+            "x-rapidapi-key": "172a12658dmsh8efc0e1a3ac3685p1055f7jsn29d703b0b8d7",
             "x-rapidapi-host": "hotels4.p.rapidapi.com"
         },
-        // "success": function () {
-        //     $("#loadingGif").hide();
-
-        // },
     };
 
     $.ajax(settings).done(function () {
@@ -78,7 +78,7 @@ function updatePage(response) {
         "url": "https://hotels4.p.rapidapi.com/properties/list?destinationId=" + location + "&pageNumber=1&checkIn=" + checkIn + "&checkOut=" + checkOut + "&pageSize=25&adults1=1&currency=USD&starRatings=4&locale=en_US&sortOrder=PRICE&guestRatingMin=6",
         "method": "GET",
         "headers": {
-            "x-rapidapi-key": "45049d9fb6msh17ba1e94f9859eep1817c7jsn5b1c2edaf89d",
+            "x-rapidapi-key": "172a12658dmsh8efc0e1a3ac3685p1055f7jsn29d703b0b8d7",
             "x-rapidapi-host": "hotels4.p.rapidapi.com"
         }
     }
