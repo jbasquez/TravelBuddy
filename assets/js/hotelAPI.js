@@ -137,6 +137,11 @@ function displayResults() {
 
     var appendHotel = $("#hotels");
 
+    var titleH2 = $("<h2>");
+    titleH2.text("Hotels:");
+    titleH2.hide().fadeIn(700);
+    appendHotel.append(titleH2);
+
     for (var z = 0; z < hotelArray.length; z++) {
         var image = hotelArray[z].thisUrl;
         var name = hotelArray[z].thisName;

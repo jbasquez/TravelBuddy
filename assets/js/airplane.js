@@ -2,7 +2,7 @@
 
 // show starting message
 message = $("<h2>");
-message.attr("class", "m-1 ml-4 mr-4 p-5");
+message.attr("class", "p-5");
 message.text("Travel Buddy helps you find the best prices on flights and hotels!");
 $("#startMessage").append(message);
 
@@ -140,9 +140,14 @@ function displayAirlineInfo(flightInformation) {
         flightShow.empty();
     }
 
+    var titleH2 = $("<h2>");
+    titleH2.text("Flights:");
+    titleH2.hide().fadeIn(700);
+    flightShow.append(titleH2);
+
     for (var a = 0; a < flightInformation.length; a++) {
         var infoCard = $("<div>");
-        $("<div>").fadeIn("slow");
+        $("<div>").fadeIn(700);
         infoCard.attr("class", "card ml-2 mt-4 mr-2 mb-2 p-5");
         infoCard.hide().fadeIn(700);
         flightShow.append(infoCard);

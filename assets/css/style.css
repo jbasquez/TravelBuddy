@@ -161,6 +161,7 @@ select {
 h2 {
     font-family: 'Days One';
     font-size: 30px;
+    color: whitesmoke;
     text-shadow:    
     -1px -1px 0 rgba(255, 255, 255, 0),
     1px 1px 0 rgba(0,0,0,.25),
