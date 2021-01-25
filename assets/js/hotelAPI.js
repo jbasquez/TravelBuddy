@@ -159,7 +159,7 @@ function displayResults() {
         nameP.text(name);
 
         var ratingP = $("<p>");
-        ratingP.text(newRating);
+        ratingP.text("Guest Rating: " + newRating);
         infoCard.append(nameP);
         infoCard.append(ratingP);
         infoCard.append(hotelImg);
