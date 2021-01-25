@@ -14,9 +14,9 @@ function showSavedHotel() {
         var infoCard = $("<div>");
         // var columns = $("<table><row class='info'><col id='25'><col id='26'>");
         infoCard.attr("class", "card saveCard ml-5 mt-2 mr-n2 mb-2 pl-5 pt-3 pr-5 pb-5");
+        // $("#flightsCard").animate({left: "200px"});
         infoCard.hide().fadeIn(700);
         showHotels.append(infoCard);
-
         var hotelNameP = $("<p>");
         var ratingPTag = $("<p>");
         var imageTag = $("<img>");
@@ -53,7 +53,7 @@ function callHotels() {
         },
         "method": "GET",
         "headers": {
-            "x-rapidapi-key": "45049d9fb6msh17ba1e94f9859eep1817c7jsn5b1c2edaf89d",
+            "x-rapidapi-key": "172a12658dmsh8efc0e1a3ac3685p1055f7jsn29d703b0b8d7",
             "x-rapidapi-host": "hotels4.p.rapidapi.com"
         },
         // "success": function () {
@@ -78,7 +78,7 @@ function updatePage(response) {
         "url": "https://hotels4.p.rapidapi.com/properties/list?destinationId=" + location + "&pageNumber=1&checkIn=" + checkIn + "&checkOut=" + checkOut + "&pageSize=25&adults1=1&currency=USD&starRatings=4&locale=en_US&sortOrder=PRICE&guestRatingMin=6",
         "method": "GET",
         "headers": {
-            "x-rapidapi-key": "45049d9fb6msh17ba1e94f9859eep1817c7jsn5b1c2edaf89d",
+            "x-rapidapi-key": "172a12658dmsh8efc0e1a3ac3685p1055f7jsn29d703b0b8d7",
             "x-rapidapi-host": "hotels4.p.rapidapi.com"
         }
     }
