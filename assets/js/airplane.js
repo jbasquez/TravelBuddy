@@ -141,8 +141,8 @@ function displayAirlineInfo(flightInformation) {
     }
 
     var titleH2 = $("<h2>");
-    
     titleH2.text("Flights:");
+    titleH2.hide().fadeIn(700);
     flightShow.append(titleH2);
 
     for (var a = 0; a < flightInformation.length; a++) {
