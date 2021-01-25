@@ -88,7 +88,6 @@ function updatePage(response) {
         $("#loadingGif").hide();
         hotelQuery = response;
         var check = hotelQuery.data.body.searchResults.results;
-        console.log(check);
         if (check.length > 0) {
             getMoreInfo();
         } else {
@@ -100,7 +99,6 @@ function updatePage(response) {
 
 function getMoreInfo() {
     var suggestions = hotelQuery.data.body.searchResults.results;
-    console.log(current + " < " + suggestions.length);
     hotelArray = [];
     current = counter;
 
@@ -108,7 +106,6 @@ function getMoreInfo() {
         var hotelName = suggestions[current].name;
         var rating = suggestions[current].guestReviews.rating + "/10";
         var hotelPic = suggestions[current].thumbnailUrl;
-        console.log("hello");
         var hotelObject = {
             thisName: hotelName,
             thisRating: rating,

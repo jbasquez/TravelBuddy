@@ -125,7 +125,6 @@ function previousButton() {
     if (goHotel === true) {
         $("html, body").animate({ scrollTop: 0 }, "slow");
         if (counter > 4) {
-            console.log(counter + " > 4");
             previous();
             getMoreInfo();
 
