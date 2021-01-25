@@ -99,7 +99,7 @@ function getMoreInfo() {
         var hotelName = suggestions[current].name;
         var rating = suggestions[current].guestReviews.rating + "/10";
         var hotelPic = suggestions[current].thumbnailUrl;
-
+        console.log("hello");
         var hotelObject = {
             thisName: hotelName,
             thisRating: rating,
@@ -109,7 +109,7 @@ function getMoreInfo() {
         hotelArray.push(hotelObject);
 
     }
-    console.log(counter);
+ 
     if (hotelArray.length > 1) {
     displayResults();
     }
