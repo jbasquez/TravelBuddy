@@ -109,7 +109,7 @@ select {
 
 #loadingGif {
     margin-top: 50px;
-    width: 100px;
+    width: 70px;
     height: auto;
 }
 
@@ -204,6 +204,8 @@ span {
 #hotelPic{
     height: auto;
     width: 190px;
+    -webkit-filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.596));
+    filter:         drop-shadow(5px 4px 5px rgba(0, 0, 0, 0.596)); 
 }
 #previous{
     justify-content: center;

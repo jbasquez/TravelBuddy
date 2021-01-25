@@ -145,19 +145,19 @@ function displayResults() {
         infoCard.attr("class", "card ml-2 mt-4 mr-2 mb-2 p-5");
         infoCard.hide().fadeIn(700);
         appendHotel.append(infoCard);
-        var test = $("<img>");
-        test.attr("id", "hotelPic");
-        test.attr("src", image);
+        var hotelImg = $("<img>");
+        hotelImg.attr("id", "hotelPic");
+        hotelImg.attr("class", "mb-2");
+        hotelImg.attr("src", image);
 
         var nameP = $("<p>");
         nameP.text(name);
 
         var ratingP = $("<p>");
         ratingP.text(newRating);
-
-        infoCard.append(test);
         infoCard.append(nameP);
         infoCard.append(ratingP);
+        infoCard.append(hotelImg);
 
         var button = $("<button>");
         button.attr("class", "mt-2 btn btn-light btn-sm clickToSave");
