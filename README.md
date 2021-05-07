@@ -5,12 +5,11 @@
 
 #### Website: 
 <ul>
- Build Status: In-Progress
+ Complete
 </ul>
 <ul>
  http://kmh8827.github.io/project1-team2
 </ul>
-
 
 
 #### APIs used:
@@ -20,6 +19,14 @@
 <ul>
  Hotel API: https://rapidapi.com/apidojo/api/hotels4
 </ul>
+
+
+#### Technologies used:
+
+HTML5
+CSS3
+JAVASCRIPT
+JQUERY
 
 #### Credits: 
 <ul>
