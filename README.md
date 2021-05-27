@@ -8,7 +8,7 @@
  Complete
 </ul>
 <ul>
- http://kmh8827.github.io/project1-team2
+ http://kmh8827.github.io/Travel-Buddy
 </ul>
 
 
